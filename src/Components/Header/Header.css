@@ -1,0 +1,38 @@
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 100%;
+  padding: 1%;
+  background-image: url("../../Assets/concrete-wall.jpg");
+}
+
+
+.header-left{
+  flex-grow: 1;
+}
+
+.header-right{
+  flex-grow: 1;
+}
+
+.header-logo{
+  flex-grow: 0.5;
+  text-align: center;
+}
+
+.link-header{
+  text-decoration: none;
+  color: inherit;
+
+}
+
+.ul-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0px;
+  color: white;
+}

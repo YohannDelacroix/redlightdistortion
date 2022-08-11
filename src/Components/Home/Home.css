@@ -1,0 +1,12 @@
+.home{
+  background-color: red;
+}
+
+.home-home{
+    background-image: url("../../Assets/Couverture1.jpg");
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

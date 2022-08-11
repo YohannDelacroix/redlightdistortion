@@ -1,0 +1,47 @@
+.text-link {
+  background-color: black;
+    position: relative;
+    display: inline-block;
+    font-size: 45px;
+    text-decoration: none;
+    color: #fff;
+    z-index: 1;
+
+    &:before,
+    &:after {
+        content:attr(data-content);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    &:before {
+        color: #00ffff;
+        z-index: -1;
+    }
+
+    &:after {
+        color: #ff00ff;
+        z-index: -2;
+    }
+
+    &:hover {
+        &:before {
+            animation: glitchy 0.3s ease 0.3s infinite;
+        }
+
+        &:after {
+            animation: glitchy 0.3s ease infinite reverse;
+        }
+    }
+}
+
+@keyframes glitchy {
+    0%   {transform: translate(-2px, 2px);}
+    25%  {transform: translate(-2px, -2px);}
+    50%  {transform: translate(2px, 2px);}
+    75%  {transform: translate(2px, -2px);}
+    100%  {transform: translate(-2px, 2px);}
+}
