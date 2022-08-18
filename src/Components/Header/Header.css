@@ -9,6 +9,7 @@ header{
   max-width: 100%;
   padding: 1%;
   background-image: url("../../Assets/concrete-wall.jpg");
+  z-index:1000;
 }
 
 

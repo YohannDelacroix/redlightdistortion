@@ -1,4 +1,6 @@
 .home{
+  display: block;
+  position: relative;
   background-color: red;
   color:white;
 }
