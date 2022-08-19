@@ -1,12 +1,13 @@
 .home{
   display: block;
-  position: relative;
   background-color: red;
   color:white;
 }
 
 .home-home{
     background-image: url("../../Assets/Couverture1.jpg");
+    background-attachment: fixed;
+    background-size: cover;
     width: 100%;
     padding: 140px 10px 10px;
     margin: 10px 0px;
@@ -38,4 +39,9 @@
 
 .home-home-buttonnewsletter{
   font-size: 26px;
+}
+
+.home-tour{
+  background-color: black;
+  display: block;
 }

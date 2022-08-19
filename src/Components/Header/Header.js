@@ -13,7 +13,7 @@ function Header(){
   </div>
 
   <div className="header-logo">
-    <img src={Logo} alt="Logo-RedLightdistortion" />
+    <Link to="/Home"><img src={Logo} alt="Logo-RedLightdistortion" /></Link>
   </div>
 
   <div className="header-right">
@@ -26,7 +26,7 @@ function Header(){
 
 
 
-  
+
   </header>)
 }
 

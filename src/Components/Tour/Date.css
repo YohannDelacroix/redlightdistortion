@@ -1,11 +1,37 @@
 .date-container{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.date-more{
+.date-links{
   display: flex;
+  width:25%;
   flex-direction: row;
-  justify-content: space-around;
+  align-items: center;
+}
+
+.date-place{
+  display: block;
+  width: 50%;
+}
+
+
+.date-more{
+  display: block;
+  width: 50%;
+  text-align: center;
+}
+
+.date-ticket{
+  display: block;
+  width: 50%;
+  text-align: center;
+}
+
+.date-date{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10%;
 }

@@ -1,0 +1,25 @@
+.photo-container{
+  display: block;
+  position: relative;
+  top: 110px;
+
+  /*padding: 5px 200px;*/
+  z-index:1;
+}
+
+
+.photo-galery{
+  width: 100%;
+  padding: 0px, 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.photo-galery img{
+  width: 30%;
+  padding: 5px;
+}

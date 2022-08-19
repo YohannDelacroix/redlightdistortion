@@ -112,29 +112,30 @@ function Home(){
 
   </div>
 
-  <div className="home-tour">
-    <TitleComponent titleContent="Tour Dates" />
-  </div>
 
-  <div className="home-news">
-    <TitleComponent titleContent="News" />
-  </div>
+    <div className="home-tour paddingPage">
+      <TitleComponent titleContent="Tour Dates" />
+    </div>
 
-  <div className="home-photos">
-    <TitleComponent titleContent="Photos" />
-  </div>
+    <div className="home-news paddingPage">
+      <TitleComponent titleContent="News" />
+    </div>
 
-  <div className="home-videos">
-    <TitleComponent titleContent="Videos" />
-  </div>
+    <div className="home-photos paddingPage">
+      <TitleComponent titleContent="Photos" />
+    </div>
 
-  <div className="home-music">
-    <TitleComponent titleContent="Music" />
-  </div>
+    <div className="home-videos paddingPage">
+      <TitleComponent titleContent="Videos" />
+    </div>
 
-  <div className="home-about">
-    <TitleComponent titleContent="About" />
-  </div>
+    <div className="home-music paddingPage">
+      <TitleComponent titleContent="Music" />
+    </div>
+
+    <div className="home-about paddingPage">
+      <TitleComponent titleContent="About" />
+    </div>
 
 
 

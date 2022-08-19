@@ -1,0 +1,7 @@
+.news-container{
+  display: block;
+  position: relative;
+  top: 110px;
+
+  z-index:1;
+}

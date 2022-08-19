@@ -2,8 +2,8 @@
   display: block;
   position: relative;
   top: 110px;
-  height: 100vh;
-  padding: 5px 200px;
+
+  /*padding: 5px 200px;*/
   z-index:1;
 }
 

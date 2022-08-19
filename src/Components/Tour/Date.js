@@ -13,18 +13,21 @@ function Date({date_content}){
     </div>
 
 
+    <div className="date-links">
       <div className="date-more">
         {
           (date_content.more_link != '') &&
           <button>More info</button>
         }
+      </div>
+
+      <div className="date-ticket">
         {
           (date_content.ticket_link != '') &&
           <button>Tickets</button>
         }
-
       </div>
-  
+    </div>
 
   </div>);
 }

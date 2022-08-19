@@ -12,3 +12,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.paddingPage{
+  padding: 5px 200px;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+button{
+  
+}

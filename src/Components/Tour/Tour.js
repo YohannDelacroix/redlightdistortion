@@ -9,7 +9,8 @@ function Tour(){
 
   return (<div className="main-container">
     <Header />
-    <div className="tour-container">
+
+    <div className="tour-container paddingPage">
     <TitleComponent titleContent="Tour Dates" />
 
     <ul className="tour-list">
@@ -19,8 +20,6 @@ function Tour(){
     </ul>
 
     </div>
-
-
 
     <Footer />
     </div>)
