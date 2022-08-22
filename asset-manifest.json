@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/redlightdistortion/static/css/main.612e38a3.css",
+    "main.js": "/redlightdistortion/static/js/main.c3236f9c.js",
+    "static/js/787.960a4fc8.chunk.js": "/redlightdistortion/static/js/787.960a4fc8.chunk.js",
+    "static/media/concrete-wall.jpg": "/redlightdistortion/static/media/concrete-wall.92635a46bf753c697bd4.jpg",
+    "static/media/img5.jpg": "/redlightdistortion/static/media/img5.51a3984f20291b72ee7f.jpg",
+    "static/media/img1.jpg": "/redlightdistortion/static/media/img1.6e291176e23730860189.jpg",
+    "static/media/Couverture1.jpg": "/redlightdistortion/static/media/Couverture1.1f95bec0e59b165385b2.jpg",
+    "static/media/img2.jpg": "/redlightdistortion/static/media/img2.1f95bec0e59b165385b2.jpg",
+    "static/media/img4.jpg": "/redlightdistortion/static/media/img4.2a41e890ff3427eb3ff9.jpg",
+    "static/media/img6.jpg": "/redlightdistortion/static/media/img6.c357a4c2e1a0a4cf1fc0.jpg",
+    "static/media/img3.jpg": "/redlightdistortion/static/media/img3.26f594c2e8a8201d86c0.jpg",
+    "static/media/logo.svg": "/redlightdistortion/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/redlightdistortion/index.html",
+    "main.612e38a3.css.map": "/redlightdistortion/static/css/main.612e38a3.css.map",
+    "main.c3236f9c.js.map": "/redlightdistortion/static/js/main.c3236f9c.js.map",
+    "787.960a4fc8.chunk.js.map": "/redlightdistortion/static/js/787.960a4fc8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.612e38a3.css",
+    "static/js/main.c3236f9c.js"
+  ]
+}
