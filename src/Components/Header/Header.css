@@ -28,9 +28,13 @@ header{
 }
 
 .link-header{
+  display: block;
   text-decoration: none;
   color: inherit;
+}
 
+.link-header:hover{
+  transform: scale(1.3);
 }
 
 .ul-header{

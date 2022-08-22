@@ -1,6 +1,7 @@
 .home{
   display: block;
-  background-color: red;
+  background-image: linear-gradient(to top, rgb(0,0,0),rgb(255,0,0));
+
   color:white;
 }
 
@@ -42,6 +43,6 @@
 }
 
 .home-tour{
-  background-color: black;
+
   display: block;
 }
