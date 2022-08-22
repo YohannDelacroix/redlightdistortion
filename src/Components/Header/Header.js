@@ -19,7 +19,7 @@ function Header(){
   <div className="header-right">
   <ul className="ul-header">
     <li><Link className="link-header" to="/Videos">Videos</Link></li>
-    <li><Link className="link-header" to="/Music">Music</Link></li>
+    <li><Link className="link-header" to="/Universe">Universe</Link></li>
     <li><Link className="link-header" to="/About">About</Link></li>
   </ul>
   </div>

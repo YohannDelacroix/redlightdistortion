@@ -1,0 +1,22 @@
+.universe-container{
+  display: block;
+  position: relative;
+  padding-top: 130px;
+
+  background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
+  z-index:1;
+  height:800px;;
+}
+
+
+.universe-content{
+  color: white;
+
+}
+
+
+.universe-presentation{
+  padding: 10px 15px;;
+  text-align: center;
+  font-style: italic;
+}

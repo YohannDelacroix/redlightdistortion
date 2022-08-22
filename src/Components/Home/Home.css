@@ -1,7 +1,7 @@
 .home{
   display: block;
-  background-image: linear-gradient(to top, rgb(0,0,0),rgb(255,0,0));
-
+  background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
+  
   color:white;
 }
 

@@ -1,9 +1,10 @@
 .title-container{
   display: inline-block;
-  padding: 0px 15px;
+  padding: 3px 15px;
   margin: 2px;
-  border: thick inset white;
-  background-image: url("../../Assets/concrete-wall.jpg");
+  background-image: linear-gradient(to top, #000, #0001),
+  url("../../Assets/concrete-wall.jpg");
+
 }
 
 .title-text{

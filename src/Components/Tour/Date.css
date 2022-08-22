@@ -16,6 +16,9 @@
   width: 50%;
 }
 
+.date-place-city{
+  font-weight: bolder;
+}
 
 .date-more{
   display: block;
@@ -34,4 +37,5 @@
   flex-direction: column;
   align-items: center;
   width: 10%;
+  font-weight: bolder;
 }
