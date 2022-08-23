@@ -19,7 +19,6 @@ function Universe(){
       </p>
 
     </div>
-
   </div>
   <Footer />
 </div>)

@@ -1,8 +1,8 @@
-.footer{
+/*.footer{
   display: flex;
   position: relative;
   bottom: 0;
-  
+
   width: 100%;
   flex-direction: column;
   align-items: center;
@@ -11,8 +11,50 @@
   background-image: linear-gradient(to top, #000, #0008),
                     url("../../Assets/concrete-wall.jpg");
   color: white;
+}*/
+
+.footer{
+  display: block;
+
+  position: relative;
+
+  bottom:0;
+  width: 100%;
+  max-width: 100%;
+  padding: 5px 10px;
+  background-image: linear-gradient(to top, #000, #0008),
+                    url("../../Assets/concrete-wall.jpg");
+
+  color: white;
+}
+
+.footer-social{
+  display: block;
+  position: absolute;
+  top:50%;
+  right:2%;
+  transform: translate(0%,-50%);
+}
+
+.footer-contact{
+  font-size: 11px;
+
+}
+
+.footer-social-image{
+  height:25px;
+  padding: 0px 5px;;
 }
 
 .footer p{
   margin: 5px 0px;
+}
+
+
+
+
+@media only screen and (min-width: 900px){
+  .footer-contact{
+    text-align: center;
+  }
 }
