@@ -74,7 +74,7 @@ function News(){
 
   return (<div>
     <Header />
-    <div className="news-container paddingPage">
+    <div className="news-container">
       <TitleComponent titleContent="News" />
 
       <div className="news-list">

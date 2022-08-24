@@ -6,7 +6,7 @@ import TitleComponent from "../TitleComponent/TitleComponent.js";
 function Universe(){
   return (<div>
     <Header />
-    <div className="universe-container paddingPage">
+    <div className="universe-container">
     <TitleComponent titleContent="Universe" />
 
     <div className="universe-content">

@@ -1,8 +1,7 @@
 .tour-container{
   display: block;
   position: relative;
-  padding-top: 130px;
-
+  padding: 130px 200px 15px 200px;
   background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
   color:white;
   /*padding: 5px 200px;*/

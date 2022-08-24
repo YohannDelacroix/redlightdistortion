@@ -1,0 +1,9 @@
+.about-container{
+  display: block;
+  position: relative;
+  padding: 130px 200px 15px 200px;
+
+  background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
+  z-index:1;
+  height:800px;;
+}

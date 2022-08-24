@@ -7,7 +7,10 @@ import "./Header.css"
 
 function Header(){
   return (<header>
+
+  <div className="header-mobile-menu">
     
+  </div>
 
   <div className="header-nav">
     <div className="header-left">
@@ -20,6 +23,10 @@ function Header(){
 
     <div className="header-logo">
       <Link to="/Home"><img className="header-logo-image" src={Logo} alt="Logo-RedLightdistortion" /></Link>
+    </div>
+
+    <div className="header-mobile-nav">
+      <button>+</button>
     </div>
 
     <div className="header-right">

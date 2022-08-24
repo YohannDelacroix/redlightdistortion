@@ -16,7 +16,7 @@ function Photos(){
 
   return (<div>
     <Header />
-    <div className="photo-container paddingPage">
+    <div className="photo-container">
       <TitleComponent titleContent="Photos" />
       <div className="photo-galery">
         {

@@ -64,3 +64,26 @@ header{
   padding: 0px;
   color: white;
 }
+
+.header-mobile-nav{
+  display: none;
+}
+
+@media only screen and (max-width: 990px){
+  .header-left, .header-right{
+    display: none;
+  }
+
+  .header-nav{
+    display: flex;
+    justify-content: space-between;
+
+  }
+  .header-logo{
+
+  }
+  .header-mobile-nav{
+    display: block;
+    padding:5px;
+  }
+}

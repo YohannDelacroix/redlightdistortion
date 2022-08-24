@@ -1,5 +1,4 @@
 import "./Footer.css";
-import Logo from "../../Assets/RLDLogoFondNoir.png";
 import LogoFb from "../../Assets/Facebook.png";
 import LogoInsta from "../../Assets/Instagram.png";
 import LogoYouTube from "../../Assets/YouTube.png";
@@ -15,7 +14,7 @@ function Footer(){
     </div>
 
     <div className="footer-social">
-        <a href="#"><img className="footer-social-image" src={LogoFb} alt="f" /></a><a href="#"><img className="footer-social-image" src={LogoInsta} alt="f" /></a><a href="#"><img className="footer-social-image" src={LogoYouTube} alt="f" /></a>
+        <a href="https://www.facebook.com/redlightdistortion/" target="_blank"><img className="footer-social-image" src={LogoFb} alt="f" /></a><a href="https://www.instagram.com/redlightdistortion/" target="_blank"><img className="footer-social-image" src={LogoInsta} alt="f" /></a><a href="https://www.youtube.com/channel/UC1C7_waXIYi6cdy_jCPKoLQ" target="_blank"><img className="footer-social-image" src={LogoYouTube} alt="f" /></a>
     </div>
     </div>)
 }
