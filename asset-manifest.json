@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/redlightdistortion/static/css/main.167e9b4a.css",
-    "main.js": "/redlightdistortion/static/js/main.a88b44d1.js",
+    "main.css": "/redlightdistortion/static/css/main.1488ff36.css",
+    "main.js": "/redlightdistortion/static/js/main.69837cf2.js",
     "static/js/787.960a4fc8.chunk.js": "/redlightdistortion/static/js/787.960a4fc8.chunk.js",
     "static/media/concrete-wall.jpg": "/redlightdistortion/static/media/concrete-wall.92635a46bf753c697bd4.jpg",
     "static/media/RLDLogoFondNoir.png": "/redlightdistortion/static/media/RLDLogoFondNoir.9b1e086d4c1e03654e5c.png",
@@ -13,12 +13,12 @@
     "static/media/img6.jpg": "/redlightdistortion/static/media/img6.c357a4c2e1a0a4cf1fc0.jpg",
     "static/media/img3.jpg": "/redlightdistortion/static/media/img3.26f594c2e8a8201d86c0.jpg",
     "index.html": "/redlightdistortion/index.html",
-    "main.167e9b4a.css.map": "/redlightdistortion/static/css/main.167e9b4a.css.map",
-    "main.a88b44d1.js.map": "/redlightdistortion/static/js/main.a88b44d1.js.map",
+    "main.1488ff36.css.map": "/redlightdistortion/static/css/main.1488ff36.css.map",
+    "main.69837cf2.js.map": "/redlightdistortion/static/js/main.69837cf2.js.map",
     "787.960a4fc8.chunk.js.map": "/redlightdistortion/static/js/787.960a4fc8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.167e9b4a.css",
-    "static/js/main.a88b44d1.js"
+    "static/css/main.1488ff36.css",
+    "static/js/main.69837cf2.js"
   ]
 }
