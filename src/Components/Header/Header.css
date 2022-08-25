@@ -1,15 +1,34 @@
 header{
+  padding: 50px;
+  background-image: linear-gradient(to bottom, #000, #0008),
+    url("../../Assets/concrete-wall.jpg");
+  color: white;
+}
+
+.header-desktop{
   position: fixed;
   width: 100%;
   height:110px;
   top: 0;
   display: block;
   max-width: 100%;
-  padding: 1%;
-  background-image: linear-gradient(to bottom, #000, #0008),
-    url("../../Assets/concrete-wall.jpg");
+
+
   z-index:1000;
 }
+
+.header-mobile{
+  display: block;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1001;
+  opacity: 0.8;
+}
+
 
 
 .header-nav{
@@ -22,6 +41,8 @@ header{
   max-width: 100%;
   height: 100%;
 }
+
+
 
 
 
@@ -42,6 +63,8 @@ header{
 .header-logo-image{
   width:auto;
   height:80px;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .link-header{
@@ -62,12 +85,16 @@ header{
   justify-content: space-around;
   list-style: none;
   padding: 0px;
-  color: white;
 }
 
 .header-mobile-nav{
   display: none;
 }
+
+.nav-mobile-hidden{
+  display: none;
+}
+
 
 @media only screen and (max-width: 990px){
   .header-left, .header-right{
@@ -75,15 +102,29 @@ header{
   }
 
   .header-nav{
-    display: flex;
-    justify-content: space-between;
-
+    display: block;
+    padding-top: 100px;
   }
-  .header-logo{
 
+
+
+  .header-logo{
+    display: block;
+    position: absolute;
+    top:10px;
+    left:0;
+    padding: 5px;
   }
   .header-mobile-nav{
     display: block;
+    position: absolute;
+    top:35px;
+    right: 5px;
     padding:5px;
+  }
+
+
+  .nav-mobile{
+    display: block;
   }
 }
