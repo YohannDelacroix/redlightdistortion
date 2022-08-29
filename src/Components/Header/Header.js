@@ -29,7 +29,7 @@ function Header(){
 
 
   const handleButtonHeader = () => {
-    if(headerStyle.buttonActive == false){
+    if(headerStyle.buttonActive === false){
       setHeaderStyle(headerStyleMobile);
     }
     else{
@@ -78,14 +78,12 @@ function Header(){
     </div>
 
     <nav className={headerStyle.navMobile}>
-
       <Link className="link-header" to="/Tour">Tour</Link>
       <Link className="link-header" to="/News">News</Link>
       <Link className="link-header" to="/Photos">Photos</Link>
       <Link className="link-header" to="/Videos">Videos</Link>
       <Link className="link-header" to="/Universe">Universe</Link>
       <Link className="link-header" to="/About">About</Link>
-
     </nav>
   </div>
 

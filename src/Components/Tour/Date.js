@@ -1,6 +1,21 @@
-import "./Date.css";
+import "./Tour.css";
+import {useState} from 'react';
 
 function Date({date_content}){
+
+
+
+  //Don't display the buttons is there is no link available
+  let dateMore = "date-more";
+  if(date_content.more_link === ''){
+    dateMore = "invisible"
+  } 
+  let dateTicket = "date-ticket";
+  if(date_content.ticket_link === ''){
+    dateTicket = "invisible"
+  }
+  
+
   return (<div className="date-container">
     <div className="date-date">
       <div className="date-date-month">{date_content.month}</div>
@@ -14,18 +29,12 @@ function Date({date_content}){
 
 
     <div className="date-links">
-      <div className="date-more">
-        {
-          (date_content.more_link != '') &&
+      <div className={dateMore}>
           <button>More info</button>
-        }
       </div>
 
-      <div className="date-ticket">
-        {
-          (date_content.ticket_link != '') &&
-          <button>Tickets</button>
-        }
+      <div className={dateTicket}>
+        <button>Tickets</button>
       </div>
     </div>
 

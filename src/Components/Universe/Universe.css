@@ -5,7 +5,7 @@
 
   background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
   z-index:1;
-  height:800px;;
+  min-height: 800px;
 }
 
 

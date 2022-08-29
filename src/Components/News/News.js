@@ -1,6 +1,6 @@
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
-import "./News.css";
+import "./News_mobile.css";
 import TitleComponent from "../TitleComponent/TitleComponent.js";
 import NewsComponent from "./NewsComponent.js";
 
@@ -70,12 +70,11 @@ function News(){
   ];
 
 
-  const tab = [5,4,6,3,8];
-
   return (<div>
     <Header />
     <div className="news-container">
       <TitleComponent titleContent="News" />
+      
 
       <div className="news-list">
       {

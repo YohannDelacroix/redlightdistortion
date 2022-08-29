@@ -7,9 +7,21 @@
 
 }
 
+.title{
+  display: block;
+  text-align: center;
+}
+
 .title-text{
   display:inline;
   font-size: 37px;
   text-transform: uppercase;
   color: white;
+}
+
+
+@media only screen and (min-width:990px) {
+  .title{
+    text-align: left;
+  }
 }

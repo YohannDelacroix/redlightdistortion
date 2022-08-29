@@ -7,7 +7,7 @@ import {dataDate} from "./dataDate.js";
 
 function Tour(){
 
-  return (<div className="main-container">
+  return (<div>
     <Header />
 
     <div className="tour-container">

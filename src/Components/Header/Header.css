@@ -5,6 +5,10 @@ header{
   color: white;
 }
 
+
+
+/* header-desktop and header-mobile are same in 
+case the user resize the screen when he's browsing the header mobile*/
 .header-desktop{
   position: fixed;
   width: 100%;
@@ -12,21 +16,18 @@ header{
   top: 0;
   display: block;
   max-width: 100%;
-
-
   z-index:1000;
 }
-
+/* header-desktop and header-mobile are same in 
+case the user resize the screen when he's browsing the header mobile*/
 .header-mobile{
-  display: block;
   position: fixed;
-  top:0;
-  left: 0;
   width: 100%;
-  height:100%;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 1001;
-  opacity: 0.8;
+  height:110px;
+  top: 0;
+  display: block;
+  max-width: 100%;
+  z-index:1000;
 }
 
 
@@ -95,6 +96,10 @@ header{
   display: none;
 }
 
+.nav-mobile{
+  display: none;
+}
+
 
 @media only screen and (max-width: 990px){
   .header-left, .header-right{
@@ -106,6 +111,17 @@ header{
     padding-top: 100px;
   }
 
+  .header-mobile{
+    display: block;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1001;
+    opacity: 0.8;
+  }
 
 
   .header-logo{
@@ -125,6 +141,14 @@ header{
 
 
   .nav-mobile{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height:100%;
+  }
+
+  .link-header{
+    font-size: 24px;
   }
 }

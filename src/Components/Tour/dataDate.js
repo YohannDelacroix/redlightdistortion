@@ -98,9 +98,9 @@ export const dataDate = [
   {
     day: 30,
     month: 'FEB',
-    place_geo: 'Budapest, Hungary',
-    place_name: 'Caligula',
-    ticket_link: '',
+    place_geo: 'Ringonte, West-Side of California Beautiful Hills, United States',
+    place_name: 'The beautiful people',
+    ticket_link: 'http://google.com',
     more_link: 'http://google.com'
   }
 ]

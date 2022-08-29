@@ -1,6 +1,6 @@
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
-import "./Photos.css";
+import "./Photos_mobile.css";
 import TitleComponent from "../TitleComponent/TitleComponent.js";
 
 function Photos(){
