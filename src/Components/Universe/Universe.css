@@ -1,7 +1,7 @@
 .universe-container{
   display: block;
   position: relative;
-  padding: 130px 200px 15px 200px;
+  padding: 130px 5px 15px 5px;
 
   background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
   z-index:1;
@@ -19,4 +19,11 @@
   padding: 10px 15px;;
   text-align: center;
   font-style: italic;
+}
+
+
+@media only screen and (min-width:960px){
+  .tour-container{
+      padding: 130px 200px 15px 200px;
+  }
 }

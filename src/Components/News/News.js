@@ -3,6 +3,7 @@ import Footer from "../Footer/Footer.js";
 import "./News_mobile.css";
 import TitleComponent from "../TitleComponent/TitleComponent.js";
 import NewsComponent from "./NewsComponent.js";
+import NewsContent from "./NewsContent/NewsContent.js";
 
 function News(){
 
@@ -11,7 +12,7 @@ function News(){
       title: "Live from Frankfurt",
       date: "August, 25, 2022",
       img: "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcS1SUGYNL-VOt5dcUOZUkr-ShQ9CF5KuHP_U37NqYXw4uMMRGhRS3Gc8c9VvIa3jFyq",
-      content:"This is an incredible live here"
+      content:"This is an incredible live here<span>ok</span>"
     },
     {
       title: "Live from Paris",
@@ -74,7 +75,6 @@ function News(){
     <Header />
     <div className="news-container">
       <TitleComponent titleContent="News" />
-      
 
       <div className="news-list">
       {

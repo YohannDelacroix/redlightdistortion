@@ -125,18 +125,6 @@ function Home(){
       <TitleComponent titleContent="Photos" />
     </div>
 
-    <div className="home-videos paddingPage">
-      <TitleComponent titleContent="Videos" />
-    </div>
-
-    <div className="home-music paddingPage">
-      <TitleComponent titleContent="Music" />
-    </div>
-
-    <div className="home-about paddingPage">
-      <TitleComponent titleContent="About" />
-    </div>
-
 
 
   <Footer />

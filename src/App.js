@@ -8,6 +8,7 @@ import Videos from "./Components/Videos/Videos.js";
 import Music from "./Components/Music/Music.js";
 import About from "./Components/About/About.js";
 import Universe from "./Components/Universe/Universe.js";
+import NewsContent from './Components/News/NewsContent/NewsContent';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route path="/Music" element={<Music />} />
       <Route path="/About" element={<About />} />
       <Route path="/Universe" element={<Universe />} />
+
     </Routes>
   );
 }

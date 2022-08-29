@@ -19,9 +19,3 @@
   color: white;
 }
 
-
-@media only screen and (min-width:990px) {
-  .title{
-    text-align: left;
-  }
-}
