@@ -6,6 +6,16 @@ import Couverture1 from "../../Assets/Couverture1.jpg";
 
 import TitleComponent from "../TitleComponent/TitleComponent.js";
 import {useState, useEffect} from 'react'
+import { Link } from "react-router-dom";
+
+import {newsTable} from "../News/dataNews.js";
+import NewsComponent from "../News/NewsComponent.js";
+import {dataDate} from "../Tour/dataDate.js";
+import Date from "../Tour/Date.js";
+import {images} from "../Photos/dataPhotos.js";
+
+
+import logoBlanc from "../../Assets/RLDLogoFondNoir.png";
 
 function Home(){
   const [displayForm, setDisplayForm] = useState(false);
@@ -65,15 +75,16 @@ function Home(){
   <Header />
 
 
-  <div className="home-home">
-
+  <div className="home-top">
     <div className="home-home-video">
-    <iframe width="1008" height="567"
-    src="https://www.youtube.com/embed/1dG4USdI4gk"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen />
+      <div className="container-video">
+        <iframe className="iframe-video" 
+        src="https://www.youtube.com/embed/1dG4USdI4gk"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen />
+      </div>
     </div>
 
 
@@ -110,21 +121,53 @@ function Home(){
     </div>
 
 
-  </div>
+  
 
-
-    <div className="home-tour paddingPage">
+  
+    <div className="home-tour">
       <TitleComponent titleContent="Tour Dates" />
+      <ul className="tour-list">
+      {dataDate.slice(0,5).map((date, index) => (
+        <li key={index}><Date date_content={dataDate[index]} /></li>
+      ))}
+      </ul>
+      <button className="home-button"><Link className="home-link" to="/Tour">More Tour Dates</Link></button>
     </div>
+    
 
-    <div className="home-news paddingPage">
+
+    <div className="home-news">
       <TitleComponent titleContent="News" />
+      <div className="news-list">
+      {
+        newsTable.slice(0,4).map((news, index) => (
+          <NewsComponent key={`${news.title}-${index}`} newsContent={news} />
+        ))
+      }
+
+      </div>
+      <button className="home-button"><Link className="home-link" to="/News">More News</Link></button>
     </div>
 
-    <div className="home-photos paddingPage">
+    <div className="home-photos">
       <TitleComponent titleContent="Photos" />
+      <div className="photo-galery">
+        {
+          images.slice(0,3).map((image) => (
+
+              <img key={image} src={image} alt="image" />
+
+          ))
+        }
+      </div>
+      <button className="home-button"><Link className="home-link" to="/Photos">More Photos</Link></button>
     </div>
 
+    <div className="home-logo">
+      <img src={logoBlanc} className="logo-img" />
+    </div>
+
+  </div>     
 
 
   <Footer />
