@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/redlightdistortion/static/css/main.069d01ac.css",
-    "main.js": "/redlightdistortion/static/js/main.f71849da.js",
+    "main.css": "/redlightdistortion/static/css/main.35733c6e.css",
+    "main.js": "/redlightdistortion/static/js/main.6183e99a.js",
     "static/js/787.960a4fc8.chunk.js": "/redlightdistortion/static/js/787.960a4fc8.chunk.js",
     "static/media/concrete-wall.jpg": "/redlightdistortion/static/media/concrete-wall.92635a46bf753c697bd4.jpg",
     "static/media/RLDLogoFondNoir.png": "/redlightdistortion/static/media/RLDLogoFondNoir.9b1e086d4c1e03654e5c.png",
     "static/media/img5.jpg": "/redlightdistortion/static/media/img5.51a3984f20291b72ee7f.jpg",
     "static/media/img1.jpg": "/redlightdistortion/static/media/img1.6e291176e23730860189.jpg",
+    "static/media/yohann.jpg": "/redlightdistortion/static/media/yohann.45770444b29a4f16a78e.jpg",
     "static/media/Couverture1.jpg": "/redlightdistortion/static/media/Couverture1.1f95bec0e59b165385b2.jpg",
     "static/media/img2.jpg": "/redlightdistortion/static/media/img2.1f95bec0e59b165385b2.jpg",
     "static/media/img4.jpg": "/redlightdistortion/static/media/img4.2a41e890ff3427eb3ff9.jpg",
     "static/media/img6.jpg": "/redlightdistortion/static/media/img6.c357a4c2e1a0a4cf1fc0.jpg",
     "static/media/img3.jpg": "/redlightdistortion/static/media/img3.26f594c2e8a8201d86c0.jpg",
     "index.html": "/redlightdistortion/index.html",
-    "main.069d01ac.css.map": "/redlightdistortion/static/css/main.069d01ac.css.map",
-    "main.f71849da.js.map": "/redlightdistortion/static/js/main.f71849da.js.map",
+    "main.35733c6e.css.map": "/redlightdistortion/static/css/main.35733c6e.css.map",
+    "main.6183e99a.js.map": "/redlightdistortion/static/js/main.6183e99a.js.map",
     "787.960a4fc8.chunk.js.map": "/redlightdistortion/static/js/787.960a4fc8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.069d01ac.css",
-    "static/js/main.f71849da.js"
+    "static/css/main.35733c6e.css",
+    "static/js/main.6183e99a.js"
   ]
 }
