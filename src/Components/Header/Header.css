@@ -1,7 +1,8 @@
 header{
   padding: 50px;
-  background-image: linear-gradient(to bottom, #000, #0008),
-    url("../../Assets/concrete-wall.jpg");
+  /*background-image: linear-gradient(to bottom, #000, #0008),
+    url("../../Assets/concrete-wall.jpg");*/
+    background-image: linear-gradient(to bottom, #000, #0008);
   color: white;
 }
 
@@ -75,9 +76,30 @@ case the user resize the screen when he's browsing the header mobile*/
 }
 
 .link-header:hover{
-  transform: scale(1.3);
-  transition: transform 0.5s, color 4.5s;
+  /*transform: scale(1.3);*/
+  /*transition: transform 0.5s, color 4.5s;*/
+  transition: color 4.5s;
+  animation: move 0.2s ease;
+  animation-iteration-count: 13;
   color: rgb(178,0,0);
+}
+
+@keyframes move{
+  from{
+    transform: skew(0deg,0deg);
+  }
+  25%{
+    transform: skew(0deg,5deg);
+  }
+  50%{
+    transform: skew(0deg,0deg);
+  }
+  75%{
+    transform: skew(0deg,-5deg);
+  }
+  to{
+    transform: skew(0deg,0deg);
+  }
 }
 
 .ul-header{
