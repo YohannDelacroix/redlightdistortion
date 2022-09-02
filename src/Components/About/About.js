@@ -41,18 +41,21 @@ function About(){
           
           <h6>Guitarist</h6>
           <p>
-          At 17, Yohann was a mere student who spent his time playing guitar.
+          Roman was 15 when the shock happenned.
           </p>
           <p>
-          During a metal show, he is invited to perform a song with the band, he realises that the stage is a place where he loves to be.
-          He decides to stop his studies to devote himself entirely to music.</p>
+          He was already listen to metal since he was 10, but it is with the discover of electro and especially with the videoclip «Wizard» 
+          by Martin Garrix that the seed of passion was planted. <br />
+          Since that time he never looked back.</p>
           <p>
-          Afterward, he takes singing lessons with Saturne Mezzasalma. She gives him the will to sing and he learns everything from her.
+          Starting to learn how to mix, he gave up the mixing to focus on his heart’s instrument, the guitar. 
+          When his fingers touched the neck, he immediately knew what he wanted to be : a musician. 
           </p>
           <p>
-          In 2017, he lost a loved one, and begins to ask himself on what will be the future, what is really important for him..
-          And during these dark times he composes the first Red Light Distortion's sound.
-          He realises the most important thing before death takes life is to play music.
+          So, he begins to devote his time and his own energy to music, 
+          drawing inspiration from accomplished musicians like Dave Mustaine or Joe Duplantier. 
+          Since, the more the sands of time was running out, 
+          the more his passion and devotion increased. 
           </p>
         </div>
 

@@ -24,7 +24,7 @@ function App() {
       <Route path="/Music" element={<Music />} />
       <Route path="/About" element={<About />} />
       <Route path="/Universe" element={<Universe />} />
-
+      <Route path="/News/NewsContent" element={<NewsContent />} />
     </Routes>
   );
 }

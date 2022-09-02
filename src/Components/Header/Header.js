@@ -5,6 +5,8 @@ import LogoYouTube from "../../Assets/YouTube.png";
 import {Link} from 'react-router-dom';
 import "./Header.css"
 import {useState, useEffect} from 'react';
+import MenuIcon from "../../Assets/menu_icon.png";
+import CrossIcon from "../../Assets/cross_icon.png";
 
 function Header(){
   const [buttonHeader, setButtonHeader] = useState(false);
@@ -15,13 +17,13 @@ function Header(){
 
   const headerStyleDefault = {
     buttonActive: false,
-    buttonImg: '+',
+    buttonImg: MenuIcon,
     headerClass: 'header-desktop',
     navMobile: 'nav-mobile-hidden'
   };
   const headerStyleMobile = {
     buttonActive: true,
-    buttonImg: 'x',
+    buttonImg: CrossIcon,
     headerClass: 'header-mobile',
     navMobile: 'nav-mobile'
   }
@@ -65,7 +67,7 @@ function Header(){
     </div>
 
     <div className="header-mobile-nav">
-      <button className="header-button" onClick={handleButtonHeader}>{headerStyle.buttonImg}</button>
+      <button className="header-button" onClick={handleButtonHeader}><img className="header-img-button" src={headerStyle.buttonImg} /></button>
     </div>
 
 

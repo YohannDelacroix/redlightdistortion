@@ -5,11 +5,9 @@ import TitleComponent from "../TitleComponent/TitleComponent.js";
 import NewsComponent from "./NewsComponent.js";
 import NewsContent from "./NewsContent/NewsContent.js";
 import {newsTable} from "./dataNews.js";
+import {Link} from "react-router-dom";
 
 function News(){
-
-  
-
 
   return (<div>
     <Header />
@@ -19,7 +17,7 @@ function News(){
       <div className="news-list">
       {
         newsTable.map((news, index) => (
-          <NewsComponent key={`${news.title}-${index}`} newsContent={news} />
+          <Link to="NewsContent"><NewsComponent key={`${news.title}-${index}`} newsContent={news} /></Link>
         ))
       }
 

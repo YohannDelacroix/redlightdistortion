@@ -1,7 +1,9 @@
 .newscontent-container{
     display: block;
-    width: 100%;
-    color:white;
-    border: solid white;
-    margin-top: 5px;
+    position: relative;
+    padding: 130px 5px 15px 5px;
+  
+    background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
+    z-index:1;
+    min-height: 800px;
 }
