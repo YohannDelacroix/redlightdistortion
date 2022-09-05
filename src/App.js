@@ -9,22 +9,26 @@ import Music from "./Components/Music/Music.js";
 import About from "./Components/About/About.js";
 import Universe from "./Components/Universe/Universe.js";
 import NewsContent from './Components/News/NewsContent/NewsContent';
+import Inexistant from './Components/Inexistant/Inexistant';
 
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/redlightdistortion" element={<Home />} />
-      <Route path="/Home" element={<Home />} />
-      <Route path="/Tour" element={<Tour />} />
-      <Route path="/News" element={<News />} />
-      <Route path="/Photos" element={<Photos />} />
-      <Route path="/Videos" element={<Videos />} />
-      <Route path="/Music" element={<Music />} />
-      <Route path="/About" element={<About />} />
-      <Route path="/Universe" element={<Universe />} />
-      <Route path="/News/NewsContent" element={<NewsContent />} />
+      <Route path="/ok" element={<Home />}>
+        <Route path="redlightdistortion" element={<Home />} />
+        <Route path="Home" element={<Home />} />
+        <Route path="Tour" element={<Tour />} />
+        <Route path="News" element={<News />}>
+          <Route path="NewsContent" element={<NewsContent />} />
+        </Route>
+        <Route path="Photos" element={<Photos />} />
+        <Route path="Videos" element={<Videos />} />
+        <Route path="Music" element={<Music />} />
+        <Route path="About" element={<About />} />
+        <Route path="Universe" element={<Universe />} />
+        <Route path="*" element={<Inexistant />} />
+      </Route>
     </Routes>
   );
 }

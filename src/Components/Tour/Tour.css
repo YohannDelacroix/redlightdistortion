@@ -19,6 +19,10 @@
     padding:0;
   }
 
+
+  .tour-nodate{
+    text-align: center;
+  }
  
   .tour-list li{
     padding: 15px 5px;

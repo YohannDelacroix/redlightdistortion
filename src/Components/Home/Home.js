@@ -123,8 +123,7 @@ function Home(){
 
   
 
-  
-    <div className="home-tour">
+    {dataDate.length != 0 && <div className="home-tour">
       <TitleComponent titleContent="Tour Dates" />
       <ul className="tour-list">
       {dataDate.slice(0,5).map((date, index) => (
@@ -132,16 +131,18 @@ function Home(){
       ))}
       </ul>
       <button className="home-button"><Link className="home-link" to="/Tour">More Tour Dates</Link></button>
-    </div>
+    </div>}
+    
     
 
 
     <div className="home-news">
       <TitleComponent titleContent="News" />
-      <div className="news-list">
+      <div className="news-list"> 
       {
         newsTable.slice(0,4).map((news, index) => (
-          <NewsComponent key={`${news.title}-${index}`} newsContent={news} />
+          <Link to={`/News/${news.id}`}><NewsComponent key={`${news.title}-${index}`} newsContent={news} /></Link>
+
         ))
       }
 

@@ -4,12 +4,41 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
+import Home from "./Components/Home/Home.js";
+import Tour from "./Components/Tour/Tour.js";
+import News from "./Components/News/News.js";
+import Photos from "./Components/Photos/Photos.js";
+import Videos from "./Components/Videos/Videos.js";
+import Music from "./Components/Music/Music.js";
+import About from "./Components/About/About.js";
+import Universe from "./Components/Universe/Universe.js";
+import NewsContent from './Components/News/NewsContent/NewsContent';
+import Inexistant from './Components/Inexistant/Inexistant';
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <App />
+    <ScrollToTop>
+    <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="redlightdistortion" element={<Home />} />
+        <Route path="Home" element={<Home />} />
+        <Route path="Tour" element={<Tour />} />
+        <Route path="News" element={<News />}>
+          <Route path=":linkNews" element={<NewsContent />} />
+        </Route>
+        <Route path="Photos" element={<Photos />} />
+        <Route path="Videos" element={<Videos />} />
+        <Route path="Music" element={<Music />} />
+        <Route path="About" element={<About />} />
+        <Route path="Universe" element={<Universe />} />
+        <Route path="*" element={<Inexistant />} />
+      
+    </Routes>
+    </ScrollToTop>
     </BrowserRouter>
   </React.StrictMode>
 );
