@@ -2,6 +2,10 @@ import "./Inexistant.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
+/*
+    If the user enters an inexistant path ... 
+*/
+
 export default function Inexistant(){
     return (<div>
         <Header />

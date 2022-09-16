@@ -2,9 +2,6 @@ import "./Tour.css";
 import {useState} from 'react';
 
 function Date({date_content}){
-
-
-
   //Don't display the buttons is there is no link available
   let dateMore = "date-more";
   if(date_content.more_link === ''){
@@ -30,11 +27,11 @@ function Date({date_content}){
 
     <div className="date-links">
       <div className={dateMore}>
-          <button>More info</button>
+          <a href={date_content.more_link} target="_blank"><button>More info</button></a>
       </div>
 
       <div className={dateTicket}>
-        <button>Tickets</button>
+        <a href={date_content.ticket_link} target="_blank"><button>Tickets</button></a>
       </div>
     </div>
 

@@ -17,7 +17,10 @@
   }
 }
 
-
+@font-face{
+  font-family: 'BadSignal';
+  src: url('./Polices/bad-signal/BadSignal.otf');
+}
 
 .App-header {
   background-color: #282c34;

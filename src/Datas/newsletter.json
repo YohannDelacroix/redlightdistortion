@@ -1,0 +1,20 @@
+[
+    {
+        "email": "yohann.delacroix@hotmail.fr",
+        "name": "Yohann",
+        "city": "Domats",
+        "seen": false
+    },
+    {
+        "email": "yohann.delacroix@hotmail.fr",
+        "name": "Yohann",
+        "city": "Domats",
+        "seen": false
+    },
+    {
+        "email": "yohann.delacroix@hotmail.fr",
+        "name": "Yohann",
+        "city": "Domats",
+        "seen": true
+    }
+]

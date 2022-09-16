@@ -4,6 +4,8 @@ header{
     url("../../Assets/concrete-wall.jpg");*/
     background-image: linear-gradient(to bottom, #000, #0008);
   color: white;
+  font-family: 'BadSignal';
+  font-size: 19px;
 }
 
 

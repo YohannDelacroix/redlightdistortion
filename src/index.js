@@ -16,6 +16,7 @@ import Universe from "./Components/Universe/Universe.js";
 import NewsContent from './Components/News/NewsContent/NewsContent';
 import Inexistant from './Components/Inexistant/Inexistant';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
+import Admin from './Components/Admin/Admin';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -36,7 +37,7 @@ root.render(
         <Route path="About" element={<About />} />
         <Route path="Universe" element={<Universe />} />
         <Route path="*" element={<Inexistant />} />
-      
+        <Route path="Admin" element={<Admin />} />
     </Routes>
     </ScrollToTop>
     </BrowserRouter>

@@ -10,6 +10,7 @@ import About from "./Components/About/About.js";
 import Universe from "./Components/Universe/Universe.js";
 import NewsContent from './Components/News/NewsContent/NewsContent';
 import Inexistant from './Components/Inexistant/Inexistant';
+import Admin from './Components/Admin/Admin';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="About" element={<About />} />
         <Route path="Universe" element={<Universe />} />
         <Route path="*" element={<Inexistant />} />
+        <Route path="Admin" element={<Admin />} />
       </Route>
     </Routes>
   );
