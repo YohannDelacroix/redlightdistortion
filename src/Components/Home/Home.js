@@ -14,6 +14,7 @@ import {dataDate} from "../Tour/dataDate.js";
 import Date from "../Tour/Date.js";
 import {images} from "../Photos/dataPhotos.js";
 
+import axios, { Axios } from "axios";
 
 import logoBlanc from "../../Assets/RLDLogoFondNoir.png";
 
@@ -34,7 +35,12 @@ function Home(){
   //Handle when button "Subscribe" is pressed
   const handleButtonSubscribe = (e) => {
     e.preventDefault();
-    alert("Send information to server");
+
+    axios.post('http://localhost:5050/newsletter/add', results).then((response) => {
+            console.log(response.status)
+            console.log(response.data)
+    })
+
     setDisplayForm(false);
     setResults(resultsDefault);
   };
