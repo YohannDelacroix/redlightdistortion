@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .newscontent-container{
     display: block;
     position: relative;
@@ -7,6 +14,8 @@
 }
 
 .newscontent-main-container{
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(180,0,0,0)));
+    background-image: -o-linear-gradient(top, rgba(0,0,0,1), rgba(180,0,0,0));
     background-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(180,0,0,0));
     
 }

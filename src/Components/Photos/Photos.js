@@ -14,11 +14,14 @@ function Photos(){
       <TitleComponent titleContent="Photos" />
       <div className="photo-galery">
         {
-          images.map((image) => (
+          images.map((image) => {
+            return (<div className="photo-galery-img-container" key={image}>
+              <a href={image}><img src={image} alt="image" className="photo-galery-img" /></a>
+            </div>)
+          }
 
-              <img key={image} src={image} alt="image" />
-
-          ))
+              
+          )
         }
       </div>
 

@@ -1,15 +1,26 @@
-.inexistant-container{
-    display: block;
-    position: relative;
-    padding: 130px 5px 15px 5px;
-  
-    background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
-    z-index:1;
-    min-height:100vh;
-  }
-  
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
 
-  .inexistant-text{
-    color: white;
-    text-align: center;
-  }
+.inexistant-container{
+  display: block;
+  position: relative;
+  padding: 130px 5px 15px 5px;
+
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(0,0,0)),to(rgb(128,0,0)));
+
+  background-image: -o-linear-gradient(bottom, rgb(0,0,0),rgb(128,0,0));
+
+  background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
+  z-index:1;
+  min-height:100vh;
+}
+
+
+.inexistant-text{
+  color: white;
+  text-align: center;
+}

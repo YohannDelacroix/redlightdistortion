@@ -1,99 +1,132 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .tour-container{
-    display: block;
-    position: relative;
-    padding: 130px 5px 15px 5px;
-    background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
-    color:white;
-    /*padding: 5px 200px;*/
-    z-index:1;
-    min-height: 800px;
+  display: block;
+  position: relative;
+  padding: 130px 5px 15px 5px;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(0,0,0)),to(rgb(128,0,0)));
+  background-image: -o-linear-gradient(bottom, rgb(0,0,0),rgb(128,0,0));
+  background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
+  color:white;
+  /*padding: 5px 200px;*/
+  z-index:1;
+  min-height: 800px;
+}
+
+.invisible{
+  display: none;
+}
+
+.tour-list{
+  list-style: none;
+  width: 100%;
+  padding:0;
+}
+
+
+.tour-nodate{
+  text-align: center;
+}
+
+.tour-list li{
+  padding: 15px 5px;
+}
+
+
+
+.date-container{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.date-links{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width:100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top:10px;
+}
+
+.date-place{
+  display: block;
+  text-align: right;
+  width: 90%;
+}
+
+.date-place-city{
+  font-weight: bolder;
+}
+
+.date-more{
+  display: block;
+
+  text-align: center;
+}
+
+.date-ticket{
+  display: block;
+  margin-left:5px;
+  text-align: center;
+}
+
+.date-date{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 10%;
+  font-weight: bolder;
+  padding-right: 10px;
+}
+
+
+
+@media only screen and (min-width:960px){
+  .tour-container{
+      padding: 130px 200px 15px 200px;
   }
-
-  .invisible{
-    display: none;
-  }
-
-  .tour-list{
-    list-style: none;
-    width: 100%;
-    padding:0;
-  }
+}
 
 
-  .tour-nodate{
-    text-align: center;
-  }
- 
-  .tour-list li{
-    padding: 15px 5px;
-  }
-
-
-
-  .date-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .date-links{
-    display: flex;
-    width:100%;
-    flex-direction: row;
-    justify-content: end;
-    align-items: center;
-    padding-top:10px;
-  }
-  
+@media only screen and (min-width:795px){
   .date-place{
-    display: block;
-    text-align: right;
-    width: 90%;
+      width:50%;
+      text-align: left;
   }
-  
-  .date-place-city{
-    font-weight: bolder;
+  .date-links{
+      width:30%;
   }
-  
-  .date-more{
-    display: block;
-
-    text-align: center;
+  .date-container{
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
   }
-  
-  .date-ticket{
-    display: block;
-    margin-left:5px;
-    text-align: center;
-  }
-  
-  .date-date{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 10%;
-    font-weight: bolder;
-    padding-right: 10px;
-  }
-
- 
-
-  @media only screen and (min-width:960px){
-    .tour-container{
-        padding: 130px 200px 15px 200px;
-    }
-  }
-
-
-  @media only screen and (min-width:795px){
-    .date-place{
-        width:50%;
-        text-align: left;
-    }
-    .date-links{
-        width:30%;
-    }
-    .date-container{
-        justify-content: space-between;
-    }
-  }
+}

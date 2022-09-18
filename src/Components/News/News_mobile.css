@@ -1,80 +1,121 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .news-container{
-    display: block;
-    position: relative;
-    padding: 110px 0px 15px 0px;
-  
-    background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
-    z-index:1;
-    min-height: 800px;
-   
-  }
-  
-  .news-list{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 30px 0;
-  }
+  display: block;
+  position: relative;
+  padding: 110px 0px 15px 0px;
+
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(0,0,0)),to(rgb(128,0,0)));
+
+  background-image: -o-linear-gradient(bottom, rgb(0,0,0),rgb(128,0,0));
+
+  background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
+  z-index:1;
+  min-height: 800px;
+ 
+}
+
+.news-list{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 30px 0;
+}
+
+.news-bottom{
+  clear: both;
+  margin-top: 25px;
+  padding: 0px 5px;
+}
+
+
+/* CSS of the Component NEWS */
+.news-component-background{
+  background-size: 250px 180px;
+  border: solid rgba(0,0,0,0.7);
+  width:250px;
+  height:180px;
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.news-component-background:hover{
+  -webkit-transform: scale(1.03);
+      -ms-transform: scale(1.03);
+          transform: scale(1.03);
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  -o-transition: transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.news-component-content{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+.news-component-content-title{
+  display: block;
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.news-component-content-date{
+  display: block;
+  padding: 10px;
+}
+
+
+
+
+
+@media only screen and (min-width:990px){
 
   .news-bottom{
-    clear: both;
-    margin-top: 25px;
-    padding: 0px 5px;
-  }
-  
-  
-  /* CSS of the Component NEWS */
-  .news-component-background{
-    background-size: 250px 180px;
-    border: solid rgba(0,0,0,0.7);
-    width:250px;
-    height:180px;
-    margin: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .news-component-background:hover{
-    transform: scale(1.03);
-    transition: transform 0.5s;
-  }
-  
-  .news-component-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    color: white;
-  }
-  
-  .news-component-content-title{
-    display: block;
-    padding: 10px;
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: bolder;
-    text-align: center;
-  }
-  
-  .news-component-content-date{
-    display: block;
-    padding: 10px;
+      padding: 30px 200px 15px 200px;
+      margin-top: 0;
   }
 
-  
-  
-
-
-  @media only screen and (min-width:990px){
-
-    .news-bottom{
-        padding: 30px 200px 15px 200px;
-        margin-top: 0;
-    }
-
-    .news-list{
-        justify-content: space-between;
-    }
+  .news-list{
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
   }
+}
