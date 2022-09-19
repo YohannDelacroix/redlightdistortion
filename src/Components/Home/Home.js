@@ -136,7 +136,7 @@ function Home(){
         <li key={index}><Date date_content={dataDate[index]} /></li>
       ))}
       </ul>
-      <button className="home-button"><Link className="home-link" to="/Tour">More Tour Dates</Link></button>
+      <Link className="home-link" to="/Tour"><button className="home-button">More Tour Dates</button></Link>
     </div>}
     
     
@@ -153,7 +153,7 @@ function Home(){
       }
 
       </div>
-      <button className="home-button"><Link className="home-link" to="/News">More News</Link></button>
+      <Link className="home-link" to="/News"><button className="home-button">More News</button></Link>
     </div>
 
     <div className="home-photos">
@@ -162,12 +162,14 @@ function Home(){
         {
           images.slice(0,3).map((image) => (
 
-              <img key={image} src={image} alt="image" />
+            <div className="photo-galery-img-container" key={image}>
+            <a href={image}><img src={image} alt="image" className="photo-galery-img" /></a>
+          </div>
 
           ))
         }
       </div>
-      <button className="home-button"><Link className="home-link" to="/Photos">More Photos</Link></button>
+      <Link className="home-link" to="/Photos"><button className="home-button">More Photos</button></Link>
     </div>
 
     <div className="home-logo">

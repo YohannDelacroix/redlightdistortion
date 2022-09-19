@@ -18,3 +18,29 @@
     align-content: center;
     padding: 5px;
 }
+
+
+
+.admin-tour{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 10px;
+}
+
+.admin-tour-element{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    text-align: center;
+}
+
+
+.admin-form-tour{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

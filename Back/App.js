@@ -19,6 +19,10 @@ app.use(express.json())
 
 const start = Date.now();
 
+
+/*    NEWSLETTER    */
+
+//GET : Return the newsletter-s subscribers list
 app.get('/newsletter', (req,res,next) => {
     console.log("Requete : " , Date.now()-start)
     let fichier = fs.readFileSync('../src/Datas/newsletter.json');
@@ -27,6 +31,8 @@ app.get('/newsletter', (req,res,next) => {
 })
 
 
+
+//POST : A subscriber have been added by the admin to the mailing app
 app.post('/newsletter/archived', (req,res,next) => {
     let person = req.body;
     
@@ -48,6 +54,8 @@ app.post('/newsletter/archived', (req,res,next) => {
     })
 })
 
+
+//POST : A subscriber have been deleted from the data base
 app.post('/newsletter/deleted', (req,res,next) => {
     let person = req.body;
 
@@ -68,6 +76,8 @@ app.post('/newsletter/deleted', (req,res,next) => {
     })
 })
 
+
+//POST : A new user have subscribed to the Newsletter
 app.post('/newsletter/add', (req,res,next) => {
     let person = req.body
 
@@ -96,6 +106,52 @@ app.post('/newsletter/add', (req,res,next) => {
         message: "Request post ok (new subscriber)"
     })
 })
+
+
+
+
+/*      TOUR DATES      */
+
+app.get('/tour', (req,res,next) => {
+    console.log("GET Tour Requete : " , Date.now()-start)
+    let fichier = fs.readFileSync('../src/Datas/tourdates.json');
+    let tourDates = JSON.parse(fichier)
+    res.status(200).json(tourDates);
+})
+
+
+app.post('/tour/add', (req,res,next) => {
+    let date = req.body
+
+    console.log(date)
+
+    let fichier = fs.readFileSync('../src/Datas/tourdates.json')
+    let tourdates = JSON.parse(fichier)
+
+    
+    
+    let new_date = {
+        day: date.day,
+        month: date.month,
+        year: date.year,
+        place_geo: date.place_geo,
+        place_name: date.place_name,
+        ticket_link: date.ticket_link,
+        more_link: date.more_link
+    }
+
+    tourdates.push(new_date);
+    console.log(tourdates)
+
+    const tourdatesJS = JSON.stringify(tourdates);
+    fs.writeFileSync('../src/Datas/tourdates.json', tourdatesJS);
+
+    res.status(201).json({
+        message: "Request post ok (new date)"
+    })
+})
+
+
 
 module.exports = app;
 

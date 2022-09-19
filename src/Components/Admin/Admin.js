@@ -17,20 +17,23 @@ export default function Admin(){
     const [news, setNewsletter] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+
+
+    const [dataTour, setDataTour] = useState(null);
+    const [errorTour, setErrorTour] = useState(null);
+    const [loadingTour, setLoadingTour] = useState(true);
     
 
 
     //Get the datas from the server
     useEffect( () => {
-        const getData = async () => {
-            console.log("ooo")
-            try{
-                
-                const response = await axios.get('http://localhost:5050/newsletter')
 
+        //Get the newsletters's subscribers list
+        const getSubscribers = async () => {
+            try{ 
+                const response = await axios.get('http://localhost:5050/newsletter')
                 setNewsletter(response.data)
                 setError(null)
-
             } 
             catch(err){
                 setError(err.message)
@@ -40,8 +43,25 @@ export default function Admin(){
                 setLoading(false)
             }
         }
+        getSubscribers();
 
-        getData();
+
+        const getTourDates = async () => {
+            try{ 
+                const response = await axios.get('http://localhost:5050/tour')
+                setDataTour(response.data)
+                setErrorTour(null)
+            } 
+            catch(err){
+                setErrorTour(err.message)
+                setDataTour(null)
+            }
+            finally{
+                setLoadingTour(false)
+            }
+        }
+
+        getTourDates();
     }, []);
 
 
@@ -127,6 +147,86 @@ export default function Admin(){
                     }
                 </div>
                 
+            </div>
+
+            <div>
+                    <h1>Tour Dates</h1>
+
+                    {
+                        loadingTour && <div>A moment please ...</div>
+                    }
+
+                    {
+                        errorTour && (<div>
+                            {`Problem fetching datas - ${error}`}
+                        </div>)
+                    }
+
+                    <div>
+                    {
+                        dataTour && dataTour.map( (date,index) => {
+                            return(
+                                <div className="admin-tour">
+                                    <div className="admin-tour-element">
+                                        <span>{date.day} {date.month} {date.year}</span>
+                                    </div>
+                                    
+                                    <div className="admin-tour-element">
+                                        <div>{date.place_geo}</div>
+                                        <div>{date.place_name}</div>
+                                    </div>
+                                    
+                                    <div className="admin-tour-element">
+                                        <div>{date.ticket_link}</div>
+                                        <div>{date.more_link}</div>
+                                    </div>
+
+                                    <div className="admin-tour-element">
+                                        <button>Delete</button>
+                                    </div>
+                                    
+                                </div>
+                            )
+                        })
+                    }
+                    </div>
+
+                    <h2>Add a new Date</h2>
+                    <div>
+                        <form className="admin-form-tour">
+                            <div>
+                                <span>Select a date :</span>
+                                <input type="date" id="date" name="date" value="" min="2022-09-01" max="2050-09-01" />
+                            </div>
+
+                            <div>
+                                <span>Type the place name :</span>
+                                <input type="text" id="place_name" name="place_name" />
+                            </div>
+
+                            <div>
+                                <span>City :</span>
+                                <input type="text" id="city" name="city" />
+                            </div>
+
+
+                            <div>
+                                <span>Ticket link :</span>
+                                <input type="text" id="ticket_link" name="ticket_link" />
+                            </div>
+
+                            <div>
+                                <span>More Link :</span>
+                                <input type="text" id="more_link" name="more_link" />
+                            </div>
+                            
+                            <div>
+                                <button>Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+                    
             </div>
         </div> 
         <Footer />
