@@ -63,7 +63,11 @@ function Header(){
 
 
     <div className="header-logo">
-      <Link to="/Home"><img className="header-logo-image" src={Logo} alt="Logo-RedLightdistortion" /></Link>
+      <Link className="header-link-image" to="/Home">
+        
+          <img className="header-logo-image" src={Logo} alt="Logo-RedLightdistortion" />
+        
+      </Link>
     </div>
 
     <div className="header-mobile-nav">
