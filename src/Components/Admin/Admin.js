@@ -86,8 +86,9 @@ export default function Admin(){
     return (<div>
         <Header />
         <div className="admin-container">
+            <h1>Subscribers</h1>
             <div>
-                <h1>New Subscribers</h1>
+                <h3>New Subscribers</h3>
                 {
                     loading && <div>A moment please ...</div>
                 }
@@ -103,11 +104,11 @@ export default function Admin(){
                         news && news.map( (data, index) => {
                             if(data.seen == false){
                                 return (
-                                    <div className="admin-new-subscriber" key={index}>
-                                    <span>{data.name}</span>
-                                    <span>{data.city}</span>
-                                    <span>{data.email}</span>
-                                    <button onClick={handleArchive(data)}>Archive</button>               
+                                    <div className="admin-subscriber" key={index}>
+                                    <div className="admin-subscriber-elem">{data.name}</div>
+                                    <div className="admin-subscriber-elem">{data.city}</div>
+                                    <div className="admin-subscriber-elem">{data.email}</div>
+                                    <div className="admin-subscriber-elem"><button onClick={handleArchive(data)}>Archive</button></div>         
                                     </div>
                                 )
                             }
@@ -120,7 +121,7 @@ export default function Admin(){
 
 
             <div>
-                <h1>Subscribers</h1>
+                <h3>All subscribers</h3>
                 {
                     loading && <div>A moment please ...</div>
                 }
@@ -136,11 +137,11 @@ export default function Admin(){
                         news && news.map( (data, index) => {
                             
                                 return (
-                                    <div className="admin-new-subscriber" key={index}>
-                                    <span>{data.name}</span>
-                                    <span>{data.city}</span>
-                                    <span>{data.email}</span>
-                                    <button onClick={handleDelete(data)}>Delete</button>               
+                                    <div className="admin-subscriber" key={index}>
+                                    <div className="admin-subscriber-elem">{data.name}</div>
+                                    <div className="admin-subscriber-elem">{data.city}</div>
+                                    <div className="admin-subscriber-elem">{data.email}</div>
+                                    <div className="admin-subscriber-elem"><button onClick={handleDelete(data)}>Delete</button></div>               
                                     </div>
                                 )
                         })    
@@ -194,39 +195,51 @@ export default function Admin(){
                     <h2>Add a new Date</h2>
                     <div>
                         <form className="admin-form-tour">
-                            <div>
-                                <span>Select a date :</span>
-                                <input type="date" id="date" name="date" value="" min="2022-09-01" max="2050-09-01" />
+                            <div className="admin-form-tour-field">
+                                <div className="admin-form-tour-field-elem"><span>Select a date :</span></div>
+                                <div className="admin-form-tour-field-elem">
+                                    <input className="admin-form-tour-field-elem-field" 
+                                            type="date" 
+                                            id="date" 
+                                            name="date" 
+                                             
+                                            min="2022-09-01" 
+                                            max="2050-09-01" /></div>
                             </div>
 
-                            <div>
-                                <span>Type the place name :</span>
-                                <input type="text" id="place_name" name="place_name" />
+                            <div className="admin-form-tour-field">
+                            <div className="admin-form-tour-field-elem"><span>Type the place name :</span></div>
+                            <div className="admin-form-tour-field-elem"><input className="admin-form-tour-field-elem-field" type="text" id="place_name" name="place_name" /></div>
                             </div>
 
-                            <div>
-                                <span>City :</span>
-                                <input type="text" id="city" name="city" />
+                            <div className="admin-form-tour-field">
+                            <div className="admin-form-tour-field-elem"><span>City :</span></div>
+                            <div className="admin-form-tour-field-elem"><input className="admin-form-tour-field-elem-field" type="text" id="city" name="city" /></div>
                             </div>
 
 
-                            <div>
-                                <span>Ticket link :</span>
-                                <input type="text" id="ticket_link" name="ticket_link" />
+                            <div className="admin-form-tour-field">
+                            <div className="admin-form-tour-field-elem"><span>Ticket link :</span></div>
+                            <div className="admin-form-tour-field-elem"><input className="admin-form-tour-field-elem-field" type="text" id="ticket_link" name="ticket_link" /></div>
                             </div>
 
-                            <div>
-                                <span>More Link :</span>
-                                <input type="text" id="more_link" name="more_link" />
+                            <div className="admin-form-tour-field">
+                            <div className="admin-form-tour-field-elem"><span>More Link :</span></div>
+                            <div className="admin-form-tour-field-elem"><input className="admin-form-tour-field-elem-field" type="text" id="more_link" name="more_link" /></div>
                             </div>
                             
-                            <div>
+                            <div className="admin-form-tour-submit">
                                 <button>Submit</button>
                             </div>
 
                         </form>
                     </div>
                     
+            </div>
+
+            <div>
+                <h1>News</h1>
+
             </div>
         </div> 
         <Footer />

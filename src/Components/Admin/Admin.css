@@ -8,15 +8,20 @@
     min-height:100vh;
 
     color: white;
+
 }
 
-.admin-new-subscriber{
+.admin-subscriber{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     align-content: center;
     padding: 5px;
+}
+
+.admin-subscriber-elem{
+    width: 25%;
 }
 
 
@@ -42,5 +47,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.admin-form-tour-field{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    width: 50%;
+}
+
+.admin-form-tour-field-elem{
+    width: 50%;
+}
+
+.admin-form-tour-field-elem-field{
+
+    padding: 10px;
+    width: 100%;
+}
+
+
+.admin-form-tour-submit{
+    margin-top: 10px;
 }
 
