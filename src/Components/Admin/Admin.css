@@ -11,6 +11,10 @@
 
 }
 
+.admin-subscribers-container{
+   
+}
+
 .admin-subscriber{
     display: flex;
     flex-direction: row;
@@ -21,9 +25,15 @@
 }
 
 .admin-subscriber-elem{
-    width: 25%;
+    flex: 1 1 0;
+    margin: 0 5px;
 }
 
+.admin-block-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
 
 
 .admin-tour{
@@ -39,10 +49,13 @@
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0;
-    text-align: center;
+    margin: 0 5px;
 }
 
 
+
+
+/* CSS For the tour form */
 .admin-form-tour{
     display: flex;
     flex-direction: column;
@@ -53,6 +66,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 5px;
     width: 50%;
 }
@@ -62,7 +76,6 @@
 }
 
 .admin-form-tour-field-elem-field{
-
     padding: 10px;
     width: 100%;
 }
@@ -71,4 +84,30 @@
 .admin-form-tour-submit{
     margin-top: 10px;
 }
+/* ------------------------- */
 
+/* CSS for the news form */
+.admin-form-news-field{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.admin-form-news-field-label{
+    width: 20%;
+}
+
+.admin-form-news-field-input{
+    width: 80%;
+}
+/* ------------------------- */
+
+
+@media only screen and (min-width: 990px){
+    .admin-container{
+        padding: 130px 200px 15px 200px;
+    }
+}

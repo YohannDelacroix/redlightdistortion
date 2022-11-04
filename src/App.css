@@ -79,3 +79,8 @@
 #root{
   height: 100vh;
 }
+
+
+.align-right{
+  text-align: right;
+}

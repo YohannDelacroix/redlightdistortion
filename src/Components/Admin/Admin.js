@@ -87,6 +87,7 @@ export default function Admin(){
         <Header />
         <div className="admin-container">
             <h1>Subscribers</h1>
+            <div className="admin-subscribers-container">
             <div>
                 <h3>New Subscribers</h3>
                 {
@@ -105,10 +106,10 @@ export default function Admin(){
                             if(data.seen == false){
                                 return (
                                     <div className="admin-subscriber" key={index}>
-                                    <div className="admin-subscriber-elem">{data.name}</div>
-                                    <div className="admin-subscriber-elem">{data.city}</div>
-                                    <div className="admin-subscriber-elem">{data.email}</div>
-                                    <div className="admin-subscriber-elem"><button onClick={handleArchive(data)}>Archive</button></div>         
+                                        <div className="admin-subscriber-elem">{data.name}</div>
+                                        <div className="admin-subscriber-elem">{data.city}</div>
+                                        <div className="admin-subscriber-elem">{data.email}</div>
+                                        <div className="admin-subscriber-elem  admin-block-button"><button onClick={handleArchive(data)}>Archive</button></div>         
                                     </div>
                                 )
                             }
@@ -141,7 +142,7 @@ export default function Admin(){
                                     <div className="admin-subscriber-elem">{data.name}</div>
                                     <div className="admin-subscriber-elem">{data.city}</div>
                                     <div className="admin-subscriber-elem">{data.email}</div>
-                                    <div className="admin-subscriber-elem"><button onClick={handleDelete(data)}>Delete</button></div>               
+                                    <div className="admin-subscriber-elem  admin-block-button"><button onClick={handleDelete(data)}>Delete</button></div>               
                                     </div>
                                 )
                         })    
@@ -149,7 +150,7 @@ export default function Admin(){
                 </div>
                 
             </div>
-
+            </div>
             <div>
                     <h1>Tour Dates</h1>
 
@@ -182,7 +183,7 @@ export default function Admin(){
                                         <div>{date.more_link}</div>
                                     </div>
 
-                                    <div className="admin-tour-element">
+                                    <div className="admin-tour-element admin-block-button">
                                         <button>Delete</button>
                                     </div>
                                     
@@ -229,7 +230,7 @@ export default function Admin(){
                             </div>
                             
                             <div className="admin-form-tour-submit">
-                                <button>Submit</button>
+                                <button>Submit</button> 
                             </div>
 
                         </form>
@@ -239,7 +240,29 @@ export default function Admin(){
 
             <div>
                 <h1>News</h1>
+                <h3>Add a news</h3>
+                <div>
+                    <form className="admin-form-tour">
+                        <div className="admin-form-news-field">
+                            <div className="admin-form-news-field-label"><span>Title :</span></div>
+                            <div className="admin-form-news-field-input"><input className="admin-form-tour-field-elem-field" type="text" id="news_name" name="news_name" /></div>
+                        </div>
+                        <div className="admin-form-news-field">
+                            <div className="admin-form-news-field-label"></div>
+                            <div className="admin-form-news-field-input"><textarea className="admin-form-tour-field-elem-field" rows="20" id="news_content" name="news_content" /></div>
+                        </div>
 
+                        <div className="admin-form-news-field">
+                            <div className="admin-form-news-field-label">Select a picture : </div>
+                            <div className="admin-form-news-field-input"><input className="admin-form-tour-field-elem-field" type="file" accept=".jpg, .png" id="news_image" name="news_image" /></div>
+
+                        </div>
+
+                        <div className="admin-form-tour-submit">
+                                <button>Submit</button> 
+                        </div>
+                    </form>
+                </div>
             </div>
         </div> 
         <Footer />
