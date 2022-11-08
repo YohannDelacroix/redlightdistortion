@@ -32,8 +32,11 @@ export default function Tour(){
 
     //When the admin press the button Delete, a tour date is removed from the calendar
     const handleDeleteTourDate = (tourDate) => (e) => {
-
-
+        console.log(tourDate)
+        axios.post('http://localhost:5050/tour/delete', tourDate).then((response) => {
+            console.log(response.status)
+            console.log(response.data)
+        })
         setUpdate(update+1);
     }
 
@@ -117,7 +120,7 @@ export default function Tour(){
                                     </div>
 
                                     <div className="admin-tour-element admin-block-button">
-                                        <button>Delete</button>
+                                        <button type="button" onClick={handleDeleteTourDate(date)}>Delete</button>
                                     </div>
                                     
                                 </div>

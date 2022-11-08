@@ -156,8 +156,29 @@ app.post('/tour/add', (req,res,next) => {
 
 
 //User remove a tour date from the calendar
-app.post('tour/delete', (req,res,next) => {
+app.post('/tour/delete', (req,res,next) => {
+    console.log("Delete a tour date")
+    let date = req.body;
+
+    console.log(date)
+
+    let fichier = fs.readFileSync('../src/Datas/tourdates.json')
+    let tourDates = JSON.parse(fichier)
+    tourDates.map( (data, index) => {
+        if(data.day === date.day && data.month === date.month && data.year === date.year){
+            console.log("index = ", index)
+            tourDates.splice(index,1)
+        }
+    })
+
+    console.log(tourDates)
     
+    const tourDatesJS = JSON.stringify(tourDates);
+    fs.writeFileSync('../src/Datas/tourdates.json', tourDatesJS);
+
+    res.status(201).json({
+        message: "Request post ok (Delete entry)"
+    })
 })
 
 
