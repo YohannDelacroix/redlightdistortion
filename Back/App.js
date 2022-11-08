@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const { ppid } = require('process');
+const functions = require('./Functions')
 
 
 app.use((req,res,next) => {
@@ -120,6 +121,8 @@ app.get('/tour', (req,res,next) => {
 })
 
 
+
+//User add a tour date to the calendar
 app.post('/tour/add', (req,res,next) => {
     let date = req.body
 
@@ -128,11 +131,11 @@ app.post('/tour/add', (req,res,next) => {
     let fichier = fs.readFileSync('../src/Datas/tourdates.json')
     let tourdates = JSON.parse(fichier)
 
-    
+    console.log("TEST date.month = ", date.month, " .... " , functions.convertMonthNtoS(date.month))
     
     let new_date = {
         day: date.day,
-        month: date.month,
+        month: functions.convertMonthNtoS(date.month),
         year: date.year,
         place_geo: date.place_geo,
         place_name: date.place_name,
@@ -149,6 +152,12 @@ app.post('/tour/add', (req,res,next) => {
     res.status(201).json({
         message: "Request post ok (new date)"
     })
+})
+
+
+//User remove a tour date from the calendar
+app.post('tour/delete', (req,res,next) => {
+    
 })
 
 
