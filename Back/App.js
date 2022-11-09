@@ -131,13 +131,13 @@ app.post('/tour/add', (req,res,next) => {
     let fichier = fs.readFileSync('../src/Datas/tourdates.json')
     let tourdates = JSON.parse(fichier)
 
-    console.log("TEST date.month = ", date.month, " .... " , functions.convertMonthNtoS(date.month))
     
+
     let new_date = {
         day: date.day,
         month: functions.convertMonthNtoS(date.month),
         year: date.year,
-        place_geo: date.place_geo,
+        place_geo: date.city+", "+date.region+", "+date.country,
         place_name: date.place_name,
         ticket_link: date.ticket_link,
         more_link: date.more_link

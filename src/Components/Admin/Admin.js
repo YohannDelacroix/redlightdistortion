@@ -14,17 +14,10 @@ import News from './News'
 
 export default function Admin(){
 
-    const [count, setCount] = useState(0);
-    const increaseCount = () => setCount(count + 1);
-
-    useEffect( () => {
-        console.log("COUNTTTTTTTTTTTTTTTTTTTTTTTTT : ", count)
-    }, [count])
-
     return (<div>
         <Header />
         <div className="admin-container">
-            <Subscribers update={increaseCount} />
+            <Subscribers />
             <Tour />
             <News />
         </div> 

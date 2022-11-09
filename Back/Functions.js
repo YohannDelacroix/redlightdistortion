@@ -1,3 +1,4 @@
+// Convert a month numeric value to a string value like "JAN" for January (01)
 function convertMonthNtoS(monthNumeric){
     switch(monthNumeric){
         case '1':
@@ -28,6 +29,7 @@ function convertMonthNtoS(monthNumeric){
             console.log("convertMonthNtoS parameter is not a month")
     }
 }
+
 
 
 module.exports = {convertMonthNtoS}

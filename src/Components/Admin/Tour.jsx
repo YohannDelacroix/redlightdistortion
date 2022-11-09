@@ -51,9 +51,68 @@ export default function Tour(){
     //When the admin press the button add tour date, a tour date is added to the calendar
     const handleAddTourDate = (e) => {
         e.preventDefault();
-        //Check if all fields are correct
 
-        if(true){
+
+        //Check if all fields are filled
+        let checked = true;
+
+        //Check date
+        if(e.target['date'].value == ""){
+            checked=false;
+            document.getElementById('date').classList.add("field-failed")
+            document.getElementById('unfilledDate').classList.remove("failed-hidden")
+        }
+        else{
+            document.getElementById('date').classList.remove("field-failed")
+            document.getElementById('unfilledDate').classList.add("failed-hidden")
+        }
+
+        //Check place name
+        if(e.target['place_name'].value == ""){
+            checked=false;
+            document.getElementById('place_name').classList.add("field-failed")
+            document.getElementById('unfilledPlace').classList.remove("failed-hidden")
+        }
+        else{
+            document.getElementById('place_name').classList.remove("field-failed")
+            document.getElementById('unfilledPlace').classList.add("failed-hidden")
+        }
+
+        //Check city
+        if(e.target['city'].value == ""){
+            checked=false;
+            document.getElementById('city').classList.add("field-failed")
+            document.getElementById('unfilledCity').classList.remove("failed-hidden")
+        }
+        else{
+            document.getElementById('city').classList.remove("field-failed")
+            document.getElementById('unfilledCity').classList.add("failed-hidden")
+        }
+
+        //Check region
+        if(e.target['region'].value == ""){
+            checked=false;
+            document.getElementById('region').classList.add("field-failed")
+            document.getElementById('unfilledRegion').classList.remove("failed-hidden")
+        }
+        else{
+            document.getElementById('region').classList.remove("field-failed")
+            document.getElementById('unfilledRegion').classList.add("failed-hidden")
+        }
+
+        //Check country
+        if(e.target['country'].value == ""){
+            checked=false;
+            document.getElementById('country').classList.add("field-failed")
+            document.getElementById('unfilledCountry').classList.remove("failed-hidden")
+        }
+        else{
+            document.getElementById('country').classList.remove("field-failed")
+            document.getElementById('unfilledCountry').classList.add("failed-hidden")
+        }
+        
+
+        if(checked){
             //Send to Server
             let data;
 
@@ -67,7 +126,9 @@ export default function Tour(){
                 day: separateDate.day,
                 month: separateDate.month,
                 year: separateDate.year,
-                place_geo: e.target['city'].value,
+                city: e.target['city'].value,
+                region: e.target['region'].value,
+                country: e.target['country'].value,
                 place_name: e.target['place_name'].value,
                 ticket_link: e.target['ticket_link'].value,
                 more_link: e.target['more_link'].value
@@ -141,7 +202,9 @@ export default function Tour(){
                                             name="date" 
                                             min={new Date().toISOString().slice(0, 10)}
                                             max="2100-09-01" 
-                                             /></div>
+                                             />
+                                    <div id="unfilledDate" className="failed-info failed-hidden">You must select a date</div>
+                                </div>
                             </div>
 
                             <div className="admin-form-tour-field">
@@ -152,6 +215,7 @@ export default function Tour(){
                                 id="place_name" 
                                 name="place_name" 
                                 />
+                                <div id="unfilledPlace" className="failed-info failed-hidden">You must fill the show place</div>
                             </div>
                             </div>
 
@@ -163,6 +227,32 @@ export default function Tour(){
                                         id="city" 
                                         name="city" 
                                         onChange={controlCity}/>
+                                <div id="unfilledCity" className="failed-info failed-hidden">You must fill the city</div>
+
+                            </div>
+                            </div>
+
+                            <div className="admin-form-tour-field">
+                            <div className="admin-form-tour-field-elem"><span>Region :</span></div>
+                            <div className="admin-form-tour-field-elem">
+                                <input className="admin-form-tour-field-elem-field" 
+                                        type="text" 
+                                        id="region" 
+                                        name="region" 
+                                        onChange={controlCity}/>
+                                 <div id="unfilledRegion" className="failed-info failed-hidden">You must fill the region</div>
+                            </div>
+                            </div>
+
+                            <div className="admin-form-tour-field">
+                            <div className="admin-form-tour-field-elem"><span>Country :</span></div>
+                            <div className="admin-form-tour-field-elem">
+                                <input className="admin-form-tour-field-elem-field" 
+                                        type="text" 
+                                        id="country" 
+                                        name="country" 
+                                        onChange={controlCity}/>
+                                <div id="unfilledCountry" className="failed-info failed-hidden">You must fill the country</div>
                             </div>
                             </div>
 

@@ -103,6 +103,21 @@
 .admin-form-news-field-input{
     width: 80%;
 }
+
+
+/* Check process if the form is well filled */
+.failed-hidden{
+    display: none;
+}
+
+.failed-info{
+    color: rgba(255,255,255,0.5);
+    font-weight: lighter;
+}
+
+.field-failed{
+    background-color: rgba(255,0,0,0.4);
+}
 /* ------------------------- */
 
 
