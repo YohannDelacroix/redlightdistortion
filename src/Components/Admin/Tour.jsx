@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
 export default function Tour(){
     const [dataTour, setDataTour] = useState(null);
     const [errorTour, setErrorTour] = useState(null);
@@ -40,13 +41,120 @@ export default function Tour(){
         setUpdate(update+1);
     }
 
-    /*     CONTROL of the ADD TOUR DATE FORM    */
-    const controlCity = (e) => {
-        console.log("city : ", e.target.value)
-        
+    
+
+    //Convert a Month numeric value to a format value like "NOV" , "DEC" , etc
+    function convertMonthNtoS(monthNumeric){
+        switch(monthNumeric){
+            case '1':
+                return "JAN";
+            case '2':
+                return "FEB";
+            case '3':
+                return "MAR";
+            case '4':
+                return "APR";
+            case '5':
+                return "MAY";
+            case '6':
+                return "JUN";
+            case '7':
+                return "JUL";
+            case '8':
+                return "AUG";
+            case '9':
+                return "SEP";
+            case '10':
+                return "OCT";
+            case '11':
+                return "NOV";
+            case '12':
+                return "DEC";
+            default:
+                console.log("convertMonthNtoS parameter is not a month")
+        }
     }
 
 
+    //Reset the tour form
+    const resetForm = () => {
+        document.getElementById("admin-form-tour").reset()
+    }
+
+
+   
+
+    /*     CONTROL of the ADD TOUR DATE FORM    */
+    const controlDate = e => {
+        console.log(e.target.value)
+        let splittedDate = splitDate(e.target.value)
+
+        //Check if the date is already used or not
+        if(!checkDateAvailability(splittedDate)){
+            document.getElementById("date").classList.add("field-failed")
+            document.getElementById("alreadyUsedDate").classList.remove("failed-hidden")
+        }
+        else{
+            document.getElementById("date").classList.remove("field-failed")
+            document.getElementById("alreadyUsedDate").classList.add("failed-hidden")
+        }
+
+        if(e.target.value != ""){
+            document.getElementById('unfilledDate').classList.add("failed-hidden")
+        }
+
+    }
+
+    const controlPlaceName = (e) => {
+        if(e.target.value != ""){
+            document.getElementById('place_name').classList.remove("field-failed")
+            document.getElementById('unfilledPlace').classList.add("failed-hidden")
+        }
+    }
+
+    const controlCity = (e) => {
+        if(e.target.value != ""){
+            document.getElementById('city').classList.remove("field-failed")
+            document.getElementById('unfilledCity').classList.add("failed-hidden")
+        }
+    }
+
+    const controlRegion = (e) => {
+        if(e.target.value != ""){
+            document.getElementById('region').classList.remove("field-failed")
+            document.getElementById('unfilledRegion').classList.add("failed-hidden")
+        }
+    }
+
+    const controlCountry = (e) => {
+        if(e.target.value != ""){
+            document.getElementById('country').classList.remove("field-failed")
+            document.getElementById('unfilledCountry').classList.add("failed-hidden")
+        }
+    }
+
+
+    //Convert a date like "25-NOV-2022" into an object with 3 fields {day,month,year}
+    const splitDate = (fullDate) => {
+        const getDate = string => (([year, month, day]) => ({ day, month, year }))(string.split('-'));
+        let splittedDate = getDate(fullDate);
+        return splittedDate
+    }
+
+
+    //Check if a date is available in the calendar
+    const checkDateAvailability = (date) => {
+        let checked = []
+
+        for(let i = 0; i < dataTour.length; i++){
+            if(dataTour[i].day == date.day && dataTour[i].month == convertMonthNtoS(date.month) && dataTour[i].year == date.year){
+                checked.push(false)
+            }
+        }
+
+        if(checked[0] == false) return false
+        else return true
+    }
 
     //When the admin press the button add tour date, a tour date is added to the calendar
     const handleAddTourDate = (e) => {
@@ -63,7 +171,9 @@ export default function Tour(){
             document.getElementById('unfilledDate').classList.remove("failed-hidden")
         }
         else{
-            document.getElementById('date').classList.remove("field-failed")
+            if(checkDateAvailability(splitDate(e.target['date'].value))){
+                document.getElementById('date').classList.remove("field-failed")
+            }
             document.getElementById('unfilledDate').classList.add("failed-hidden")
         }
 
@@ -110,18 +220,22 @@ export default function Tour(){
             document.getElementById('country').classList.remove("field-failed")
             document.getElementById('unfilledCountry').classList.add("failed-hidden")
         }
+
+
+        let separateDate = splitDate(e.target['date'].value)
+
+        //Check if the date is not already used, to prevent key bugs and because it's impossible to play at two places the same day
+        if(!checkDateAvailability(separateDate)){
+            checked = false
+        }
         
 
         if(checked){
             //Send to Server
+            console.log("send data to server")
             let data;
 
-            let fullDate = e.target['date'].value
-                //Separate the day month and year
-            const getDate = string => (([year, month, day]) => ({ day, month, year }))(string.split('-'));
-            let separateDate = getDate(fullDate);
-
-            
+        
             data = {
                 day: separateDate.day,
                 month: separateDate.month,
@@ -140,6 +254,7 @@ export default function Tour(){
                 console.log(response.status)
                 console.log(response.data)
             })
+            resetForm();
             setUpdate(update+1);
         }
         
@@ -165,7 +280,7 @@ export default function Tour(){
                     {
                         dataTour && dataTour.map( (date,index) => {
                             return(
-                                <div className="admin-tour" key={index}>
+                                <div className="admin-tour" key={`${date.day}-${date.month}-${date.year}`}>
                                     <div className="admin-tour-element">
                                         <span>{date.day} {date.month} {date.year}</span>
                                     </div>
@@ -192,7 +307,7 @@ export default function Tour(){
 
                     <h2>Add a new Date</h2>
                     <div>
-                        <form className="admin-form-tour" onSubmit={handleAddTourDate}>
+                        <form id="admin-form-tour" className="admin-form-tour" onSubmit={handleAddTourDate}>
                             <div className="admin-form-tour-field">
                                 <div className="admin-form-tour-field-elem"><span>Select a date :</span></div>
                                 <div className="admin-form-tour-field-elem">
@@ -202,8 +317,10 @@ export default function Tour(){
                                             name="date" 
                                             min={new Date().toISOString().slice(0, 10)}
                                             max="2100-09-01" 
+                                            onChange={controlDate}
                                              />
                                     <div id="unfilledDate" className="failed-info failed-hidden">You must select a date</div>
+                                    <div id="alreadyUsedDate" className="failed-info failed-hidden">This date is already used</div>
                                 </div>
                             </div>
 
@@ -214,6 +331,7 @@ export default function Tour(){
                                 type="text" 
                                 id="place_name" 
                                 name="place_name" 
+                                onChange={controlPlaceName}
                                 />
                                 <div id="unfilledPlace" className="failed-info failed-hidden">You must fill the show place</div>
                             </div>
@@ -239,7 +357,7 @@ export default function Tour(){
                                         type="text" 
                                         id="region" 
                                         name="region" 
-                                        onChange={controlCity}/>
+                                        onChange={controlRegion}/>
                                  <div id="unfilledRegion" className="failed-info failed-hidden">You must fill the region</div>
                             </div>
                             </div>
@@ -251,7 +369,7 @@ export default function Tour(){
                                         type="text" 
                                         id="country" 
                                         name="country" 
-                                        onChange={controlCity}/>
+                                        onChange={controlCountry}/>
                                 <div id="unfilledCountry" className="failed-info failed-hidden">You must fill the country</div>
                             </div>
                             </div>

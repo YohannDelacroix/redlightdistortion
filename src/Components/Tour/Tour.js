@@ -5,8 +5,36 @@ import "./Tour.css";
 import Date from "./Date.js";
 import {dataDate} from "./dataDate.js";
 import { cloneElement } from "react";
+import {useState, useEffect} from 'react'
+import axios from "axios";
 
 function Tour(){
+  const [dataTour, setDataTour] = useState(null);
+  const [errorTour, setErrorTour] = useState(null);
+  const [loadingTour, setLoadingTour] = useState(true);
+  
+  //Get the datas from the server
+  useEffect( () => {
+
+      //Get list of tour dates from the server
+      const getTourDates = async () => {
+          try{ 
+              const response = await axios.get('http://localhost:5050/tour')
+              setDataTour(response.data)
+              setErrorTour(null)
+          } 
+          catch(err){
+              setErrorTour(err.message)
+              setDataTour(null)
+          }
+          finally{
+              setLoadingTour(false)
+          }
+      }
+
+
+      getTourDates();
+  }, []);
 
   return (<div>
     <Header />
@@ -14,12 +42,49 @@ function Tour(){
     <div className="tour-container">
     <TitleComponent titleContent="Tour Dates" />
 
-    <ul className="tour-list">
-      {dataDate.length == 0 ? <div className="tour-nodate">No upcoming tour dates</div> : 
 
+
+
+
+
+
+    <ul className="tour-list">
+                    {
+                        loadingTour && <div>A moment please ...</div>
+                    }
+
+                    {
+                        errorTour && (<div>
+                            {`Problem fetching datas - ${errorTour}`}
+                        </div>)
+                    }
+
+
+                    <div>
+                    {
+                        
+                        dataTour && (
+                            dataTour.length == 0 ? <div className="tour-nodate">No upcoming tour dates</div> : (
+                                dataTour.map((date, index) => (
+                                    <li key={`${date.day}-${date.month}-${date.year}`}><Date date_content={dataTour[index]} /></li>
+                                  ))
+                                )
+                        )
+                           
+                        
+                    }
+                    </div>
+
+    {
+        /*
+{dataDate.length == 0 ? <div className="tour-nodate">No upcoming tour dates</div> : 
+        
       dataDate.map((date, index) => (
-        <li key={index}><Date date_content={dataDate[index]} /></li>
+        <li key={`${date.day}-${date.month}-${date.year}`}><Date date_content={dataDate[index]} /></li>
       ))}
+        */
+    }
+      
     </ul>
 
     </div>
