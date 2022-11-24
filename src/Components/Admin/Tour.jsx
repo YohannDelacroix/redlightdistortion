@@ -46,23 +46,23 @@ export default function Tour(){
     //Convert a Month numeric value to a format value like "NOV" , "DEC" , etc
     function convertMonthNtoS(monthNumeric){
         switch(monthNumeric){
-            case '1':
+            case '01':
                 return "JAN";
-            case '2':
+            case '02':
                 return "FEB";
-            case '3':
+            case '03':
                 return "MAR";
-            case '4':
+            case '04':
                 return "APR";
-            case '5':
+            case '05':
                 return "MAY";
-            case '6':
+            case '06':
                 return "JUN";
-            case '7':
+            case '07':
                 return "JUL";
-            case '8':
+            case '08':
                 return "AUG";
-            case '9':
+            case '09':
                 return "SEP";
             case '10':
                 return "OCT";

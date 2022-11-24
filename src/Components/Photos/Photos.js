@@ -8,7 +8,7 @@ function Photos(){
 
   
 
-  return (<div>
+  return (<div className="container">
     <Header />
     <div className="photo-container">
       <TitleComponent titleContent="Photos" />

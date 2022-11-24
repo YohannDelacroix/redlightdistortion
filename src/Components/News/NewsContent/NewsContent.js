@@ -15,7 +15,10 @@ function NewsContent(){
 
     return (<div className="newscontent-main-container">
         <div className="newscontent-container">
-        <img className="newscontent-main-img" src={news.img} alt="img" />
+        {
+            news.img && (<img className="newscontent-main-img" src={news.img} alt="img" />)
+        }
+        
             <h1 className="newscontent-title">{news.title}</h1>
             <h6>{news.date}</h6>
             

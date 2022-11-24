@@ -7,7 +7,7 @@ import RomanPic from "../../Assets/roman_seul_face.jpg";
 
 
 function About(){
-  return (<div>
+  return (<div className="container">
     <Header />
     <div className="about-container">
       <TitleComponent titleContent="About" />

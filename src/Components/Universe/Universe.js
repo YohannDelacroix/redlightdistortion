@@ -4,7 +4,7 @@ import "./Universe.css";
 import TitleComponent from "../TitleComponent/TitleComponent.js";
 
 function Universe(){
-  return (<div>
+  return (<div className="container">
     <Header />
     <div className="universe-container">
     <TitleComponent titleContent="Universe" />

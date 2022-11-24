@@ -16,7 +16,8 @@
 
   background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
   z-index:1;
-  min-height:800px;
+  min-height:100%;
+  
 }
 
 .about-biography{

@@ -5,7 +5,7 @@ import TitleComponent from "../TitleComponent/TitleComponent.js";
 
 
 function Videos(){
-  return (<div>
+  return (<div className="container">
     <Header />
     <div  className="videos-container">
     <TitleComponent titleContent="Videos" />

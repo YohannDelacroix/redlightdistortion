@@ -36,16 +36,11 @@ function Tour(){
       getTourDates();
   }, []);
 
-  return (<div>
+  return (<div className="container">
     <Header />
 
     <div className="tour-container">
     <TitleComponent titleContent="Tour Dates" />
-
-
-
-
-
 
 
     <ul className="tour-list">

@@ -1,90 +1,16 @@
 export const newsTable = [
-    {
-      title: "The new Red Light Distortion's website",
-      date: "September, 2, 2022",
-      img: "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcS1SUGYNL-VOt5dcUOZUkr-ShQ9CF5KuHP_U37NqYXw4uMMRGhRS3Gc8c9VvIa3jFyq",
-      content:`<p>
-      Roman was 15 when the shock happenned.
-      </p>
-      <p>
-      He was already listen to metal since he was 10, but it is with the discover of electro and especially with the videoclip «Wizard» 
-      by Martin Garrix that the seed of passion was planted. <br />
-      Since that time he never looked back.</p>
-      <p>
-      Starting to learn how to mix, he gave up the mixing to focus on his heart’s instrument, the guitar. 
-      When his fingers touched the neck, he immediately knew what he wanted to be : a musician. 
-      </p>
-      <p>
-      So, he begins to devote his time and his own energy to music, 
-      drawing inspiration from accomplished musicians like Dave Mustaine or Joe Duplantier. 
-      Since, the more the sands of time was running out, 
-      the more his passion and devotion increased. 
-      </p> `,
-      id:"thenewredlightdistortionswebsite"
-    },
-    {
-      title: "Live from Paris",
-      date: "August, 20, 2022",
-      img: "https://hospitality-on.com/sites/default/files/2017-09/Paris.jpg",
-      content:"This is an incredible live here",
-      id:"livefromparis"
-    },
-    {
-      title: "Live from Frankfurt",
-      date: "August, 25, 2022",
-      img: "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcS1SUGYNL-VOt5dcUOZUkr-ShQ9CF5KuHP_U37NqYXw4uMMRGhRS3Gc8c9VvIa3jFyq",
-      content:"This is an incredible live here",
-      id:"livefromfrankfurt"
-    },
-    {
-      title: "Live from Paris",
-      date: "August, 20, 2022",
-      img: "https://hospitality-on.com/sites/default/files/2017-09/Paris.jpg",
-      content:"This is an incredible live here",
-      id:"livefromparis"
-    },
-    {
-      title: "Live from Frankfurt",
-      date: "August, 25, 2022",
-      img: "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcS1SUGYNL-VOt5dcUOZUkr-ShQ9CF5KuHP_U37NqYXw4uMMRGhRS3Gc8c9VvIa3jFyq",
-      content:"This is an incredible live here",
-      id:"thenewredlightdistortionswebsite"
-    },
-    {
-      title: "Live from Paris",
-      date: "August, 20, 2022",
-      img: "https://hospitality-on.com/sites/default/files/2017-09/Paris.jpg",
-      content:"This is an incredible live here",
-      id:"livefromparis"
-    },
-    {
-      title: "Live from Frankfurt",
-      date: "August, 25, 2022",
-      img: "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcS1SUGYNL-VOt5dcUOZUkr-ShQ9CF5KuHP_U37NqYXw4uMMRGhRS3Gc8c9VvIa3jFyq",
-      content:"This is an incredible live here",
-      id:"thenewredlightdistortionswebsite"
-    },
-    {
-      title: "Live from Paris",
-      date: "August, 20, 2022",
-      img: "https://hospitality-on.com/sites/default/files/2017-09/Paris.jpg",
-      content:"This is an incredible live here",
-      id:"livefromparis"
-    },
-    {
-      title: "Live from Frankfurt",
-      date: "August, 25, 2022",
-      img: "http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcS1SUGYNL-VOt5dcUOZUkr-ShQ9CF5KuHP_U37NqYXw4uMMRGhRS3Gc8c9VvIa3jFyq",
-      content:"This is an incredible live here",
-      id:"thenewredlightdistortionswebsite"
-    },
-    {
-      title: "Live from Paris",
-      date: "August, 20, 2022",
-      img: "https://hospitality-on.com/sites/default/files/2017-09/Paris.jpg",
-      content:"This is an incredible live here",
-      id:"livefromparis"
-    }
+  {
+    title: "Tremplin Bouillon Up #12",
+    date: "November, 24, 2022",
+    img: "https://www.univ-orleans.fr/upload/public/styles/univ_wysiwyg_big/public/2019-04/vie_campus_culture_01.jpg?h=a498541c&itok=HQmXhF4i",
+    content:`<p>We will perform the first show in a duo band line-up the December, 1st, 2022, at Le Bouillon we are very excited !</p>
+    <p>
+      We will be in competition with 3 others bands Gaspard Ducroix, Les Batards du Rois and Zepso, good luck to everybody !
+    </p>
+    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FBouillonOrleans%2Fposts%2Fpfbid02b7BBeXE5vJhCkwoks3DwaBGLom3urzYsAggd3PvtWDqTKqCTo4xdZW6DH3C1hviPl&show_text=true&width=500" width="500" height="748" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe> `,
+    id:"tremplin_bouillon_annonce"
+  }
+  
   ];
 
 

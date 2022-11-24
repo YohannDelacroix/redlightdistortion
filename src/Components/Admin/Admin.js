@@ -19,7 +19,12 @@ export default function Admin(){
         <div className="admin-container">
             <Subscribers />
             <Tour />
-            <News />
+            {
+                /*
+                    <News />
+                */
+            }
+            
         </div> 
         <Footer />
     </div>);

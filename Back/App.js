@@ -126,7 +126,7 @@ app.get('/tour', (req,res,next) => {
 app.post('/tour/add', (req,res,next) => {
     let date = req.body
 
-    console.log(date)
+    console.log("DATE ENTRANTE : ", date)
 
     let fichier = fs.readFileSync('../src/Datas/tourdates.json')
     let tourdates = JSON.parse(fichier)
@@ -144,6 +144,7 @@ app.post('/tour/add', (req,res,next) => {
     }
 
     tourdates.push(new_date);
+    functions.sortTourDates(tourdates)
     console.log(tourdates)
 
     const tourdatesJS = JSON.stringify(tourdates);

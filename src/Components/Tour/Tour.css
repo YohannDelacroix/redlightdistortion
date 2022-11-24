@@ -15,7 +15,8 @@
   color:white;
   /*padding: 5px 200px;*/
   z-index:1;
-  min-height: 800px;
+
+  min-height:100%;
 }
 
 .invisible{
@@ -83,6 +84,10 @@
   display: block;
 
   text-align: center;
+}
+
+.container{
+  height: 100%;
 }
 
 .date-ticket{
