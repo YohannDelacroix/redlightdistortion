@@ -96,9 +96,20 @@ function Home(){
 
     <div className="home-home-newsletterform">
       <div className="home-home-newsletterform-button">
-      <button className="home-home-buttonnewsletter"
+
+      {
+        /*  CODE for Newsletter inside our database
+          <button className="home-home-buttonnewsletter"
               type="button"
               onClick={handleButtonNewsletter}>Subscribe to Newsletter</button>
+        */
+      }
+      
+      <a href="https://963724d5.sibforms.com/serve/MUIEADLr_bPctO-7ORVs2xAOHSPATdp2V2Re_iA9XmPyF9fiQ3_bKRTcF7S-NQMzwTC-OeeqVuwMKVTKyhv-SJ2gHLIIDeEkKa3n47rm98XeoGCYOH6Ng7v_ILjpetiUeIQv_e8PNPdnL404KW8lcRWG0am95VHRBCeY-p7jy8zbEdm56uV9OMILa9GJhi894UBBMgC6QLubHPbV" target="__blank"><button className="home-home-buttonnewsletter"
+              type="button">Subscribe to Newsletter</button></a>
+
+      
+
       </div>
       {
         displayForm &&

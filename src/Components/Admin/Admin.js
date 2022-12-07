@@ -17,7 +17,9 @@ export default function Admin(){
     return (<div>
         <Header />
         <div className="admin-container">
-            <Subscribers />
+            {
+                //<Subscribers />
+            }           
             <Tour />
             {
                 /*

@@ -18,6 +18,8 @@ function Universe(){
         Meanwhile, X is deeply diving into the Red Light Distortion.
       </p>
 
+    <TitleComponent titleContent="Songs and lyrics" />
+    
     </div>
   </div>
   <Footer />

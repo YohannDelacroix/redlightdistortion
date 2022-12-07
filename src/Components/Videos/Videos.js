@@ -12,7 +12,7 @@ function Videos(){
       <div className="videos-list">
           <iframe 
                   className="video-frame"
-                  src="https://www.youtube.com/embed/1dG4USdI4gk"
+                  src="https://www.youtube.com/embed/p0Y52_ej810"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -26,12 +26,13 @@ function Videos(){
                   allowfullscreen />
           <iframe 
                   className="video-frame"
-                  src="https://www.youtube.com/embed/1dG4USdI4gk"
+                  src="https://www.youtube.com/embed/gTMZEDhnLUI"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen />
-        
+
+
       </div>
     </div>
     <Footer />
