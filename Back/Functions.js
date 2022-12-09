@@ -1,23 +1,66 @@
+
+const fs = require('fs');
+
+
+const schedule = require('node-schedule')
+//Clean past tour dates every day at midnight 
+const job = schedule.scheduleJob('0 0 * * *', function(){
+  console.log("schedule work")
+  try{
+    //Remove the past tour dates
+    cleanPastTourDates()
+  }
+  catch(err){
+    console.log("Failed to update the tour dates today", err.stack)
+  }
+})
+
+
+//Delete all the past tour dates 
+function cleanPastTourDates(){
+    console.log("Clean tour dates")
+
+    let tourJSONFile = fs.readFileSync('../src/Datas/tourdates.json');
+    let tourList = JSON.parse(tourJSONFile);
+
+    const today = new Date();
+
+    //Convert the object date into correct format
+    let todayDate = {
+        day: today.getDate().toString(),
+        month: convertMonthNtoS((today.getMonth()+1).toString()),
+        year: today.getFullYear().toString()
+    }
+
+    const updatedTourList = tourList.filter( (date) => compareTourDates(date, todayDate)  >= 0)
+
+    fs.writeFileSync('../src/Datas/tourdates.json', JSON.stringify(updatedTourList))
+}
+
+
+
 // Convert a month numeric value to a string value like "JAN" for January (01)
 function convertMonthNtoS(monthNumeric){
+    console.log("::: ", monthNumeric)
+
     switch(monthNumeric){
-        case '01':
+        case '01' || '1':
             return "JAN";
-        case '02':
+        case '02' || '2':
             return "FEB";
-        case '03':
+        case '03' || '3':
             return "MAR";
-        case '04':
+        case '04' || '4':
             return "APR";
-        case '05':
+        case '05'|| '15':
             return "MAY";
-        case '06':
+        case '06'|| '6':
             return "JUN";
-        case '07':
+        case '07'|| '7':
             return "JUL";
-        case '08':
+        case '08'|| '8':
             return "AUG";
-        case '09':
+        case '09'|| '9':
             return "SEP";
         case '10':
             return "OCT";
@@ -133,4 +176,4 @@ function sortTourDates(tourDates){
 
 
 
-module.exports = {convertMonthNtoS, convertMonthStoN,  sortTourDates, compareTourDates}
+module.exports = {convertMonthNtoS, convertMonthStoN,  sortTourDates, compareTourDates, job}
