@@ -2,6 +2,7 @@ import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
 import "./Universe.css";
 import TitleComponent from "../TitleComponent/TitleComponent.js";
+import Lyrics from "./Lyrics.js";
 
 function Universe(){
   return (<div className="container">
@@ -20,6 +21,7 @@ function Universe(){
 
     <TitleComponent titleContent="Songs and lyrics" />
     
+    <Lyrics />
     </div>
   </div>
   <Footer />

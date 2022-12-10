@@ -184,6 +184,14 @@ app.post('/tour/delete', (req,res,next) => {
 })
 
 
+/* LYRICS */
+app.get('/lyrics', (req,res,next) => {
+    console.log("GET Lyrics Requete : " , Date.now()-start)
+    let fichier = fs.readFileSync('../src/Datas/lyrics.json');
+    let lyrics = JSON.parse(fichier)
+    res.status(200).json(lyrics);
+})
+
 
 module.exports = app;
 
