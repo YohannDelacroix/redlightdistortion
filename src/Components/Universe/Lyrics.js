@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import {useState, useEffect} from 'react'
+import "./Lyrics.css"
  
 
 const Lyrics = () => {
@@ -50,21 +51,35 @@ const Lyrics = () => {
         {error && <div>Problem fetching datas with server</div>}   
 
         
-        {lyricsSection && <div classname="universe-songs">
-                <button onClick={ () => setLyricsSection(false)}>X</button>
-                <div className="universe-songs-description">
+        {
+        //Here is the part displaying the lyrics on screen
+        lyricsSection && <div classname="universe-song">
+                <div className="universe-song-top-section">
+                <h5 className="universe-song-top-section-title">{song.title}</h5>
+                <button className="universe-song-button-close"
+                        onClick={ () => setLyricsSection(false)}>X</button>
+                <div className='universe-song-top-section-line'></div>
+                </div>
+                
+                <div className="universe-song-description">
+                    
                     {song.description}
                 </div>
-                <div className="universe-songs-lyrics" dangerouslySetInnerHTML={{__html: song.lyrics}}>
+                <div className="universe-song-lyrics">
+                    <h5>Lyrics</h5>
+                    {song.lyrics_en.map( (sentence, index) => (<div key={index} className="universe-song-lyrics-sentence">{sentence}</div>))}
                 </div>
         </div>}
 
-        {lyrics && <ul className="universe-songs-list">
+        {
+        //List of songs that the user can select to see the lyrics
+        lyrics && <ul className="universe-songs-list">
             {lyrics.map( (song, index) => {
                 console.log(song)
                 return(
                     <li key={`${index}+${song.title}`} className="universe-songs-list-item">
                         <button onClick={() => handleDisplayLyrics(song)}
+                                className="universe-songs-list-item-button"
                                 role="menuitem">{song.title}
                         </button>
                     </li>

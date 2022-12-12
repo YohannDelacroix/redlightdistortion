@@ -1,0 +1,63 @@
+.universe-songs-list{
+    list-style: none;
+    padding: 0 0;
+    margin: 20px 0;
+}
+
+.universe-songs-list-item{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+.universe-songs-list-item-button{
+    width: 100%;
+}
+
+
+.universe-song{
+    
+}
+
+.universe-song-top-section{
+    position: relative;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.universe-song-top-section-title{
+    margin: 0 0;
+    position: absolute;
+    
+}
+
+.universe-song-top-section-line{
+    position: absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    height:1px;
+    background-color: white;
+}
+
+.universe-song-description{
+    text-align: center;
+}
+
+.universe-song-lyrics{
+    text-align: center;
+}
+
+.universe-song-lyrics-sentence{
+    height: 20px;
+}
+
+.universe-song-button-close{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 5px;
+}
+
+
