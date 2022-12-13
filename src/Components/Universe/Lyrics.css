@@ -1,3 +1,5 @@
+
+
 .universe-songs-list{
     list-style: none;
     padding: 0 0;
@@ -23,20 +25,24 @@
 .universe-song-top-section{
     position: relative;
     height: 40px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .universe-song-top-section-title{
     margin: 0 0;
     position: absolute;
-    
+    font-family: 'BadSignal';
+    font-size: 20px;
+    bottom: 50%;
+    left: 10%;
+    transform: translate(0%,50%);
 }
 
 .universe-song-top-section-line{
     position: absolute;
     bottom:0;
-    left:0;
-    right:0;
+    left:10%;
+    right:10%;
     height:1px;
     background-color: white;
 }
@@ -57,7 +63,42 @@
     display: block;
     position: absolute;
     top: 0;
-    right: 5px;
+    right: 10%;
 }
 
 
+@media only screen and (min-width: 870px){
+    .lyrics-container{
+        display: flex;
+        justify-content: center;
+        transition: justify-content 1s;
+
+        
+    }
+
+    
+
+    .universe-songs-list{
+        order: 1;
+        flex-grow: 0.2;
+    }
+
+    .universe-song{
+        order: 2;
+        overflow: hidden;
+        flex: 0.0001;
+        animation: flexGrow 500ms ease forwards;
+    }
+
+    @keyframes flexGrow{
+        to{
+            flex: 1;
+        }
+    }
+
+    @keyframes flexShrink{
+        to{
+            
+        }
+    }
+}

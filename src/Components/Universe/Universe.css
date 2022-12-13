@@ -17,12 +17,14 @@
   background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
   z-index:1;
   min-height:100%;
+
+  clear: both;
 }
 
 
 .universe-content{
   color: white;
-
+  clear: both;
 }
 
 
@@ -34,7 +36,7 @@
 
 
 @media only screen and (min-width:960px){
-  .tour-container{
+  .universe-container{
       padding: 130px 200px 15px 200px;
   }
 }

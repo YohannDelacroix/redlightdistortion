@@ -50,10 +50,10 @@ const Lyrics = () => {
         {loading && <div>A moment please ...</div>}
         {error && <div>Problem fetching datas with server</div>}   
 
-        
+        <div className="lyrics-container">
         {
         //Here is the part displaying the lyrics on screen
-        lyricsSection && <div classname="universe-song">
+        lyricsSection && <div className="universe-song">
                 <div className="universe-song-top-section">
                 <h5 className="universe-song-top-section-title">{song.title}</h5>
                 <button className="universe-song-button-close"
@@ -86,6 +86,8 @@ const Lyrics = () => {
                 )
             })}
         </ul>}
+        
+        </div>
         </>
     )
 }

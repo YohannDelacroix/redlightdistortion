@@ -37,6 +37,8 @@
                     url("../../Assets/concrete-wall.jpg");
 
   color: white;
+
+  clear:both;
 }
 
 .footer-social{
