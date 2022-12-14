@@ -18,12 +18,14 @@
 }
 
 
-/*.universe-song{
-    max-height: 100px;
+.universe-song{
     overflow: hidden;
-    transition: max-height 5000ms;
     
-}*/
+    /*
+    max-height: 100px;
+    transition: max-height 5000ms;
+    */
+}
 
 
 .universe-song-top-section{
@@ -54,6 +56,13 @@
     background-color: white;
 }
 
+
+.universe-song-content{
+    margin: auto;
+    min-width: 550px;
+    max-width: 550px;
+}
+
 .universe-song-description{
     text-align: center;
     text-justify: auto;
@@ -67,6 +76,8 @@
 
 .universe-song-lyrics-sentence{
     height: 20px;
+    max-height: 20px;
+    overflow: hidden;
 }
 
 .universe-song-button-close{
@@ -93,7 +104,6 @@
 
     .universe-song{
         order: 2;
-        overflow: hidden;
     }
 
     .us-newitem{

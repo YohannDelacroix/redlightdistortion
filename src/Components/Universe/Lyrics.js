@@ -77,7 +77,7 @@ const Lyrics = () => {
             }
         }
         else{
-            setLyricsSection(false)
+            //setLyricsSection(false)
             document.getElementById("universe-song").classList.remove("us-newitem");
             document.getElementById("universe-song").classList.add("us-deleteitem");
             document.getElementById("universe-song-button-close").classList.add("disappear-animation");
@@ -99,6 +99,7 @@ const Lyrics = () => {
         <div className="lyrics-container">
         
             {lyricsSection && <div id="universe-song" className="universe-song us-newitem">
+                <div className="universe-song-content">
                 <div className="universe-song-top-section">
                 <h5 className="universe-song-top-section-title">{song.title}</h5>
                 <button id="universe-song-button-close"
@@ -114,6 +115,7 @@ const Lyrics = () => {
                 <div className="universe-song-lyrics">
                     <h5>Lyrics</h5>
                     {song.lyrics_en.map( (sentence, index) => (<div key={index} className="universe-song-lyrics-sentence">{sentence}</div>))}
+                </div>
                 </div>
             </div>}
         
