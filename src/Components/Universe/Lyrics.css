@@ -18,9 +18,13 @@
 }
 
 
-.universe-song{
+/*.universe-song{
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 5000ms;
     
-}
+}*/
+
 
 .universe-song-top-section{
     position: relative;
@@ -36,6 +40,9 @@
     bottom: 50%;
     left: 10%;
     transform: translate(0%,50%);
+    max-width: 75%;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .universe-song-top-section-line{
@@ -49,6 +56,9 @@
 
 .universe-song-description{
     text-align: center;
+    text-justify: auto;
+    padding: 0 10%;
+    overflow-x: hidden;
 }
 
 .universe-song-lyrics{
@@ -67,16 +77,14 @@
 }
 
 
+
+
 @media only screen and (min-width: 870px){
     .lyrics-container{
         display: flex;
         justify-content: center;
         transition: justify-content 1s;
-
-        
     }
-
-    
 
     .universe-songs-list{
         order: 1;
@@ -86,8 +94,16 @@
     .universe-song{
         order: 2;
         overflow: hidden;
+    }
+
+    .us-newitem{
         flex: 0.0001;
         animation: flexGrow 500ms ease forwards;
+    }
+
+    .us-deleteitem{
+        flex: 1;
+        animation: flexShrink 500ms ease forwards;
     }
 
     @keyframes flexGrow{
@@ -98,7 +114,21 @@
 
     @keyframes flexShrink{
         to{
-            
+            flex: 0.01;
+            flex: 0.0001;
         }
     }
+
+    .universe-song-button-close{
+        opacity: 1;
+        transition: opacity 250ms;
+    }
+
+    .disappear-animation{
+        opacity: 0;
+    }
+
+
 }
+
+
