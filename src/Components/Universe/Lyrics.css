@@ -7,10 +7,10 @@
 }
 
 .universe-songs-list-item{
-    width: 75%;
+    width: 200px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .universe-songs-list-item-button{
@@ -83,8 +83,9 @@
 .universe-song-button-close{
     display: block;
     position: absolute;
-    top: 0;
+    bottom:50%;
     right: 10%;
+    transform: translate(0%,50%);
 }
 
 
