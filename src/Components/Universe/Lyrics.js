@@ -77,7 +77,7 @@ const Lyrics = () => {
             }
         }
         else{
-            //setLyricsSection(false)
+            setLyricsSection(false)
             document.getElementById("universe-song").classList.remove("us-newitem");
             document.getElementById("universe-song").classList.add("us-deleteitem");
             document.getElementById("universe-song-button-close").classList.add("disappear-animation");
