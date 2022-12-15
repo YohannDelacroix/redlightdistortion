@@ -5,11 +5,11 @@ import "./Lyrics.css"
  
 
 const Lyrics = () => {
-    const [lyrics, setLyrics] = useState(null)
-    const [song, setSong] = useState(null)
-    const [error, setError] = useState(null)
-    const [loading, setLoading] = useState(true)
-    const [lyricsSection, setLyricsSection] = useState(false)
+    const [lyrics, setLyrics] = useState();
+    const [song, setSong] = useState({title:"",description:"",lyrics_en:[]});
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
+    //const [lyricsSection, setLyricsSection] = useState(false)
 
 
     //Load the lyrics from a JSON file
@@ -31,19 +31,22 @@ const Lyrics = () => {
      }
 
     getLyrics();
+    document.getElementById("universe-song").style.maxHeight = `0px`;
+    document.getElementById("universe-song").style.minHeight = `0px`;
     },[])
+
 
     //Display the lyrics object in the console (Debug)
     /*
     useEffect( () => {
         console.log("LYRICS OBJECT :", lyrics)
-    }, [lyrics])
-    */
+    }, [lyrics])*/
+    
 
     
     //Change the song displayed on screen
     const handleDisplayLyrics = (song) => {
-        setLyricsSection(true)
+        //setLyricsSection(true)
         setSong(song)
         displayLyricsSection(true, song)
     }
@@ -55,7 +58,7 @@ const Lyrics = () => {
 
         if(active){
             if(document.getElementById("universe-song") == null){
-                console.log("NULL")
+                console.log("universe-song undeclared = NULL")
             }
             else
             {
@@ -66,14 +69,18 @@ const Lyrics = () => {
                     //document.getElementById("universe-song-button-close").classList.remove("disappear-animation");
                 }*/
                 
+                
                 const heightValue = currentSong.lyrics_en.length * 20;
                 console.log(heightValue, "px");
 
-                /*const setHeight = () => {
-                    document.getElementById("universe-song").style.maxHeight = `${heightValue+200}px`;
+
+                const setHeight = () => {
+                        document.getElementById("universe-song").style.maxHeight = `${heightValue+250}px`;
+                        document.getElementById("universe-song").style.minHeight = `${heightValue+250}px`;
+                    
                 }
             
-                window.requestAnimationFrame(setHeight)*/
+                window.requestAnimationFrame(setHeight)
             }
         }
         else{
@@ -82,9 +89,11 @@ const Lyrics = () => {
             document.getElementById("universe-song").classList.add("us-deleteitem");
             document.getElementById("universe-song-button-close").classList.add("disappear-animation");
 
-            /*const setHeight = () => {
+            const setHeight = () => {
                 document.getElementById("universe-song").style.maxHeight = `0px`;
-            }*/
+                document.getElementById("universe-song").style.minHeight = `0px`;
+            }
+            window.requestAnimationFrame(setHeight)
 
         }
         
@@ -98,8 +107,8 @@ const Lyrics = () => {
 
         <div className="lyrics-container">
         
-            {lyricsSection && <div id="universe-song" className="universe-song us-newitem">
-                <div className="universe-song-content">
+            <div id="universe-song" className="universe-song us-deleteitem">
+            <div className="universe-song-content">
                 <div className="universe-song-top-section">
                 <h5 className="universe-song-top-section-title">{song.title}</h5>
                 <button id="universe-song-button-close"
@@ -117,7 +126,7 @@ const Lyrics = () => {
                     {song.lyrics_en.map( (sentence, index) => (<div key={index} className="universe-song-lyrics-sentence">{sentence}</div>))}
                 </div>
                 </div>
-            </div>}
+            </div>
         
         
 
