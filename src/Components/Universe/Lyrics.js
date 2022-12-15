@@ -93,7 +93,7 @@ const Lyrics = () => {
 
     return (
         <>
-        {loading && <div>A moment please ...</div>}
+        {loading && <div>A moment please ....</div>}
         {error && <div>Problem fetching datas with server</div>}   
 
         <div className="lyrics-container">
