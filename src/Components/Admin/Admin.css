@@ -126,3 +126,36 @@
         padding: 130px 200px 15px 200px;
     }
 }
+
+
+
+
+/* ------------    LYRICS PART    -----------------*/
+.admin-lyrics-songs{
+    margin-bottom: 20px;
+    display: grid;
+    grid-gap: 5px;
+}
+
+.admin-lyrics-songitem{
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-gap: 5px;
+    
+}
+
+.admin-lyrics-add-button{
+    grid-column-start: 3;
+}
+
+.admin-lyrics-additem{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-gap: 5px;
+}
+
+
+.admin-lyrics-form-name{
+    
+}

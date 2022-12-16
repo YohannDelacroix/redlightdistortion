@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import Subscribers from './Subscribers';
 import Tour from './Tour'
 import News from './News'
+import Lyrics from "./Lyrics";
 
 
 
@@ -26,6 +27,7 @@ export default function Admin(){
                     <News />
                 */
             }
+            <Lyrics />
             
         </div> 
         <Footer />

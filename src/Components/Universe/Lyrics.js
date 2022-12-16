@@ -107,7 +107,7 @@ const Lyrics = () => {
 
         <div className="lyrics-container">
         
-            <div id="universe-song" className="universe-song us-deleteitem">
+            <div id="universe-song" className="universe-song">
             <div className="universe-song-content">
                 <div className="universe-song-top-section">
                 <h5 className="universe-song-top-section-title">{song.title}</h5>

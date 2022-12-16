@@ -101,6 +101,7 @@
 
     .universe-song{
         order: 2;
+        flex: 0;
     }
 
     .us-newitem{
