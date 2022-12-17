@@ -1,7 +1,7 @@
 .admin-container{
     display: block;
     position: relative;
-    padding: 130px 5px 15px 5px;
+    padding: 130px 10px 15px 10px;
   
     background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
     z-index:1;
@@ -156,6 +156,16 @@
 }
 
 
-.admin-lyrics-form-name{
-    
+.admin-editlyricsform{
+    display: flex;
+    flex-direction: column;   
+}
+
+.admin-editlyricsform label{
+    margin-bottom: 5px;
+}
+
+.admin-editlyricsform input, .admin-editlyricsform textarea{
+    margin-bottom: 20px;
+    text-align: center;
 }

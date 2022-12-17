@@ -7,6 +7,9 @@ const Lyrics = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    const [updateSong, setUpdateSong] = useState({title:"",description:"",lyrics_en:""})
+    const [modeUpdate, setModeUpdate] = useState(false)
+
     //Reverse a lyrics object into a string value
     const reverseLyricsToString = (lyricsArray) => {
         let reverse_lyrics = "";
@@ -33,16 +36,41 @@ const Lyrics = () => {
         console.log("lyrics array : " , lyricsArray)
         
         console.log("reverse : ", reverseLyricsToString(lyricsArray))
+
+
+        if(!modeUpdate){ //If this is an addition, post to server
+
+        }
+        else{ //If this is an update, put to server
+
+        }
     }
 
 
     //When the admin choose to update a song
-    const handleUpdateSong = (song) => {
+    const handleUpdateMode = (song) => {
+        const initialSong = {
+            title: song.title,
+            description: song.description,
+            lyrics_en: reverseLyricsToString(song.lyrics_en)
+        }
+        setUpdateSong(initialSong)
+        setModeUpdate(true)
         console.log("Not implemented yet ...\n", song)
     }
 
     //When the admin choose to delete a song
     const handleDeleteSong = (song) => {
+        console.log("Not implemented yet ...\n" , song)
+    }
+
+    //When the admin validate the new song
+    const handleAddSong = (song) => {
+        console.log("Not implemented yet ...\n" , song)
+    }
+
+    //When the admin update an existing song
+    const handleUpdateSong = (song) => {
         console.log("Not implemented yet ...\n" , song)
     }
 
@@ -84,7 +112,7 @@ const Lyrics = () => {
                         <div className="admin-lyrics-song-title">{song.title}</div>
                         <button className="admin-lyrics-song-button"
                                 type="button" 
-                                onClick={() => handleUpdateSong(song)}>Update</button>
+                                onClick={() => handleUpdateMode(song)}>Update</button>
                         <button className="admin-lyrics-song-button"
                                 type="button"
                                 onClick={() => handleDeleteSong(song)}>Delete</button>
@@ -98,23 +126,20 @@ const Lyrics = () => {
             
 
             
-            <form onSubmit={handleSubmitLyrics}>
-                    <div className="admin-lyrics-form-name">
-                        <label htmlFor="title">Song name</label>
-                        <input type="text" name="title" />
-                    </div>
+            <form onSubmit={handleSubmitLyrics} className="admin-editlyricsform">
                     
-                    <div>
-                    <label htmlFor="description">Description</label>
-                    <textarea name="description" rows="10" cols="33" />
-                    </div>
-                    
-                    <div>
-                    <label htmlFor="lyrics-en">Write the lyrics, line by line</label>
-                    <textarea name="lyrics-en" rows="10" cols="33" />
-                    </div>
+                <label htmlFor="title">Song name</label>
+                <input type="text" name="title" defaultValue={updateSong.title} />
+                
+                <label htmlFor="description">Description</label>
+                <textarea name="description" rows="5" cols="33" defaultValue={updateSong.description} />
+                
+                <label htmlFor="lyrics-en">Write the lyrics, line by line</label>
+                <textarea name="lyrics-en" rows="50" cols="33" defaultValue={updateSong.lyrics_en}/>
 
-                    <button type="submit">Submit</button>
+
+                <button type="submit">{modeUpdate ?<span>Update</span> : <span>Add</span>}</button>
+                
             </form>
             
 
