@@ -1,7 +1,7 @@
 export const newsTable = [
   {
     title: "Show report #1 - Le Bouillon",
-    date: "December, , 2022",
+    date: "December, 05, 2022",
     img: "https://zupimages.net/up/22/49/tfb2.png",
     content:`<p>We are very happy, because we lived some great time here</p>
     <p>

@@ -3,11 +3,13 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 
 const Lyrics = () => {
+    const emptySong = {title:"",description:"",lyrics_en:""};
+
     const [lyrics, setLyrics] = useState();
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const [updateSong, setUpdateSong] = useState({title:"",description:"",lyrics_en:""})
+    const [updateSong, setUpdateSong] = useState(emptySong)
     const [modeUpdate, setModeUpdate] = useState(false)
 
     //Reverse a lyrics object into a string value
@@ -46,6 +48,11 @@ const Lyrics = () => {
         }
     }
 
+    //Set the app to the add mode
+    const handleAddMode = () => {
+        setModeUpdate(false)
+        setUpdateSong(emptySong)
+    }
 
     //When the admin choose to update a song
     const handleUpdateMode = (song) => {
@@ -119,7 +126,9 @@ const Lyrics = () => {
 
                     </div>))}
                 <div className="admin-lyrics-additem">
-                    <button className="admin-lyrics-add-button" type="button">Add a new song</button>
+                    <button className="admin-lyrics-add-button" 
+                            type="button"
+                            onClick={handleAddMode}>Add a new song</button>
                 </div>
             </div>}
 
