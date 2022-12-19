@@ -35,8 +35,8 @@ export default function Tour(){
     const handleDeleteTourDate = (tourDate) => (e) => {
         console.log(tourDate)
         axios.post('http://localhost:5050/tour/delete', tourDate).then((response) => {
-            console.log(response.status)
-            console.log(response.data)
+            console.log("response.status : \n", response.status)
+            console.log("response.datz : \n", response.data)
         })
         setUpdate(update+1);
     }
