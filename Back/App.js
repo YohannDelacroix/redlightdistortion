@@ -199,8 +199,8 @@ app.post('/lyrics/add', (req,res,next) => {
     let fichier = fs.readFileSync(jsonURL);
     let lyrics = JSON.parse(fichier);
 
-    let new_id = lyrics[lyrics.length-1].id + 1;//Generate a new unique ID
-    let newSong = { id:new_id, ...req.body}
+    //let new_id = lyrics[lyrics.length-1].id + 1;//Generate a new unique ID
+    let newSong = {...req.body}
     console.log("New song :\n", newSong);
 
     let newLyrics = [...lyrics, {...newSong}]
