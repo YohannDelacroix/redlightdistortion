@@ -6,7 +6,7 @@ import "./Lyrics.css"
 
 const Lyrics = () => {
     const [lyrics, setLyrics] = useState();
-    const [song, setSong] = useState({title:"",description:"",lyrics_en:[]});
+    const [song, setSong] = useState({title:"",description:[],lyrics_en:[]});
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     //const [lyricsSection, setLyricsSection] = useState(false)
@@ -69,14 +69,28 @@ const Lyrics = () => {
                     //document.getElementById("universe-song-button-close").classList.remove("disappear-animation");
                 }*/
                 
-                
-                const heightValue = currentSong.lyrics_en.length * 20;
+
+                let descriptionElement = document.getElementById("universe-song-description")
+                let descriptionLength = 0;
+                for(let child of descriptionElement.children){
+                    descriptionLength += child.offsetHeight;
+                }
+                console.log(descriptionLength)
+
+                const heightValue = currentSong.lyrics_en.length * 20 + descriptionLength + 80;
                 console.log(heightValue, "px");
 
+                /*let content = document.getElementById("universe-song-content")
+                //console.log("CONTENT : \n", content);
+                for(let child of content.children){
+                    console.log("CHILD: ", child, "; height = ", child.offsetHeight );
+                }*/
+
+            
 
                 const setHeight = () => {
-                        document.getElementById("universe-song").style.maxHeight = `${heightValue+250}px`;
-                        document.getElementById("universe-song").style.minHeight = `${heightValue+250}px`;
+                        document.getElementById("universe-song").style.maxHeight = `${heightValue}px`;
+                        document.getElementById("universe-song").style.minHeight = `${heightValue}px`;
                     
                 }
             
@@ -108,7 +122,7 @@ const Lyrics = () => {
         <div className="lyrics-container">
         
             <div id="universe-song" className="universe-song">
-            <div className="universe-song-content">
+            <div className="universe-song-content" id="universe-song-content">
                 <div className="universe-song-top-section">
                 <h5 className="universe-song-top-section-title">{song.title}</h5>
                 <button id="universe-song-button-close"
@@ -117,12 +131,12 @@ const Lyrics = () => {
                 <div className='universe-song-top-section-line'></div>
                 </div>
                 
-                <div className="universe-song-description">
+                <div className="universe-song-description" id="universe-song-description">
                     
-                    {song.description}
+                    {song.description.map( (sentence, index) => (<div key={index}>{sentence}</div>))}
                 </div>
                 <div className="universe-song-lyrics">
-                    <h5>Lyrics</h5>
+                    <h4>Lyrics</h4>
                     {song.lyrics_en.map( (sentence, index) => (<div key={index} className="universe-song-lyrics-sentence">{sentence}</div>))}
                 </div>
                 </div>

@@ -74,7 +74,7 @@ const Lyrics = () => {
         const initialSong = {
             id: song.id,
             title: song.title,
-            description: song.description,
+            description: reverseLyricsToString(song.description),
             lyrics_en: reverseLyricsToString(song.lyrics_en)
         }
         setUpdateSong(initialSong)
@@ -92,7 +92,8 @@ const Lyrics = () => {
         let lyrics_string = e.target['lyrics-en'].value;
         let lyrics_enArray =  convertLyricsToArray(lyrics_string);//Separate each line in a table
         let title = e.target['title'].value;
-        let description = e.target['description'].value;
+        let description_string = e.target['description'].value;
+        let descriptionArray = convertLyricsToArray(description_string);
 
         
 
@@ -102,7 +103,7 @@ const Lyrics = () => {
             const newSong = {
                 id: new_id,
                 title: title,
-                description: description,
+                description: descriptionArray,
                 lyrics_en: lyrics_enArray
             }
 
@@ -122,7 +123,7 @@ const Lyrics = () => {
             const newSong = {
                 id: updateSong.id,
                 title: title,
-                description: description,
+                description: descriptionArray,
                 lyrics_en: lyrics_enArray
             }
 

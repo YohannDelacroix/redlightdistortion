@@ -64,7 +64,11 @@
     text-justify: auto;
     padding: 0 10%;
     overflow-x: hidden;
+    font-weight: 70;
+    font-size: 14px;
+    line-height: 25px;
 }
+
 
 .universe-song-lyrics{
     text-align: center;
