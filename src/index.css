@@ -48,3 +48,9 @@ button:hover{
   border-color: rgb(178,0,0);
   opacity: 1;
 }
+
+
+/** *{
+  margin: 0 0;
+  padding: 0 0;
+}*/

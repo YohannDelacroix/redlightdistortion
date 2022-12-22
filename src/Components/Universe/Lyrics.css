@@ -1,4 +1,6 @@
-
+.lyrics-container{
+    padding: 20px 0;
+}
 
 .universe-songs-list{
     list-style: none;
@@ -31,7 +33,7 @@
 .universe-song-top-section{
     position: relative;
     height: 40px;
-    margin: 20px 0;
+    margin: 0 0 20px 0;
 }
 
 .universe-song-top-section-title{

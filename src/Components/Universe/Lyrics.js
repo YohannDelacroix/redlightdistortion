@@ -5,8 +5,10 @@ import "./Lyrics.css"
  
 
 const Lyrics = () => {
+    const emptySong = {title:"",description:[],lyrics_en:[]};
+
     const [lyrics, setLyrics] = useState();
-    const [song, setSong] = useState({title:"",description:[],lyrics_en:[]});
+    const [song, setSong] = useState(emptySong);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     //const [lyricsSection, setLyricsSection] = useState(false)
@@ -47,14 +49,65 @@ const Lyrics = () => {
     //Change the song displayed on screen
     const handleDisplayLyrics = (song) => {
         //setLyricsSection(true)
+        setSong(emptySong) //Allow the user to go back to the song he closed
         setSong(song)
-        displayLyricsSection(true, song)
+        //displayLyricsSection(true, song)
     }
+
+    //When the song changes, it change the size of the lyrics section on screen with transitions
+    useEffect(() => {
+        console.log("WORK ?")
+        if(song !== emptySong){
+            displayLyricsSection(true, song)
+        }
+    },[song])
 
     //Manage the Lyrics section on screen and the effects
     const displayLyricsSection = (active, currentSong=null) => {
 
         console.log("UPDATED : ", document.getElementById("universe-song"))
+        const elemUniverseSong = document.getElementById("universe-song");
+        const resizeLyrics = new AbortController();
+
+        
+        const afterResize = () => {
+            console.log("After resize")
+            triggerAnimation();
+        }
+
+        let timeOutFunctionID;
+        const resizeWindow = () => {
+            console.log("Resizing window");
+            clearTimeout(timeOutFunctionID);
+            timeOutFunctionID = setTimeout(afterResize, 500);
+        }
+
+        const setHeight = (heightValue) => {
+            console.log("SET SET", heightValue)
+            elemUniverseSong.style.maxHeight = `${heightValue}px`;
+            elemUniverseSong.style.minHeight = `${heightValue}px`;
+        }
+
+        //Calcul the height of the universe-song div
+        const calcHeight = () => {
+            let descriptionElement = document.getElementById("universe-song-description")
+            let descriptionLength = 0;
+            for(let child of descriptionElement.children){
+                descriptionLength += child.offsetHeight;
+            }
+            console.log("desc l : ", descriptionLength)
+            console.log((currentSong.lyrics_en.length * 20), "lyrics")
+            const heightValue = currentSong.lyrics_en.length * 20 + descriptionLength + 120;
+            console.log("heightValue = ", heightValue, "px");
+            return heightValue;
+        }
+
+        const triggerAnimation = () => {
+            const callSetHeight = () => {
+                setHeight(calcHeight());
+            }
+            window.requestAnimationFrame(callSetHeight)
+        }
 
         if(active){
             if(document.getElementById("universe-song") == null){
@@ -62,56 +115,35 @@ const Lyrics = () => {
             }
             else
             {
-                document.getElementById("universe-song").classList.remove("us-deleteitem");
-                document.getElementById("universe-song").classList.add("us-newitem");
+                elemUniverseSong.classList.remove("us-deleteitem");
+                elemUniverseSong.classList.add("us-newitem");
                 document.getElementById("universe-song-button-close").classList.remove("disappear-animation");
                 /*if(document.getElementById("universe-song-button-close").classList.contains("disappear-animation")){
                     //document.getElementById("universe-song-button-close").classList.remove("disappear-animation");
                 }*/
                 
-
-                let descriptionElement = document.getElementById("universe-song-description")
-                let descriptionLength = 0;
-                for(let child of descriptionElement.children){
-                    descriptionLength += child.offsetHeight;
-                }
-                console.log(descriptionLength)
-
-                const heightValue = currentSong.lyrics_en.length * 20 + descriptionLength + 80;
-                console.log(heightValue, "px");
-
-                /*let content = document.getElementById("universe-song-content")
-                //console.log("CONTENT : \n", content);
-                for(let child of content.children){
-                    console.log("CHILD: ", child, "; height = ", child.offsetHeight );
-                }*/
-
             
-
-                const setHeight = () => {
-                        document.getElementById("universe-song").style.maxHeight = `${heightValue}px`;
-                        document.getElementById("universe-song").style.minHeight = `${heightValue}px`;
-                    
-                }
-            
-                window.requestAnimationFrame(setHeight)
+                
+                triggerAnimation();
+                
+                //window.addEventListener("resize", resizeWindow, resizeLyrics);
             }
         }
         else{
             //setLyricsSection(false)
-            document.getElementById("universe-song").classList.remove("us-newitem");
-            document.getElementById("universe-song").classList.add("us-deleteitem");
+            elemUniverseSong.classList.remove("us-newitem");
+            elemUniverseSong.classList.add("us-deleteitem");
             document.getElementById("universe-song-button-close").classList.add("disappear-animation");
 
             const setHeight = () => {
-                document.getElementById("universe-song").style.maxHeight = `0px`;
-                document.getElementById("universe-song").style.minHeight = `0px`;
+                elemUniverseSong.style.maxHeight = `0px`;
+                elemUniverseSong.style.minHeight = `0px`;
             }
-            window.requestAnimationFrame(setHeight)
+            window.requestAnimationFrame(setHeight);
 
+            //resizeLyrics.abort();
+            //window.removeEventListener("resize", resizeWindow);
         }
-        
-        
     }
 
     return (
