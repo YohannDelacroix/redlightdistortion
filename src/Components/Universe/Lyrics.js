@@ -72,12 +72,41 @@ const Lyrics = () => {
 
             //2 - Calcul the height of the universe-song div
             const calcHeight = () => {
+                //Get the margins of a block
+                const getMargins = (blockElem) => {
+                    let style = blockElem.currentStyle || window.getComputedStyle(blockElem);
+                    let marginTop = parseInt(style.marginTop, 10);
+                    let marginBottom = parseInt(style.marginBottom, 10);
+                    return marginTop + marginBottom;
+                }
+
+                //Height of the top section
+                let universeSongTopSectionElem = document.getElementById
+                ("universe-song-top-section");
+                let heightTopSection = universeSongTopSectionElem.offsetHeight + getMargins(universeSongTopSectionElem);
+
+                //Height of the description element
                 let descriptionElement = document.getElementById("universe-song-description")
                 let descriptionLength = 0;
                 for(let child of descriptionElement.children){
                     descriptionLength += child.offsetHeight;
                 }
-                const heightValue = currentSong.lyrics_en.length * 20 + descriptionLength + 120; 
+
+                //Height of the lyrics title
+                let universeSongLyricsTitleElem = document.getElementById
+                ("universe-song-lyrics-title");
+                let heightLyricsTitle = universeSongLyricsTitleElem.offsetHeight + getMargins(universeSongLyricsTitleElem);
+
+
+                //Height of the lyrics lines
+                let heightOneLyric = document.getElementsByClassName("universe-song-lyrics-sentence");
+                let lyricsHeight = 0;
+                for(let i = 0; i < heightOneLyric.length; i++){
+                    lyricsHeight += heightOneLyric[i].offsetHeight;
+                }
+
+                //Total height
+                const heightValue = lyricsHeight + descriptionLength + heightTopSection + heightLyricsTitle; 
                 return heightValue;
             }
 
@@ -158,7 +187,7 @@ const Lyrics = () => {
         
             <div id="universe-song" className="universe-song">
             <div className="universe-song-content" id="universe-song-content">
-                <div className="universe-song-top-section">
+                <div className="universe-song-top-section" id="universe-song-top-section">
                 <h5 className="universe-song-top-section-title">{song.title}</h5>
                 <button id="universe-song-button-close"
                         className="universe-song-button-close"
@@ -171,7 +200,7 @@ const Lyrics = () => {
                     {song.description.map( (sentence, index) => (<div key={index}>{sentence}</div>))}
                 </div>
                 <div className="universe-song-lyrics">
-                    <h4>Lyrics</h4>
+                    <h4 id="universe-song-lyrics-title">Lyrics</h4>
                     {song.lyrics_en.map( (sentence, index) => (<div key={index} className="universe-song-lyrics-sentence">{sentence}</div>))}
                 </div>
                 </div>
