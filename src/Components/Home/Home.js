@@ -24,6 +24,31 @@ function Home(){
   const resultsDefault = {name: "", city: "", email: ""};
   const [results, setResults] = useState(resultsDefault);
 
+  const [dataTour, setDataTour] = useState(null);
+  const [errorTour, setErrorTour] = useState(null);
+  const [loadingTour, setLoadingTour] = useState(true);
+  
+  //Get the datas from the server
+  useEffect( () => {
+
+      //Get list of tour dates from the server
+      const getTourDates = async () => {
+          try{ 
+              const response = await axios.get('http://localhost:5050/tour')
+              setDataTour(response.data)
+              setErrorTour(null)
+          } 
+          catch(err){
+              setErrorTour(err.message)
+              setDataTour(null)
+          }
+          finally{
+              setLoadingTour(false)
+          }
+      }
+      getTourDates();
+  }, []);
+
 
   //Handle when button "Subscribe to Newsletter" is pressed
   const handleButtonNewsletter = (e) => {
@@ -142,11 +167,29 @@ function Home(){
 
     {dataDate.length != 0 && <div className="home-tour">
       <TitleComponent titleContent="Tour Dates" />
+
       <ul className="tour-list">
-      {dataDate.slice(0,5).map((date, index) => (
-        <li key={index}><Date date_content={dataDate[index]} /></li>
-      ))}
+                    {
+                        loadingTour && <div>A moment please ...</div>
+                    }
+
+                    {
+                        errorTour && (<div>
+                            {`Problem fetching datas - ${errorTour}`}
+                        </div>)
+                    }
+
+                    {
+                        dataTour && (
+                            dataTour.length == 0 ? <div className="tour-nodate">No upcoming tour dates</div> : (
+                                dataTour.slice(0,5).map((date, index) => (
+                                    <li key={`${date.day}-${date.month}-${date.year}`}><Date date_content={dataTour[index]} /></li>
+                                  ))
+                                )
+                        )
+                    }
       </ul>
+
       <Link className="home-link" to="/Tour"><button className="home-button">More Tour Dates</button></Link>
     </div>}
     
