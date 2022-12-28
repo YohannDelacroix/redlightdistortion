@@ -1,5 +1,6 @@
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
+import Loading from "../Loading/Loading"
 import "./Home.css";
 
 import Couverture1 from "../../Assets/Couverture1.jpg";
@@ -170,7 +171,7 @@ function Home(){
 
       <ul className="tour-list">
                     {
-                        loadingTour && <div>A moment please ...</div>
+                        loadingTour && <Loading />
                     }
 
                     {

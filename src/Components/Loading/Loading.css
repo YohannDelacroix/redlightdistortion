@@ -1,0 +1,30 @@
+.loading-container{
+    position: relative;
+    min-height: 50px;
+    margin: 10px 0;
+}
+
+.loading-spin::before{
+    animation: 1.5s linear infinite spinner;
+    animation-play-state: inherit;
+    border: solid 3px #cfd0d1;
+    border-bottom-color: rgb(128,0,0);
+    border-radius: 50%;
+    content: "";
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 40px;
+    will-change: transform;
+}
+
+@keyframes spinner {
+    0% {
+      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    }
+    100% {
+      transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    }
+  }

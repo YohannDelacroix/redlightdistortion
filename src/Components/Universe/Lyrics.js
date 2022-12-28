@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import {useState, useEffect} from 'react'
+import Loading from '../Loading/Loading'
 import "./Lyrics.css"
  
 
@@ -33,7 +34,10 @@ const Lyrics = () => {
         }
      }
 
+
     getLyrics();
+
+
         if(!setLyricsSection){
             document.getElementById("universe-song").style.maxHeight = `0px`;
             document.getElementById("universe-song").style.minHeight = `0px`;
@@ -180,7 +184,7 @@ const Lyrics = () => {
 
     return (
         <>
-        {loading && <div>A moment please ....</div>}
+        { loading && <Loading /> }
         {error && <div>Problem fetching datas with server</div>}   
 
         <div className="lyrics-container">

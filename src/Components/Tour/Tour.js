@@ -7,6 +7,7 @@ import {dataDate} from "./dataDate.js";
 import { cloneElement } from "react";
 import {useState, useEffect} from 'react'
 import axios from "axios";
+import Loading from "../Loading/Loading.jsx";
 
 function Tour(){
   const [dataTour, setDataTour] = useState(null);
@@ -45,7 +46,7 @@ function Tour(){
 
     <ul className="tour-list">
                     {
-                        loadingTour && <div>A moment please ...</div>
+                        loadingTour && <Loading />
                     }
 
                     {
