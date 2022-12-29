@@ -9,7 +9,7 @@ export const newsTable = [
     </p>
 
     <p>
-      Here is the Walrus playing a famous song, will you recognize it ? You can see that we are very serious while the balance ... 
+      Here is the Walrus playing a famous song, will you recognize it ? You can see that we are very serious during the balance ... 
     </p>
 
     

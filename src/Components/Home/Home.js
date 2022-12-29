@@ -18,6 +18,7 @@ import {images} from "../Photos/dataPhotos.js";
 import axios, { Axios } from "axios";
 
 import logoBlanc from "../../Assets/RLDLogoFondNoir.png";
+import ServerError from "../Errors/ServerError.js";
 
 function Home(){
   const [displayForm, setDisplayForm] = useState(false);
@@ -175,9 +176,7 @@ function Home(){
                     }
 
                     {
-                        errorTour && (<div>
-                            {`Problem fetching datas - ${errorTour}`}
-                        </div>)
+                        errorTour && (<ServerError />)
                     }
 
                     {

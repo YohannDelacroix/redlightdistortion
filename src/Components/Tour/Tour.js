@@ -8,6 +8,7 @@ import { cloneElement } from "react";
 import {useState, useEffect} from 'react'
 import axios from "axios";
 import Loading from "../Loading/Loading.jsx";
+import ServerError from "../Errors/ServerError.js";
 
 function Tour(){
   const [dataTour, setDataTour] = useState(null);
@@ -44,18 +45,16 @@ function Tour(){
     <TitleComponent titleContent="Tour Dates" />
 
 
-    <ul className="tour-list">
+    
                     {
                         loadingTour && <Loading />
                     }
 
                     {
-                        errorTour && (<div>
-                            {`Problem fetching datas - ${errorTour}`}
-                        </div>)
+                        errorTour && (<ServerError />)
                     }
 
-
+    <ul className="tour-list">
                     <div>
                     {
                         

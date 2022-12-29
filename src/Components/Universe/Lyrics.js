@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import {useState, useEffect} from 'react'
+import ServerError from '../Errors/ServerError'
 import Loading from '../Loading/Loading'
 import "./Lyrics.css"
  
@@ -185,7 +186,7 @@ const Lyrics = () => {
     return (
         <>
         { loading && <Loading /> }
-        {error && <div>Problem fetching datas with server</div>}   
+        {error && <ServerError />}   
 
         <div className="lyrics-container">
         
