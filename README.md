@@ -1,3 +1,9 @@
+# Getting Started with Red Light Distortion
+
+In the folder Back, run :
+### `node Server.js`
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
