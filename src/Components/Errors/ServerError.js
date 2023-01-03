@@ -13,4 +13,4 @@ const ServerError = () => {
   )
 }
 
-export default ServerError
+export default ServerError;

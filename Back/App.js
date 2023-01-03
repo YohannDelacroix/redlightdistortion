@@ -112,7 +112,8 @@ app.post('/newsletter/add', (req,res,next) => {
 
 
 
-/*      TOUR DATES      */
+app.use('/tour', require('./routes/api/tour'));
+/*      TOUR DATES      
 
 app.get('/tour', (req,res,next) => {
     console.log("GET Tour Requete : " , Date.now()-start)
@@ -182,7 +183,7 @@ app.post('/tour/delete', (req,res,next) => {
         message: "Request post ok (Delete entry)"
     })
 })
-
+*/
 
 /* LYRICS */
 app.get('/lyrics', (req,res,next) => {

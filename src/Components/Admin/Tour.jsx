@@ -34,7 +34,7 @@ export default function Tour(){
     //When the admin press the button Delete, a tour date is removed from the calendar
     const handleDeleteTourDate = (tourDate) => (e) => {
         console.log(tourDate)
-        axios.post('http://localhost:5050/tour/delete', tourDate).then((response) => {
+        axios.delete('http://localhost:5050/tour', {data: tourDate}).then((response) => {
             console.log("response.status : \n", response.status)
             console.log("response.datz : \n", response.data)
         })
@@ -99,7 +99,7 @@ export default function Tour(){
             document.getElementById("alreadyUsedDate").classList.add("failed-hidden")
         }
 
-        if(e.target.value != ""){
+        if(e.target.value !== ""){
             document.getElementById('unfilledDate').classList.add("failed-hidden")
         }
 
@@ -113,21 +113,21 @@ export default function Tour(){
     }
 
     const controlCity = (e) => {
-        if(e.target.value != ""){
+        if(e.target.value !== ""){
             document.getElementById('city').classList.remove("field-failed")
             document.getElementById('unfilledCity').classList.add("failed-hidden")
         }
     }
 
     const controlRegion = (e) => {
-        if(e.target.value != ""){
+        if(e.target.value !== ""){
             document.getElementById('region').classList.remove("field-failed")
             document.getElementById('unfilledRegion').classList.add("failed-hidden")
         }
     }
 
     const controlCountry = (e) => {
-        if(e.target.value != ""){
+        if(e.target.value !== ""){
             document.getElementById('country').classList.remove("field-failed")
             document.getElementById('unfilledCountry').classList.add("failed-hidden")
         }
@@ -147,7 +147,7 @@ export default function Tour(){
         let checked = []
 
         for(let i = 0; i < dataTour.length; i++){
-            if(dataTour[i].day == date.day && dataTour[i].month == convertMonthNtoS(date.month) && dataTour[i].year == date.year){
+            if(dataTour[i].day === date.day && dataTour[i].month === convertMonthNtoS(date.month) && dataTour[i].year === date.year){
                 checked.push(false)
             }
         }
@@ -165,7 +165,7 @@ export default function Tour(){
         let checked = true;
 
         //Check date
-        if(e.target['date'].value == ""){
+        if(e.target['date'].value === ""){
             checked=false;
             document.getElementById('date').classList.add("field-failed")
             document.getElementById('unfilledDate').classList.remove("failed-hidden")
@@ -178,7 +178,7 @@ export default function Tour(){
         }
 
         //Check place name
-        if(e.target['place_name'].value == ""){
+        if(e.target['place_name'].value === ""){
             checked=false;
             document.getElementById('place_name').classList.add("field-failed")
             document.getElementById('unfilledPlace').classList.remove("failed-hidden")
@@ -189,7 +189,7 @@ export default function Tour(){
         }
 
         //Check city
-        if(e.target['city'].value == ""){
+        if(e.target['city'].value === ""){
             checked=false;
             document.getElementById('city').classList.add("field-failed")
             document.getElementById('unfilledCity').classList.remove("failed-hidden")
@@ -200,7 +200,7 @@ export default function Tour(){
         }
 
         //Check region
-        if(e.target['region'].value == ""){
+        if(e.target['region'].value === ""){
             checked=false;
             document.getElementById('region').classList.add("field-failed")
             document.getElementById('unfilledRegion').classList.remove("failed-hidden")
@@ -211,7 +211,7 @@ export default function Tour(){
         }
 
         //Check country
-        if(e.target['country'].value == ""){
+        if(e.target['country'].value === ""){
             checked=false;
             document.getElementById('country').classList.add("field-failed")
             document.getElementById('unfilledCountry').classList.remove("failed-hidden")
@@ -250,12 +250,13 @@ export default function Tour(){
 
             console.log(data)
 
-            axios.post('http://localhost:5050/tour/add', data).then((response) => {
-                console.log(response.status)
-                console.log(response.data)
+            axios.post('http://localhost:5050/tour/', data).then((response) => {
+                console.log(response.status);
+                console.log(response.data);
+                setUpdate(update+1);
             })
             resetForm();
-            setUpdate(update+1);
+            
         }
         
     }
