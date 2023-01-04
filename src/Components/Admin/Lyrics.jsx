@@ -107,7 +107,7 @@ const Lyrics = () => {
                 lyrics_en: lyrics_enArray
             }
 
-            axios.post('http://localhost:5050/lyrics/add', newSong).then((response) => {
+            axios.post('http://localhost:5050/lyrics/', newSong).then((response) => {
                 console.log("response.status : \n", response.status)
                 console.log("response.datz : \n", response.data)
 
@@ -127,7 +127,7 @@ const Lyrics = () => {
                 lyrics_en: lyrics_enArray
             }
 
-            axios.post('http://localhost:5050/lyrics/update', newSong).then((response) => {
+            axios.put('http://localhost:5050/lyrics/', newSong).then((response) => {
                 console.log("response.status : \n", response.status)
                 console.log("response.datz : \n", response.data)
 
@@ -157,7 +157,7 @@ const Lyrics = () => {
     const handleDeleteSong = (song) => {
         console.log("delete song ...\n" , song)
 
-        axios.post('http://localhost:5050/lyrics/delete', song).then((response) => {
+        axios.delete('http://localhost:5050/lyrics/', {data: song} ).then((response) => {
                 console.log("response.status : \n", response.status)
                 console.log("response.datz : \n", response.data)
 
