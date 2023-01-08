@@ -11,9 +11,6 @@
 
 }
 
-.admin-subscribers-container{
-   
-}
 
 .admin-subscriber{
     display: flex;
@@ -32,7 +29,7 @@
 .admin-block-button{
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 
@@ -194,4 +191,14 @@
 
 .admin-menu-choice-button-focus{
     border-color: red;
+}
+
+.admin-view{
+    position: relative;
+}
+
+.admin-close-button{
+    position: absolute;
+    top: 0;
+    right: 0;
 }
