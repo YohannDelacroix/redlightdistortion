@@ -202,3 +202,15 @@
     top: 0;
     right: 0;
 }
+
+
+.admin-login{
+    display: grid;
+    margin: auto;
+    padding: 10px;
+    place-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 300px;
+    border: solid thick white;
+}
