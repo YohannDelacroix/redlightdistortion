@@ -1,6 +1,9 @@
-const http = require('http')
+const http = require('http');
+const { mongoose } = require('mongoose');
 const app = require('./App.js')
+const connectDB = require('./config/dbConn');
 
+connectDB();
 
 const normalizePort = val => {
     const port = parseInt(val, 10);
@@ -39,12 +42,19 @@ const errorHandler = error => {
     }
   };
 
-  const server = http.createServer(app);
-  server.on('error', errorHandler);
-  server.on('listening', () => {
-    const address = server.address();
-    const bind = typeof address === 'string' ? 'pipe'+address : 'port: '+port;
-    console.log("Listening on " + bind);
-  });
   
-  server.listen(port);
+  
+
+
+  mongoose.connection.once('open', () => {
+    console.log("Connected to MongoDB");
+
+    const server = http.createServer(app);
+    server.on('error', errorHandler);
+    server.on('listening', () => {
+      const address = server.address();
+      const bind = typeof address === 'string' ? 'pipe'+address : 'port: '+port;
+      console.log("Listening on " + bind);
+    });
+    server.listen(port);
+  })

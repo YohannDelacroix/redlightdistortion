@@ -1,5 +1,4 @@
 import "./Tour.css";
-import {useState} from 'react';
 
 function Date({date_content}){
   //Don't display the buttons is there is no link available

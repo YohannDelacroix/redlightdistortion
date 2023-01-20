@@ -111,7 +111,7 @@ const Lyrics = () => {
                 console.log("response.status : \n", response.status)
                 console.log("response.datz : \n", response.data)
 
-                if(response.status == 201){
+                if(response.status === 201){
                     document.getElementById('ltitle').value="";
                     document.getElementById('ldescription').value="";
                     document.getElementById('llyrics-en').value="";
@@ -131,7 +131,7 @@ const Lyrics = () => {
                 console.log("response.status : \n", response.status)
                 console.log("response.datz : \n", response.data)
 
-                if(response.status == 201){
+                if(response.status === 201){
                     document.getElementById('ltitle').value="";
                     document.getElementById('ldescription').value="";
                     document.getElementById('llyrics-en').value="";
@@ -161,7 +161,7 @@ const Lyrics = () => {
                 console.log("response.status : \n", response.status)
                 console.log("response.datz : \n", response.data)
 
-                if(response.status == 201){
+                if(response.status === 201){
                     let newLyrics = lyrics.filter((sg) => song.id !== sg.id);
                     console.log("TEST : \n", newLyrics)
                     setLyrics(newLyrics);
