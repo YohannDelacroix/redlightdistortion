@@ -1,5 +1,5 @@
 import './News_mobile.css';
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 
 
 function NewsComponent({newsContent}){

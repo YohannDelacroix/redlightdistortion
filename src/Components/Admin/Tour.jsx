@@ -106,7 +106,7 @@ export default function Tour(){
     }
 
     const controlPlaceName = (e) => {
-        if(e.target.value != ""){
+        if(e.target.value !== ""){
             document.getElementById('place_name').classList.remove("field-failed")
             document.getElementById('unfilledPlace').classList.add("failed-hidden")
         }
@@ -152,7 +152,7 @@ export default function Tour(){
             }
         }
 
-        if(checked[0] == false) return false
+        if(checked[0] === false) return false
         else return true
     }
 

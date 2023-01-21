@@ -3,7 +3,6 @@ import Footer from "../Footer/Footer.js";
 import Loading from "../Loading/Loading"
 import "./Home.css";
 
-import Couverture1 from "../../Assets/Couverture1.jpg";
 
 import TitleComponent from "../TitleComponent/TitleComponent.js";
 import {useState, useEffect} from 'react'
@@ -15,7 +14,7 @@ import {dataDate} from "../Tour/dataDate.js";
 import Date from "../Tour/Date.js";
 import {images} from "../Photos/dataPhotos.js";
 
-import axios, { Axios } from "axios";
+import axios from "axios";
 
 import logoBlanc from "../../Assets/RLDLogoFondNoir.png";
 import ServerError from "../Errors/ServerError.js";
@@ -53,10 +52,10 @@ function Home(){
 
 
   //Handle when button "Subscribe to Newsletter" is pressed
-  const handleButtonNewsletter = (e) => {
+  /*const handleButtonNewsletter = (e) => {
     e.preventDefault();
     setDisplayForm(true);
-  };
+  };*/
 
 
   //Handle when button "Subscribe" is pressed
@@ -167,7 +166,7 @@ function Home(){
 
   
 
-    {dataDate.length != 0 && <div className="home-tour">
+    {dataDate.length !== 0 && <div className="home-tour">
       <TitleComponent titleContent="Tour Dates" />
 
       <ul className="tour-list">
@@ -181,7 +180,7 @@ function Home(){
 
                     {
                         dataTour && (
-                            dataTour.length == 0 ? <div className="tour-nodate">No upcoming tour dates</div> : (
+                            dataTour.length === 0 ? <div className="tour-nodate">No upcoming tour dates</div> : (
                                 dataTour.slice(0,5).map((date, index) => (
                                     <li key={`${date.day}-${date.month}-${date.year}`}><Date date_content={dataTour[index]} /></li>
                                   ))
@@ -217,7 +216,7 @@ function Home(){
           images.slice(0,3).map((image) => (
 
             <div className="photo-galery-img-container" key={image}>
-            <a href={image}><img src={image} alt="image" className="photo-galery-img" /></a>
+            <a href={image}><img src={image} alt="X or walrus" className="photo-galery-img" /></a>
           </div>
 
           ))
@@ -227,7 +226,7 @@ function Home(){
     </div>
 
     <div className="home-logo">
-      <img src={logoBlanc} className="logo-img" />
+      <img src={logoBlanc} className="logo-img" alt="bandlogo" />
     </div>
 
   </div>     

@@ -1,18 +1,17 @@
 import "./Footer.css";
-import LogoFb from "../../Assets/Facebook.png";
-import LogoInsta from "../../Assets/Instagram.png";
-import LogoYouTube from "../../Assets/YouTube.png";
 import {SiFacebook, SiInstagram, SiYoutube} from 'react-icons/si'
 import { IconContext } from "react-icons";
+import PressKit from "../../Assets/DossierREDLIGHTDISTORTION-1.pdf"
 
 function Footer(){
     return (
     <div className="footer">
 
     <div className="footer-contact">
-      <p>+33 779 77 40 26</p>
+      {//<p>+33 779 77 40 26</p>
+      }
       <p>redlightdistortion.metalband@gmail.com</p>
-      <p>  <a>Press Kit</a> </p>
+      <p>  <a href={PressKit} target="_blank" rel="noreferrer"><button>Download Press Kit (FR)</button></a></p>
     </div>
 
     <div className="footer-social">
@@ -22,7 +21,7 @@ function Footer(){
 
         */
       }
-        <a href="https://www.facebook.com/redlightdistortion/" target="_blank">
+        <a href="https://www.facebook.com/redlightdistortion/" target="_blank" rel="noreferrer">
           <IconContext.Provider value={{className: 'footer-react-icons', size:'25px'}}>
               <div>
               <SiFacebook />
@@ -31,14 +30,14 @@ function Footer(){
           </IconContext.Provider>
         </a>
         
-        <a href="https://www.instagram.com/redlightdistortion/" target="_blank">
+        <a href="https://www.instagram.com/redlightdistortion/" target="_blank" rel="noreferrer">
         <IconContext.Provider value={{className: 'footer-react-icons', size:'25px'}}>
                         <div><SiInstagram /></div>
         </IconContext.Provider>
       
         </a>
         
-        <a href="https://www.youtube.com/channel/UC1C7_waXIYi6cdy_jCPKoLQ" target="_blank">
+        <a href="https://www.youtube.com/channel/UC1C7_waXIYi6cdy_jCPKoLQ" target="_blank" rel="noreferrer">
         <IconContext.Provider value={{className: 'footer-react-icons', size:'25px'}}>
                         <div><SiYoutube /></div>
           </IconContext.Provider>

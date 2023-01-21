@@ -3,8 +3,6 @@ import Footer from "../Footer/Footer.js";
 import TitleComponent from "../TitleComponent/TitleComponent.js";
 import "./Tour.css";
 import Date from "./Date.js";
-import {dataDate} from "./dataDate.js";
-import { cloneElement } from "react";
 import {useState, useEffect} from 'react'
 import axios from "axios";
 import Loading from "../Loading/Loading.jsx";
@@ -59,7 +57,7 @@ function Tour(){
                     {
                         
                         dataTour && (
-                            dataTour.length == 0 ? <div className="tour-nodate">No upcoming tour dates</div> : (
+                            dataTour.length === 0 ? <div className="tour-nodate">No upcoming tour dates</div> : (
                                 dataTour.map((date, index) => (
                                     <li key={`${date.day}-${date.month}-${date.year}`}><Date date_content={dataTour[index]} /></li>
                                   ))

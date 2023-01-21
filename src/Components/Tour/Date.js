@@ -26,11 +26,11 @@ function Date({date_content}){
 
     <div className="date-links">
       <div className={dateMore}>
-          <a href={date_content.more_link} target="_blank"><button>More info</button></a>
+          <a href={date_content.more_link} target="_blank" rel="noreferrer"><button>More info</button></a>
       </div>
 
       <div className={dateTicket}>
-        <a href={date_content.ticket_link} target="_blank"><button>Tickets</button></a>
+        <a href={date_content.ticket_link} target="_blank" rel="noreferrer"><button>Tickets</button></a>
       </div>
     </div>
 

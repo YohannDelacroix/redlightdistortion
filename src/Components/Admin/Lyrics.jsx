@@ -168,14 +168,6 @@ const Lyrics = () => {
                 }
         })
     }
-
-    
-
-    //When the admin update an existing song
-    const handleUpdateSong = (song) => {
-        console.log("Not implemented yet ...\n" , song)
-    }
-
     
 
     return (

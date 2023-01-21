@@ -60,7 +60,10 @@
 
 .footer-contact{
   font-size: 11px;
+}
 
+.footer-contact p {
+  padding-bottom: 15px;
 }
 
 .footer-social-image{

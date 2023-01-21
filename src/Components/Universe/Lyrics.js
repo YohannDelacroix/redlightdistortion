@@ -39,11 +39,11 @@ const Lyrics = () => {
     getLyrics();
 
 
-        if(!setLyricsSection){
+        if(!lyricsSection){
             document.getElementById("universe-song").style.maxHeight = `0px`;
             document.getElementById("universe-song").style.minHeight = `0px`;
         }
-    },[setLyricsSection])
+    },[lyricsSection])
 
     
     //Change the song displayed on screen

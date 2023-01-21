@@ -16,7 +16,7 @@ function Photos(){
         {
           images.map((image) => {
             return (<div className="photo-galery-img-container" key={image}>
-              <a href={image}><img src={image} alt="image" className="photo-galery-img" /></a>
+              <a href={image}><img src={image} alt="X or Walrus" className="photo-galery-img" /></a>
             </div>)
           }
 

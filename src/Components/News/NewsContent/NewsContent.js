@@ -1,11 +1,6 @@
-import Header from "../../Header/Header.js";
-import Footer from "../../Footer/Footer.js";
 import "./NewsContent.css";
-import TitleComponent from "../../TitleComponent/TitleComponent.js";
 import {useParams} from 'react-router-dom';
 import {getNews} from "../dataNews";
-import {useEffect} from 'react';
-
 
 
 function NewsContent(){

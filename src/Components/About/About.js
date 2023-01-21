@@ -14,7 +14,7 @@ function About(){
       <div className="about-biography">
         
         <div className="about-member-biography-left">
-          <img className="about-img-yohann" src={RomanPic} alt="beautiful picture of X" />
+          <img className="about-img-yohann" src={RomanPic} alt="Walrus" />
           <h3>Walrus</h3>
           <h5 className="about-title-right">Roman Krukowski</h5>
           <h6>Guitarist</h6>
@@ -39,7 +39,7 @@ function About(){
         </div>
 
         <div className="about-member-biography-right">
-        <img className="about-img-roman" src={YohannPic} alt="beautiful picture of X" />
+        <img className="about-img-roman" src={YohannPic} alt="X" />
           
           <h3>X</h3>
           <h5 className="about-title-left">Yohann Delacroix</h5>
