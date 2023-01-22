@@ -24,7 +24,8 @@ app.use(express.json())
 
 const start = Date.now();
 
-app.use('/register', require('./routes/api/register'))
+app.use('/register', require('./routes/api/register'));
+app.use('/auth', require('./routes/api/auth'));
 app.use('/tour', require('./routes/api/tour'));
 app.use('/lyrics', require('./routes/api/lyrics'))
 

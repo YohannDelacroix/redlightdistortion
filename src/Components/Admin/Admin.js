@@ -5,6 +5,7 @@ import { useState } from "react";
 import Tour from './Tour'
 import Lyrics from "./Lyrics";
 import TitleComponent from '../TitleComponent/TitleComponent'
+import axios from "axios";
 
 
 export default function Admin(){
@@ -15,6 +16,7 @@ export default function Admin(){
 
     const [display, setDisplay] = useState(DISPLAY_NONE);
     const [access, setAccess] = useState(false);
+    const [errMsg, setErrMsg] = useState('');
 
     //Apply a class on the button selected
     const buttonFocus = (id) => {
@@ -51,14 +53,35 @@ export default function Admin(){
         buttonFocus(DISPLAY_NONE);
     }
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         //If password match
         e.preventDefault();
         let pwd = e.target.pwd.value;
         let username = e.target.username.value;
         console.log(username, pwd)
         
-        setAccess(true);
+        try{
+            const response = await axios.post("http://localhost:5050/auth", {user: username, pwd: pwd});
+
+            if(response.status === 200){
+                console.log("SERV: " , response);
+                setAccess(true);
+            }
+        }catch(err){
+            if(!err?.response){
+                setErrMsg('No Server Response');
+            }
+            else if(err.response?.status === 400){
+                setErrMsg('Missing Username or Password');
+            }
+            else if(err.response?.status === 401){
+                setErrMsg('Wrong Username or Password');
+            }
+            else{
+                setErrMsg('Login Failed');
+            }
+            
+        }
     }
 
 
@@ -66,12 +89,23 @@ export default function Admin(){
         <Header />
         <div className="admin-container">
 
+        
         {!access && <form className="admin-login" onSubmit={handleLogin}>
+            {errMsg && <div className="admin-login-error">{errMsg}</div>}
             <label htmlFor="username">Username:</label>
-            <input type="text" name="username" id="username" autoComplete="off" required />
+            <input  type="text" 
+                    name="username" 
+                    id="username" 
+                    autoComplete="off" 
+                    defaultValue="admin"
+                    required />
 
             <label htmlFor="pwd">Password:</label>
-            <input type="password" name="pwd" id="pwd" autoComplete="off" required />
+            <input  type="password" 
+                    name="pwd" 
+                    id="pwd" 
+                    autoComplete="new-password" 
+                    required />
             <button type="submit">Log in</button>
         </form>}
         

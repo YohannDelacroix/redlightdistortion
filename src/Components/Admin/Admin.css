@@ -211,3 +211,7 @@
     width: 300px;
     border: solid thick white;
 }
+
+.admin-login-error{
+    color: red;
+}
