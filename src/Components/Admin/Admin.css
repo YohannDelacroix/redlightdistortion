@@ -215,3 +215,9 @@
 .admin-login-error{
     color: red;
 }
+
+.admin-presskit-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
