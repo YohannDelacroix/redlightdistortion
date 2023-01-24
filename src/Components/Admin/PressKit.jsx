@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 
@@ -6,14 +7,29 @@ const PressKit = () => {
 
     //Require PDF from database
     useEffect( () => {
-        try{
-            const pdfFile = require('../../Assets/DossierREDLIGHTDISTORTION-1.pdf');
-            setPressKit(pdfFile);
-            console.log(pdfFile);
+
+        const getPressKit = async () => {
+            try{
+                let pdfFile = await axios.get("http://localhost:5050/pressKit", {responseType: 'blob'});
+                
+                if(pdfFile.data){
+                    console.log("pdfFile loaded")
+                    let objectURL = window.URL.createObjectURL(pdfFile.data);
+                    setPressKit(objectURL);
+                }
+                else{
+                    console.log("not found")
+                }
+            }
+            catch(err){
+                console.log(err.message)
+            }
         }
-        catch(err){
-            console.log("File not found")
-        }
+        
+
+        
+
+        getPressKit();
     }, [])
 
 
@@ -23,7 +39,7 @@ const PressKit = () => {
         let file = document.getElementById('file-selector').files[0];
         console.log(file);
         
-        //Send to database
+        
     }
 
 

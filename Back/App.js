@@ -27,7 +27,8 @@ const start = Date.now();
 app.use('/register', require('./routes/api/register'));
 app.use('/auth', require('./routes/api/auth'));
 app.use('/tour', require('./routes/api/tour'));
-app.use('/lyrics', require('./routes/api/lyrics'))
+app.use('/lyrics', require('./routes/api/lyrics'));
+app.use('/pressKit', require('./routes/api/pressKit'));
 
 
 module.exports = app;
