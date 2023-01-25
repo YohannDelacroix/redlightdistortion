@@ -15,14 +15,14 @@ const getPressKit = (req,res) => {
 }
 
 const postPressKit = (req,res) => {
-    let pressKit = req.body;
+    let pressKit = req.file;
+
     if(pressKit) {
-        //fs.writeFileSync(path.join(__dirname, "..", "files", "test.pdf"), pressKit, 'binary');
+        console.log(pressKit);
 
-        /**let st = fs.createWriteStream(path.join(__dirname, "..", "files", "test.pdf"))
-        fs.writeFileSync()*/
+        //fs.writeFileSync(path.join(__dirname, "..", "files", "test.pdf"), pressKit.path);
 
-        return res.status(201).json({"message": "ok"});
+        return res.status(201).json({"message": "Press Kit saved"});
     }
     else return res.status(500);
 }

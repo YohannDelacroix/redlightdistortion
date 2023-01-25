@@ -52,7 +52,7 @@ const PressKit = () => {
 
             <h3>Update Press Kit</h3>
             <form className="admin-presskit-form" onSubmit={handleSubmitPressKit}>
-                <input type="file" id="file-selector" name="fileinput" accept=".pdf" required />
+                <input type="file" id="file-selector" name="pressKit" accept=".pdf" required />
                 <button type="submit">Import</button>
             </form>
            
