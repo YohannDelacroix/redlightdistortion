@@ -36,10 +36,23 @@ const PressKit = () => {
     //Add a new press kit
     const handleSubmitPressKit = (e) => {
         e.preventDefault();
-        let file = document.getElementById('file-selector').files[0];
-        console.log(file);
+        const formData = new FormData(e.target);
         
-        
+        axios.post("http://localhost:5050/pressKit", formData, {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        }).then((res) => {
+            console.log(res);
+            let file = document.getElementById('file-selector').files[0];
+            let objectURL = window.URL.createObjectURL(file);
+            setPressKit(objectURL);
+
+            //Reset form
+            document.getElementById('pressKitForm').reset();
+        }).catch((err) => {
+            console.log(err);
+        })
     }
 
 
@@ -51,11 +64,16 @@ const PressKit = () => {
             </div> : <span>No presskit uploaded</span>}
 
             <h3>Update Press Kit</h3>
-            <form className="admin-presskit-form" onSubmit={handleSubmitPressKit}>
-                <input type="file" id="file-selector" name="pressKit" accept=".pdf" required />
+            <form   className="admin-presskit-form"
+                    id="pressKitForm"
+                    onSubmit={handleSubmitPressKit}>
+                <input  type="file" 
+                        id="file-selector" 
+                        name="pressKit" 
+                        accept=".pdf" 
+                        required />
                 <button type="submit">Import</button>
             </form>
-           
         </section>
   )
 }
