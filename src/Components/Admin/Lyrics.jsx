@@ -64,6 +64,7 @@ const Lyrics = () => {
      const handleAddMode = () => {
         setModeUpdate(false)
         setUpdateSong(emptySong)
+        document.getElementById("editLyrics").reset();
     }
 
     //Set the form to the update mode - SWITCH
@@ -198,7 +199,7 @@ const Lyrics = () => {
             
 
             
-            <form onSubmit={handleSubmitLyrics} className="admin-editlyricsform">
+            <form onSubmit={handleSubmitLyrics} id="editLyrics" className="admin-editlyricsform">
                     
                 <label htmlFor="title">Song name</label>
                 <input type="text" name="title" id="ltitle" defaultValue={updateSong.title} />
