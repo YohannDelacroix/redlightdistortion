@@ -32,12 +32,10 @@ export default function Tour(){
     }, [update]);
 
     //When the admin press the button Delete, a tour date is removed from the calendar
-    const handleDeleteTourDate = (tourDate) => (e) => {
-        console.log(tourDate)
-        axios.delete('http://localhost:5050/tour', {data: tourDate}).then((response) => {
-            console.log("response.status : \n", response.status)
-            console.log("response.datz : \n", response.data)
-        })
+    const handleDeleteTourDate = (tourDate) => async (e) => {
+        console.log("tourdate", tourDate)
+
+        await axios.delete(`http://localhost:5050/tour/`, {data: {id: tourDate._id}});
         setUpdate(update+1);
     }
 
