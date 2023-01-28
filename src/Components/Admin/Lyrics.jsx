@@ -73,7 +73,7 @@ const Lyrics = () => {
         console.log("find : " , song);
 
         const initialSong = {
-            id: song.id,
+            id: song._id,
             title: song.title,
             description: reverseLyricsToString(song.description),
             lyrics_en: reverseLyricsToString(song.lyrics_en)
@@ -100,9 +100,8 @@ const Lyrics = () => {
 
         if(!modeUpdate){ //If this is an addition, post to server
             console.log("LYRICS : \n", lyrics)
-            let new_id = lyrics[lyrics.length-1].id + 1;//Generate a new unique ID
+            //let new_id = lyrics[lyrics.length-1].id + 1;//Generate a new unique ID
             const newSong = {
-                id: new_id,
                 title: title,
                 description: descriptionArray,
                 lyrics_en: lyrics_enArray
@@ -113,10 +112,8 @@ const Lyrics = () => {
                 console.log("response.datz : \n", response.data)
 
                 if(response.status === 201){
-                    document.getElementById('ltitle').value="";
-                    document.getElementById('ldescription').value="";
-                    document.getElementById('llyrics-en').value="";
-                    setLyrics([...lyrics, newSong])
+                    document.getElementById("editLyrics").reset();
+                    setLyrics([...lyrics, response.data]);
                 }
             })
         }
@@ -158,12 +155,9 @@ const Lyrics = () => {
     const handleDeleteSong = (song) => {
         console.log("delete song ...\n" , song)
 
-        axios.delete('http://localhost:5050/lyrics/', {data: song} ).then((response) => {
-                console.log("response.status : \n", response.status)
-                console.log("response.datz : \n", response.data)
-
-                if(response.status === 201){
-                    let newLyrics = lyrics.filter((sg) => song.id !== sg.id);
+        axios.delete('http://localhost:5050/lyrics/', {data: {id: song._id}} ).then((response) => {
+                if(response.status === 200){
+                    let newLyrics = lyrics.filter((sg) => song._id !== sg._id);
                     console.log("TEST : \n", newLyrics)
                     setLyrics(newLyrics);
                 }

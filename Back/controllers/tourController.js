@@ -5,16 +5,21 @@ const start = Date.now();
 
 const Tour = require('../models/Tour');
 
+
+
+
+
 const getTourDates = async (req,res) => {
     console.log("GET Tour Requete : " , Date.now()-start);
     /*let fichier = fs.readFileSync('./models/tourdates.json');
     let tourDates = JSON.parse(fichier);
     res.status(200).json(tourDates);*/
-
     const tourDates = await Tour.find();
     if(!tourDates) return res.status(204).json({"message": "No employees found"});
     res.status(200).json(tourDates);
 }
+
+
 
 
 
