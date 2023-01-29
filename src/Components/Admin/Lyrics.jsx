@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import {useState, useEffect} from 'react'
+import DeleteConfirmation from './DeleteConfirmation';
 
 const Lyrics = () => {
     const emptySong = {id:undefined, title:"",description:"",lyrics_en:""};
@@ -12,6 +13,10 @@ const Lyrics = () => {
     const [updateSong, setUpdateSong] = useState(emptySong)
     const [modeUpdate, setModeUpdate] = useState(false)
 
+
+    const [deleteAuthorization, setDeleteAuthorization] = useState(false);
+    const [deleteConfirmation, setDeleteConfirmation] = useState(false);
+    const [deleteId, setDeleteId] = useState(0);
 
 
     //Load the lyrics from a JSON file
@@ -152,17 +157,34 @@ const Lyrics = () => {
 
 
     //When the admin choose to delete a song
-    const handleDeleteSong = (song) => {
-        console.log("delete song ...\n" , song)
+    const handleDeleteSong = (id) => {
+        setDeleteConfirmation(true);
+        setDeleteId(id);
+    }
 
-        axios.delete('http://localhost:5050/lyrics/', {data: {id: song._id}} ).then((response) => {
+    const deleteSong = (id) => {
+        console.log("delete song ...\n" , id)
+
+        if(deleteAuthorization){
+            axios.delete('http://localhost:5050/lyrics/', {data: {id: id}} ).then((response) => {
                 if(response.status === 200){
-                    let newLyrics = lyrics.filter((sg) => song._id !== sg._id);
+                    let newLyrics = lyrics.filter((sg) => id !== sg._id);
                     console.log("TEST : \n", newLyrics)
                     setLyrics(newLyrics);
                 }
-        })
+            })
+        }
+
+        setDeleteAuthorization(false);
+        setDeleteId(0);
     }
+
+    useEffect( () => {
+        console.log("Delete authorization : ", deleteAuthorization)
+        if(deleteAuthorization){
+            deleteSong(deleteId);
+        }
+    }, [deleteAuthorization])
     
 
     return (
@@ -170,17 +192,20 @@ const Lyrics = () => {
             <h1>Lyrics</h1>
             {loading && <div>A moment please ....</div>}
             {error && <div>Problem fetching datas with server</div>}  
-
+            {deleteConfirmation && 
+             <DeleteConfirmation setDeleteAuthorization={setDeleteAuthorization} setDeleteConfirmation={setDeleteConfirmation} />}
+           
             {lyrics && <div className="admin-lyrics-songs">
                 {lyrics.map((song) =>(
-                    <div className="admin-lyrics-songitem" key={song.id}>
+                    <div className="admin-lyrics-songitem" key={song._id}>
                         <div className="admin-lyrics-song-title">{song.title}</div>
                         <button className="admin-lyrics-song-button"
                                 type="button" 
-                                onClick={() => handleUpdateMode(song.id)}>Update</button>
+                                onClick={() => handleUpdateMode(song._id)}>Update</button>
                         <button className="admin-lyrics-song-button"
                                 type="button"
-                                onClick={() => handleDeleteSong(song)}>Delete</button>
+                                onClick={() => handleDeleteSong(song._id)}>Delete</button>
+                        
 
                     </div>))}
                 <div className="admin-lyrics-additem">
