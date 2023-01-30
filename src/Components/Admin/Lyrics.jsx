@@ -1,7 +1,9 @@
 import axios from 'axios'
 import React from 'react'
-import {useState, useEffect} from 'react'
-import DeleteConfirmation from './DeleteConfirmation';
+import {useState, useEffect, useReducer} from 'react'
+import DeleteConfirmation from './DeleteConfirmation/DeleteConfirmation';
+import {DEL_ACTION} from './DeleteConfirmation/deleteActions';
+import { deleteConfirmationReducer } from './DeleteConfirmation/deleteReducer';
 
 const Lyrics = () => {
     const emptySong = {id:undefined, title:"",description:"",lyrics_en:""};
@@ -14,9 +16,12 @@ const Lyrics = () => {
     const [modeUpdate, setModeUpdate] = useState(false)
 
 
-    const [deleteAuthorization, setDeleteAuthorization] = useState(false);
-    const [deleteConfirmation, setDeleteConfirmation] = useState(false);
-    const [deleteId, setDeleteId] = useState(0);
+    const [del, dispatchDel] = useReducer(deleteConfirmationReducer, {
+        deleteAuthorization: false,
+        deleteConfirmation: false,
+        name: undefined,
+        id: undefined
+    });
 
 
     //Load the lyrics from a JSON file
@@ -158,14 +163,16 @@ const Lyrics = () => {
 
     //When the admin choose to delete a song
     const handleDeleteSong = (id) => {
-        setDeleteConfirmation(true);
-        setDeleteId(id);
+        dispatchDel({type: DEL_ACTION.CONFIRMATION, payload: true});
+        dispatchDel({type: DEL_ACTION.SET_ID, payload: id});
+        let song = lyrics.find((song) => song._id === id);
+        dispatchDel({type: DEL_ACTION.SET_NAME, payload: song.title});
     }
 
     const deleteSong = (id) => {
         console.log("delete song ...\n" , id)
 
-        if(deleteAuthorization){
+        if(del.deleteAuthorization){
             axios.delete('http://localhost:5050/lyrics/', {data: {id: id}} ).then((response) => {
                 if(response.status === 200){
                     let newLyrics = lyrics.filter((sg) => id !== sg._id);
@@ -175,16 +182,16 @@ const Lyrics = () => {
             })
         }
 
-        setDeleteAuthorization(false);
-        setDeleteId(0);
+        dispatchDel({type: DEL_ACTION.AUTHORIZATION, payload: false});
+        dispatchDel({type: DEL_ACTION.SET_ID, payload: undefined});
+        dispatchDel({type: DEL_ACTION.SET_NAME, payload: undefined});
     }
 
     useEffect( () => {
-        console.log("Delete authorization : ", deleteAuthorization)
-        if(deleteAuthorization){
-            deleteSong(deleteId);
+        if(del.deleteAuthorization){
+            deleteSong(del.id);
         }
-    }, [deleteAuthorization])
+    }, [del.deleteAuthorization])
     
 
     return (
@@ -192,8 +199,8 @@ const Lyrics = () => {
             <h1>Lyrics</h1>
             {loading && <div>A moment please ....</div>}
             {error && <div>Problem fetching datas with server</div>}  
-            {deleteConfirmation && 
-             <DeleteConfirmation setDeleteAuthorization={setDeleteAuthorization} setDeleteConfirmation={setDeleteConfirmation} />}
+            {del.deleteConfirmation && 
+             <DeleteConfirmation dispatchDel={dispatchDel} delName={del.name}/>}
            
             {lyrics && <div className="admin-lyrics-songs">
                 {lyrics.map((song) =>(
