@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const path = require('path');
+const jwt = require('jsonwebtoken');
 
 require('dotenv').config( {
     path: path.join(__dirname, "..", "views", ".env")
@@ -21,7 +22,31 @@ const handleLogin = async (req,res) => {
     //evaluate password
     const match = await bcrypt.compare(pwd, foundUser.password);
     if(match){
-        res.status(200).json({"message": "Login successful"})
+
+        //create JWTs
+        const accessToken = jwt.sign(
+            {
+                "UserInfo":{
+                    "username": foundUser.username
+                }
+            },
+            process.env.ACCESS_TOKEN_SECRET,
+            { expiresIn: '300s'}
+        );
+
+        const refreshToken = jwt.sign(
+            { "username": foundUser.username},
+            process.env.REFRESH_TOKEN_SECRET,
+            { expiresIn: '1d'}
+        );
+
+        foundUser.refreshToken = refreshToken;
+        const result = await foundUser.save();
+        console.log(result);
+
+        res.cookie('jwt', refreshToken, {httpOnly: true, sameSite: 'none', secure: true, maxAge: 24*60*60*1000});
+
+        res.json({accessToken});
     }
     else{
         console.log("no match");
