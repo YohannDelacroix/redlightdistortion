@@ -16,6 +16,7 @@ import NewsContent from './Components/News/NewsContent/NewsContent';
 import Inexistant from './Components/Inexistant/Inexistant';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import Admin from './Components/Admin/Admin';
+import { AuthProvider } from './Context/AuthProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

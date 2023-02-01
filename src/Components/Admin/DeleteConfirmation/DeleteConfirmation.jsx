@@ -1,6 +1,4 @@
-import { Action } from '@remix-run/router';
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import React from 'react'
 import {DEL_ACTION} from './deleteActions';
 
 

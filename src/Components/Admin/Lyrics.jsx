@@ -1,9 +1,10 @@
 import axios from 'axios'
 import React from 'react'
-import {useState, useEffect, useReducer} from 'react'
+import {useState, useEffect, useReducer, useContext} from 'react'
 import DeleteConfirmation from './DeleteConfirmation/DeleteConfirmation';
 import {DEL_ACTION} from './DeleteConfirmation/deleteActions';
 import { deleteConfirmationReducer } from './DeleteConfirmation/deleteReducer';
+import AuthContext from '../../Context/AuthProvider';
 
 const Lyrics = () => {
     const emptySong = {id:undefined, title:"",description:"",lyrics_en:""};
@@ -15,6 +16,7 @@ const Lyrics = () => {
     const [updateSong, setUpdateSong] = useState(emptySong)
     const [modeUpdate, setModeUpdate] = useState(false)
 
+    const {auth} = useContext(AuthContext);
 
     const [del, dispatchDel] = useReducer(deleteConfirmationReducer, {
         deleteAuthorization: false,
@@ -117,6 +119,7 @@ const Lyrics = () => {
                 lyrics_en: lyrics_enArray
             }
 
+            
             axios.post('http://localhost:5050/lyrics/', newSong).then((response) => {
                 console.log("response.status : \n", response.status)
                 console.log("response.datz : \n", response.data)

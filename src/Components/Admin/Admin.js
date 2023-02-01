@@ -1,12 +1,13 @@
 import "./Admin.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Tour from './Tour'
 import Lyrics from "./Lyrics";
 import TitleComponent from '../TitleComponent/TitleComponent'
 import axios from "axios";
 import PressKit from "./PressKit";
+import AuthContext, { AuthProvider } from '../../Context/AuthProvider';
 
 
 export default function Admin(){
@@ -16,6 +17,8 @@ export default function Admin(){
     const DISPLAY_NEWS = 3;
     const DISPLAY_PRESSKIT = 4;
 
+
+    const { setAuth } = useContext(AuthContext);
     const [display, setDisplay] = useState(DISPLAY_NONE);
     const [access, setAccess] = useState(false);
     const [errMsg, setErrMsg] = useState('');
@@ -68,11 +71,13 @@ export default function Admin(){
         console.log(username, pwd)
         
         try{
-            const response = await axios.post("http://localhost:5050/auth", {user: username, pwd: pwd});
+            const response = await axios.post("http://localhost:5050/auth", {user: username, pwd: pwd})
 
             if(response.status === 200){
-                console.log("SERV: " , response);
+                let accessToken = response.data.accessToken;
+                console.log("Serv ok Access Token: " , accessToken);
                 setAccess(true);
+                setAuth({username, accessToken})
             }
         }catch(err){
             if(!err?.response){
@@ -94,6 +99,7 @@ export default function Admin(){
 
     return (<div>
         <Header />
+        <AuthProvider>
         <div className="admin-container">
 
         
@@ -173,6 +179,7 @@ export default function Admin(){
         
             
         </div> 
+        </AuthProvider>
         <Footer />
     </div>);
 }
