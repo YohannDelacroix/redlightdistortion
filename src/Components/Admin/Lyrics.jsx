@@ -120,7 +120,9 @@ const Lyrics = () => {
             }
 
             
-            axios.post('http://localhost:5050/lyrics/', newSong).then((response) => {
+            axios.post('http://localhost:5050/lyrics/', newSong, {headers: {
+                "Authorization": `Bearer ${auth.accessToken}`
+            }}).then((response) => {
                 console.log("response.status : \n", response.status)
                 console.log("response.datz : \n", response.data)
 
@@ -138,7 +140,9 @@ const Lyrics = () => {
                 lyrics_en: lyrics_enArray
             }
 
-            axios.put('http://localhost:5050/lyrics/', newSong).then((response) => {
+            axios.put('http://localhost:5050/lyrics/', newSong, {headers: {
+                "Authorization": `Bearer ${auth.accessToken}`
+            }}).then((response) => {
                 console.log("response.status : \n", response.status)
                 console.log("response.datz : \n", response.data)
 
@@ -176,7 +180,13 @@ const Lyrics = () => {
         console.log("delete song ...\n" , id)
 
         if(del.deleteAuthorization){
-            axios.delete('http://localhost:5050/lyrics/', {data: {id: id}} ).then((response) => {
+
+            axios({
+                url: 'http://localhost:5050/lyrics/',
+                method: 'delete',
+                data: {id: id},
+                headers: {'Authorization': `Bearer ${auth.accessToken}`}
+            }).then((response) => {
                 if(response.status === 200){
                     let newLyrics = lyrics.filter((sg) => id !== sg._id);
                     console.log("TEST : \n", newLyrics)

@@ -18,7 +18,7 @@ export default function Admin(){
     const DISPLAY_PRESSKIT = 4;
 
 
-    const { setAuth } = useContext(AuthContext);
+    const { auth, setAuth } = useContext(AuthContext);
     const [display, setDisplay] = useState(DISPLAY_NONE);
     const [access, setAccess] = useState(false);
     const [errMsg, setErrMsg] = useState('');
@@ -99,7 +99,7 @@ export default function Admin(){
 
     return (<div>
         <Header />
-        <AuthProvider>
+        
         <div className="admin-container">
 
         
@@ -179,7 +179,6 @@ export default function Admin(){
         
             
         </div> 
-        </AuthProvider>
         <Footer />
     </div>);
 }

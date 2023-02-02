@@ -18,6 +18,7 @@ import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import Admin from './Components/Admin/Admin';
 import { AuthProvider } from './Context/AuthProvider';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -37,7 +38,7 @@ root.render(
         <Route path="About" element={<About />} />
         <Route path="Universe" element={<Universe />} />
         <Route path="*" element={<Inexistant />} />
-        <Route path="Admin" element={<Admin />} />
+        <Route path="Admin" element={<AuthProvider><Admin /></AuthProvider>} />
     </Routes>
     </ScrollToTop>
     </BrowserRouter>

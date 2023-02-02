@@ -1,9 +1,10 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-
+import React, { useEffect, useState, useContext } from 'react'
+import AuthContext from "../../Context/AuthProvider";
 
 const PressKit = () => {
     const [pressKit, setPressKit] = useState(null);
+    const {auth, setAuth} = useContext(AuthContext);
 
     //Require PDF from database
     useEffect( () => {
@@ -40,7 +41,8 @@ const PressKit = () => {
         
         axios.post("http://localhost:5050/pressKit", formData, {
             headers: {
-                "Content-Type": "multipart/form-data"
+                "Content-Type": "multipart/form-data",
+                "Authorization": `Bearer ${auth.accessToken}`
             }
         }).then((res) => {
             console.log(res);

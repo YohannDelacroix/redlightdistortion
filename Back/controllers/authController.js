@@ -8,6 +8,7 @@ require('dotenv').config( {
 });
 
 const handleLogin = async (req,res) => {
+    console.log("LOGIN");
     const { user, pwd } = req.body;
     if(!user || !pwd){
         return res.status(400).json({"message": "Username and password are required"});
@@ -42,9 +43,9 @@ const handleLogin = async (req,res) => {
 
         foundUser.refreshToken = refreshToken;
         const result = await foundUser.save();
-        console.log(result);
+        console.log("SAVED:", result);
 
-        res.cookie('jwt', refreshToken, {httpOnly: true, sameSite: 'none', secure: true, maxAge: 24*60*60*1000});
+        //res.cookie('jwt', refreshToken, {httpOnly: true, sameSite: 'none', secure: true, maxAge: 24*60*60*1000});
 
         res.json({accessToken});
     }

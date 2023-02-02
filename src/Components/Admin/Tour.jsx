@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import AuthContext from "../../Context/AuthProvider";
 
 
 export default function Tour(){
+
+    const { auth, setAuth } = useContext(AuthContext);
     const [dataTour, setDataTour] = useState(null);
     const [errorTour, setErrorTour] = useState(null);
     const [loadingTour, setLoadingTour] = useState(true);
@@ -32,11 +35,18 @@ export default function Tour(){
     }, [update]);
 
     //When the admin press the button Delete, a tour date is removed from the calendar
-    const handleDeleteTourDate = (tourDate) => async (e) => {
+    const handleDeleteTourDate = (tourDate) => (e) => {
         console.log("tourdate", tourDate)
+        console.log("AccesssToken", auth.accessToken);
 
-        await axios.delete(`http://localhost:5050/tour/`, {data: {id: tourDate._id}});
-        setUpdate(update+1);
+        axios({
+            url: 'http://localhost:5050/tour/',
+            method: 'delete',
+            data: {id: tourDate._id},
+            headers: {'Authorization': `Bearer ${auth.accessToken}`}
+        }).then(() => {
+            setUpdate(update+1);
+        })
     }
 
     
@@ -246,9 +256,11 @@ export default function Tour(){
                 more_link: e.target['more_link'].value
             }
 
-            console.log(data)
-
-            axios.post('http://localhost:5050/tour/', data).then((response) => {
+            axios.post('http://localhost:5050/tour/', data, {
+                headers: {
+                    'Authorization': `Bearer ${auth.accessToken}`
+                }
+            }).then((response) => {
                 console.log(response.status);
                 console.log(response.data);
                 setUpdate(update+1);
