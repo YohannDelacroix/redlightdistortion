@@ -5,6 +5,7 @@ import DeleteConfirmation from './DeleteConfirmation/DeleteConfirmation';
 import {DEL_ACTION} from './DeleteConfirmation/deleteActions';
 import { deleteConfirmationReducer } from './DeleteConfirmation/deleteReducer';
 import AuthContext from '../../Context/AuthProvider';
+import useAuth from '../../Hooks/useAuth';
 
 const Lyrics = () => {
     const emptySong = {id:undefined, title:"",description:"",lyrics_en:""};
@@ -16,7 +17,7 @@ const Lyrics = () => {
     const [updateSong, setUpdateSong] = useState(emptySong)
     const [modeUpdate, setModeUpdate] = useState(false)
 
-    const {auth} = useContext(AuthContext);
+    const { auth } = useAuth();
 
     const [del, dispatchDel] = useReducer(deleteConfirmationReducer, {
         deleteAuthorization: false,

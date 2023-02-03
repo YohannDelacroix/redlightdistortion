@@ -8,6 +8,7 @@ import TitleComponent from '../TitleComponent/TitleComponent'
 import axios from "axios";
 import PressKit from "./PressKit";
 import AuthContext, { AuthProvider } from '../../Context/AuthProvider';
+import useAuth from "../../Hooks/useAuth";
 
 
 export default function Admin(){
@@ -18,7 +19,7 @@ export default function Admin(){
     const DISPLAY_PRESSKIT = 4;
 
 
-    const { auth, setAuth } = useContext(AuthContext);
+    const { setAuth } =  useAuth();
     const [display, setDisplay] = useState(DISPLAY_NONE);
     const [access, setAccess] = useState(false);
     const [errMsg, setErrMsg] = useState('');
@@ -63,13 +64,13 @@ export default function Admin(){
         buttonFocus(DISPLAY_NONE);
     }
 
-    const handleLogin = async (e) => {
+    /*const handleLogin = async (e) => {
         //If password match
         e.preventDefault();
         let pwd = e.target.pwd.value;
         let username = e.target.username.value;
         console.log(username, pwd)
-        
+    
         try{
             const response = await axios.post("http://localhost:5050/auth", {user: username, pwd: pwd})
 
@@ -94,7 +95,7 @@ export default function Admin(){
             }
             
         }
-    }
+    }*/
 
 
     return (<div>
@@ -103,28 +104,8 @@ export default function Admin(){
         <div className="admin-container">
 
         
-        {!access && <form className="admin-login" onSubmit={handleLogin}>
-            {errMsg && <div className="admin-login-error">{errMsg}</div>}
-            <label htmlFor="username">Username:</label>
-            <input  type="text" 
-                    name="username" 
-                    id="username" 
-                    autoComplete="off" 
-                    defaultValue="admin"
-                    required />
 
-            <label htmlFor="pwd">Password:</label>
-            <input  type="password" 
-                    name="pwd" 
-                    id="pwd" 
-                    autoComplete="new-password" 
-                    required />
-            <button type="submit">Log in</button>
-        </form>}
-        
 
-        {access && <>
-            
             <menu className="admin-menu-choices">
             <li className="admin-menu-choice">
                 <button id={DISPLAY_TOUR} onClick={handleDisplayTour}>
@@ -173,8 +154,6 @@ export default function Admin(){
             <button className="admin-close-button" onClick={handleDisplayNone}>X</button>
             <PressKit />
         </div>}
-
-        </>}
         
         
             

@@ -16,6 +16,8 @@ import NewsContent from './Components/News/NewsContent/NewsContent';
 import Inexistant from './Components/Inexistant/Inexistant';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import Admin from './Components/Admin/Admin';
+import Login from './Components/Admin/Login';
+import RequireAuth from './Components/Admin/RequireAuth';
 import { AuthProvider } from './Context/AuthProvider';
 
 
@@ -24,6 +26,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <ScrollToTop>
+    <AuthProvider>
     <Routes>
         <Route path="/" element={<Home />} />
         <Route path="redlightdistortion" element={<Home />} />
@@ -38,8 +41,13 @@ root.render(
         <Route path="About" element={<About />} />
         <Route path="Universe" element={<Universe />} />
         <Route path="*" element={<Inexistant />} />
-        <Route path="Admin" element={<AuthProvider><Admin /></AuthProvider>} />
+        <Route element={<RequireAuth />}>
+          <Route path="Admin" element={<Admin />} />
+        </Route>
+        
+        <Route path="Login" element={<Login />} />
     </Routes>
+    </AuthProvider>
     </ScrollToTop>
     </BrowserRouter>
   </React.StrictMode>

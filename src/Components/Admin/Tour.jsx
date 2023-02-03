@@ -1,11 +1,12 @@
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import AuthContext from "../../Context/AuthProvider";
+import useAuth from "../../Hooks/useAuth";
 
 
 export default function Tour(){
 
-    const { auth, setAuth } = useContext(AuthContext);
+    const { auth } = useAuth();
     const [dataTour, setDataTour] = useState(null);
     const [errorTour, setErrorTour] = useState(null);
     const [loadingTour, setLoadingTour] = useState(true);

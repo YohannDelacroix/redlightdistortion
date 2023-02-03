@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState, useContext } from 'react'
 import AuthContext from "../../Context/AuthProvider";
+import useAuth from '../../Hooks/useAuth';
 
 const PressKit = () => {
     const [pressKit, setPressKit] = useState(null);
-    const {auth, setAuth} = useContext(AuthContext);
+    const { auth } = useAuth();
 
     //Require PDF from database
     useEffect( () => {
