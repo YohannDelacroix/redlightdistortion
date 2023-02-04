@@ -241,3 +241,8 @@
 .admin-delete-confirmation-button{
     margin: 0 10px;
 }
+
+.admin-logout{
+    position: fixed;
+    right: 10px;
+}

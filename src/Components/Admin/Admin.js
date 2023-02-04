@@ -18,11 +18,9 @@ export default function Admin(){
     const DISPLAY_NEWS = 3;
     const DISPLAY_PRESSKIT = 4;
 
-
-    const { setAuth } =  useAuth();
+    const { setAuth } = useAuth();
     const [display, setDisplay] = useState(DISPLAY_NONE);
-    const [access, setAccess] = useState(false);
-    const [errMsg, setErrMsg] = useState('');
+
 
     //Apply a class on the button selected
     const buttonFocus = (id) => {
@@ -64,38 +62,14 @@ export default function Admin(){
         buttonFocus(DISPLAY_NONE);
     }
 
-    /*const handleLogin = async (e) => {
-        //If password match
-        e.preventDefault();
-        let pwd = e.target.pwd.value;
-        let username = e.target.username.value;
-        console.log(username, pwd)
-    
-        try{
-            const response = await axios.post("http://localhost:5050/auth", {user: username, pwd: pwd})
-
-            if(response.status === 200){
-                let accessToken = response.data.accessToken;
-                console.log("Serv ok Access Token: " , accessToken);
-                setAccess(true);
-                setAuth({username, accessToken})
-            }
-        }catch(err){
-            if(!err?.response){
-                setErrMsg('No Server Response');
-            }
-            else if(err.response?.status === 400){
-                setErrMsg('Missing Username or Password');
-            }
-            else if(err.response?.status === 401){
-                setErrMsg('Wrong Username or Password');
-            }
-            else{
-                setErrMsg('Login Failed');
-            }
-            
-        }
-    }*/
+    const handleLogOut = async () => {
+        await axios.get('http://localhost:5050/logout').then((response)=>{
+            console.log("Logged out", response)
+            setAuth({});
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
 
 
     return (<div>
@@ -103,8 +77,9 @@ export default function Admin(){
         
         <div className="admin-container">
 
-        
-
+        <div className="admin-logout">
+            <button onClick={handleLogOut}>Log out</button>
+        </div>
 
             <menu className="admin-menu-choices">
             <li className="admin-menu-choice">

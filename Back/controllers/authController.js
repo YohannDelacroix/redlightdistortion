@@ -45,6 +45,10 @@ const handleLogin = async (req,res) => {
         const result = await foundUser.save();
         console.log("SAVED:", result);
 
+        //Test with Thunder Client (remove secure: true)
+        res.cookie('jwt', refreshToken, {httpOnly: true, sameSite: 'none', maxAge: 24*60*60*1000});
+
+        //Production mode
         //res.cookie('jwt', refreshToken, {httpOnly: true, sameSite: 'none', secure: true, maxAge: 24*60*60*1000});
 
         res.json({accessToken});
