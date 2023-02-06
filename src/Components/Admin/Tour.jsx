@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import axios from "../../api/axios";
 import AuthContext from "../../Context/AuthProvider";
 import useAuth from "../../Hooks/useAuth";
 
@@ -18,7 +18,7 @@ export default function Tour(){
         //Get list of tour dates from the server
         const getTourDates = async () => {
             try{ 
-                const response = await axios.get('http://localhost:5050/tour')
+                const response = await axios.get('/tour')
                 setDataTour(response.data)
                 setErrorTour(null)
             } 
@@ -36,12 +36,12 @@ export default function Tour(){
     }, [update]);
 
     //When the admin press the button Delete, a tour date is removed from the calendar
-    const handleDeleteTourDate = (tourDate) => (e) => {
+    const handleDeleteTourDate = (tourDate) => async (e) => {
         console.log("tourdate", tourDate)
         console.log("AccesssToken", auth.accessToken);
 
-        axios({
-            url: 'http://localhost:5050/tour/',
+        await axios({
+            url: '/tour',
             method: 'delete',
             data: {id: tourDate._id},
             headers: {'Authorization': `Bearer ${auth.accessToken}`}
@@ -166,7 +166,7 @@ export default function Tour(){
     }
 
     //When the admin press the button add tour date, a tour date is added to the calendar
-    const handleAddTourDate = (e) => {
+    const handleAddTourDate = async (e) => {
         e.preventDefault();
 
 
@@ -257,7 +257,7 @@ export default function Tour(){
                 more_link: e.target['more_link'].value
             }
 
-            axios.post('http://localhost:5050/tour/', data, {
+            await axios.post('/tour', data, {
                 headers: {
                     'Authorization': `Bearer ${auth.accessToken}`
                 }

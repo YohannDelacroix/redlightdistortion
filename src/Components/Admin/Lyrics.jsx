@@ -1,4 +1,5 @@
-import axios from 'axios'
+
+import axios from "../../api/axios";
 import React from 'react'
 import {useState, useEffect, useReducer, useContext} from 'react'
 import DeleteConfirmation from './DeleteConfirmation/DeleteConfirmation';
@@ -32,7 +33,7 @@ const Lyrics = () => {
         //Get list of lyrics from the server
         const getLyrics = async () => {
           try{ 
-              const response = await axios.get('http://localhost:5050/lyrics')
+              const response = await axios.get('/lyrics')
               setLyrics(response.data)
               setError(null)
           } 
@@ -82,7 +83,7 @@ const Lyrics = () => {
 
     //Set the form to the update mode - SWITCH
     const handleUpdateMode = (id) => {
-        const song = lyrics.find(s => s.id === id)
+        const song = lyrics.find(s => s._id === id)
         console.log("find : " , song);
 
         const initialSong = {
@@ -100,7 +101,7 @@ const Lyrics = () => {
 
 
     //Handle the submit button of the form, the form can be both an add or an update
-    const handleSubmitLyrics = (e) => {
+    const handleSubmitLyrics = async (e) => {
         e.preventDefault();
         
         let lyrics_string = e.target['lyrics-en'].value;
@@ -121,7 +122,7 @@ const Lyrics = () => {
             }
 
             
-            axios.post('http://localhost:5050/lyrics/', newSong, {headers: {
+            await axios.post('/lyrics', newSong, {headers: {
                 "Authorization": `Bearer ${auth.accessToken}`
             }}).then((response) => {
                 console.log("response.status : \n", response.status)
@@ -141,7 +142,7 @@ const Lyrics = () => {
                 lyrics_en: lyrics_enArray
             }
 
-            axios.put('http://localhost:5050/lyrics/', newSong, {headers: {
+            await axios.put('/lyrics', newSong, {headers: {
                 "Authorization": `Bearer ${auth.accessToken}`
             }}).then((response) => {
                 console.log("response.status : \n", response.status)
@@ -177,13 +178,13 @@ const Lyrics = () => {
         dispatchDel({type: DEL_ACTION.SET_NAME, payload: song.title});
     }
 
-    const deleteSong = (id) => {
+    const deleteSong = async (id) => {
         console.log("delete song ...\n" , id)
 
         if(del.deleteAuthorization){
 
-            axios({
-                url: 'http://localhost:5050/lyrics/',
+            await axios({
+                url: '/lyrics',
                 method: 'delete',
                 data: {id: id},
                 headers: {'Authorization': `Bearer ${auth.accessToken}`}

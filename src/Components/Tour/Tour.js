@@ -4,7 +4,7 @@ import TitleComponent from "../TitleComponent/TitleComponent.js";
 import "./Tour.css";
 import Date from "./Date.js";
 import {useState, useEffect} from 'react'
-import axios from "axios";
+import axios from "../../api/axios";
 import Loading from "../Loading/Loading.jsx";
 import ServerError from "../Errors/ServerError.js";
 
@@ -19,7 +19,7 @@ function Tour(){
       //Get list of tour dates from the server
       const getTourDates = async () => {
           try{ 
-              const response = await axios.get('http://localhost:5050/tour')
+              const response = await axios.get('/tour')
               setDataTour(response.data)
               setErrorTour(null)
           } 

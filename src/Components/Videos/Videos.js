@@ -8,7 +8,7 @@ function Videos(){
   return (<div className="container">
     <Header />
     <div  className="videos-container">
-    <TitleComponent titleContent="Videos" />
+      <TitleComponent titleContent="Our Music" />
       <div className="videos-list">
           <iframe 
                   className="video-frame"
@@ -33,6 +33,16 @@ function Videos(){
                   allowfullscreen />
 
 
+      </div>
+      <TitleComponent titleContent="Covers" />
+      <div className="videos-list">
+          <iframe 
+                  className="video-frame"
+                  src="https://www.youtube.com/embed/HZIAnUmYJEs"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen />
       </div>
     </div>
     <Footer />

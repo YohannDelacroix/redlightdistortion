@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from "../../api/axios";
 import React from 'react'
 import {useState, useEffect} from 'react'
 import ServerError from '../Errors/ServerError'
@@ -22,7 +22,7 @@ const Lyrics = () => {
       //Get list of lyrics from the server
       const getLyrics = async () => {
         try{ 
-            const response = await axios.get('http://localhost:5050/lyrics')
+            const response = await axios.get('/lyrics')
             setLyrics(response.data)
             setError(null)
         } 

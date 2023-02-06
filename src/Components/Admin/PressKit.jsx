@@ -1,4 +1,5 @@
-import axios from 'axios';
+
+import axios from "../../api/axios";
 import React, { useEffect, useState, useContext } from 'react'
 import AuthContext from "../../Context/AuthProvider";
 import useAuth from '../../Hooks/useAuth';
@@ -12,7 +13,7 @@ const PressKit = () => {
 
         const getPressKit = async () => {
             try{
-                let pdfFile = await axios.get("http://localhost:5050/pressKit", {responseType: 'blob'});
+                let pdfFile = await axios.get("/pressKit", {responseType: 'blob'});
                 
                 if(pdfFile.data){
                     console.log("pdfFile loaded")
@@ -36,11 +37,11 @@ const PressKit = () => {
 
 
     //Add a new press kit
-    const handleSubmitPressKit = (e) => {
+    const handleSubmitPressKit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         
-        axios.post("http://localhost:5050/pressKit", formData, {
+        await axios.post("/pressKit", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
                 "Authorization": `Bearer ${auth.accessToken}`

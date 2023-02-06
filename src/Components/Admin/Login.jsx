@@ -4,7 +4,7 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import axios from "axios";
+import axios from "../../api/axios";
 
 const Login = () => {
 
@@ -22,7 +22,7 @@ const Login = () => {
       console.log(username, pwd)
       
       try{
-          const response = await axios.post("http://localhost:5050/auth", {user: username, pwd: pwd})
+          const response = await axios.post("/auth", {user: username, pwd: pwd})
 
           if(response.status === 200){
               let accessToken = response.data.accessToken;
