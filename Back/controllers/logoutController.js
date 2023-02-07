@@ -23,10 +23,10 @@ const handleLogout = async (req,res) => {
     console.log(result);
 
     //Test with Thunder Client (remove secure: true)
-    res.clearCookie('jwt', {httpOnly: true, sameSite: 'none', maxAge: 24*60*60*1000}); //secure: true - only serves on https
+    //res.clearCookie('jwt', {httpOnly: true, sameSite: 'none', maxAge: 24*60*60*1000}); //secure: true - only serves on https
 
     //Production mode
-    //res.clearCookie('jwt', {httpOnly: true, sameSite: 'none', secure: true, maxAge: 24*60*60*1000}); //secure: true - only serves on https
+    res.clearCookie('jwt', {httpOnly: true, sameSite: 'none', secure: true, maxAge: 24*60*60*1000}); //secure: true - only serves on https
     
     
     res.sendStatus(204);

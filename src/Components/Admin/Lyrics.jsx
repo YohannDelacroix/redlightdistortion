@@ -1,12 +1,13 @@
-
 import axios from "../../api/axios";
 import React from 'react'
 import {useState, useEffect, useReducer, useContext} from 'react'
 import DeleteConfirmation from './DeleteConfirmation/DeleteConfirmation';
 import {DEL_ACTION} from './DeleteConfirmation/deleteActions';
 import { deleteConfirmationReducer } from './DeleteConfirmation/deleteReducer';
-import AuthContext from '../../Context/AuthProvider';
 import useAuth from '../../Hooks/useAuth';
+import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
+import { useNavigate, useLocation } from "react-router-dom";
+
 
 const Lyrics = () => {
     const emptySong = {id:undefined, title:"",description:"",lyrics_en:""};
@@ -27,7 +28,10 @@ const Lyrics = () => {
         id: undefined
     });
 
-
+    const axiosPrivate = useAxiosPrivate();
+    const navigate = useNavigate();
+    const location = useLocation();
+    
     //Load the lyrics from a JSON file
     useEffect( () => {
         //Get list of lyrics from the server
@@ -48,6 +52,7 @@ const Lyrics = () => {
   
       getLyrics();
     },[])
+
 
     //Debug
     useEffect(() => {
@@ -122,9 +127,7 @@ const Lyrics = () => {
             }
 
             
-            await axios.post('/lyrics', newSong, {headers: {
-                "Authorization": `Bearer ${auth.accessToken}`
-            }}).then((response) => {
+            await axiosPrivate.post('/lyrics', newSong).then((response) => {
                 console.log("response.status : \n", response.status)
                 console.log("response.datz : \n", response.data)
 
@@ -132,6 +135,9 @@ const Lyrics = () => {
                     document.getElementById("editLyrics").reset();
                     setLyrics([...lyrics, response.data]);
                 }
+            }).catch((err) => {
+                console.error(err);
+                navigate('/login', {state: {from: location}, replace: true});
             })
         }
         else{ //If this is an update, update on server
@@ -142,9 +148,7 @@ const Lyrics = () => {
                 lyrics_en: lyrics_enArray
             }
 
-            await axios.put('/lyrics', newSong, {headers: {
-                "Authorization": `Bearer ${auth.accessToken}`
-            }}).then((response) => {
+            await axiosPrivate.put('/lyrics', newSong).then((response) => {
                 console.log("response.status : \n", response.status)
                 console.log("response.datz : \n", response.data)
 
@@ -165,6 +169,9 @@ const Lyrics = () => {
                     setUpdateSong(emptySong)
                     setModeUpdate(false)
                 }
+            }).catch((err)=>{
+                console.error(err);
+                navigate('/login', {state: {from: location}, replace: true});
             })
         }
     }
@@ -183,17 +190,19 @@ const Lyrics = () => {
 
         if(del.deleteAuthorization){
 
-            await axios({
+            await axiosPrivate({
                 url: '/lyrics',
                 method: 'delete',
                 data: {id: id},
-                headers: {'Authorization': `Bearer ${auth.accessToken}`}
             }).then((response) => {
                 if(response.status === 200){
                     let newLyrics = lyrics.filter((sg) => id !== sg._id);
                     console.log("TEST : \n", newLyrics)
                     setLyrics(newLyrics);
                 }
+            }).catch((err) => {
+                console.error(err);
+                navigate('/login', {state: {from: location}, replace: true});
             })
         }
 

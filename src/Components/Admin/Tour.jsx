@@ -2,7 +2,8 @@ import { useEffect, useState, useContext } from "react";
 import axios from "../../api/axios";
 import AuthContext from "../../Context/AuthProvider";
 import useAuth from "../../Hooks/useAuth";
-
+import { useNavigate, useLocation } from "react-router-dom";
+import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
 
 export default function Tour(){
 
@@ -11,6 +12,10 @@ export default function Tour(){
     const [errorTour, setErrorTour] = useState(null);
     const [loadingTour, setLoadingTour] = useState(true);
     const [update, setUpdate] = useState(0);
+
+    const axiosPrivate = useAxiosPrivate();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     //Get the datas from the server
     useEffect( () => {
@@ -40,13 +45,15 @@ export default function Tour(){
         console.log("tourdate", tourDate)
         console.log("AccesssToken", auth.accessToken);
 
-        await axios({
+        await axiosPrivate({
             url: '/tour',
             method: 'delete',
-            data: {id: tourDate._id},
-            headers: {'Authorization': `Bearer ${auth.accessToken}`}
+            data: {id: tourDate._id}
         }).then(() => {
             setUpdate(update+1);
+        }).catch((err)=> {
+            console.error(err);
+            navigate('/login', {state: {from: location}, replace: true});
         })
     }
 
@@ -257,14 +264,13 @@ export default function Tour(){
                 more_link: e.target['more_link'].value
             }
 
-            await axios.post('/tour', data, {
-                headers: {
-                    'Authorization': `Bearer ${auth.accessToken}`
-                }
-            }).then((response) => {
+            await axiosPrivate.post('/tour', data).then((response) => {
                 console.log(response.status);
                 console.log(response.data);
                 setUpdate(update+1);
+            }).catch((err) => {
+                console.error(err);
+                navigate('/login', {state: {from: location}, replace: true});
             })
             resetForm();
             

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -22,7 +22,10 @@ const Login = () => {
       console.log(username, pwd)
       
       try{
-          const response = await axios.post("/auth", {user: username, pwd: pwd})
+          const response = await axios.post("/auth", {user: username, pwd: pwd}, { 
+            headers: {'Content-type': 'application/json'},
+            withCredentials: true
+          })
 
           if(response.status === 200){
               let accessToken = response.data.accessToken;

@@ -1,36 +1,29 @@
-
 import axios from "../../api/axios";
+import { axiosPrivate } from "../../api/axios";
 import React, { useEffect, useState, useContext } from 'react'
-import AuthContext from "../../Context/AuthProvider";
+import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
 import useAuth from '../../Hooks/useAuth';
+import { useNavigate, useLocation } from "react-router-dom";
 
 const PressKit = () => {
     const [pressKit, setPressKit] = useState(null);
     const { auth } = useAuth();
+    const axiosPrivate = useAxiosPrivate();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     //Require PDF from database
     useEffect( () => {
-
         const getPressKit = async () => {
             try{
-                let pdfFile = await axios.get("/pressKit", {responseType: 'blob'});
-                
-                if(pdfFile.data){
-                    console.log("pdfFile loaded")
-                    let objectURL = window.URL.createObjectURL(pdfFile.data);
-                    setPressKit(objectURL);
-                }
-                else{
-                    console.log("not found")
-                }
+                const pdfFile = await axios.get("/pressKit", {responseType: 'blob'});
+                let objectURL = window.URL.createObjectURL(pdfFile.data);
+                setPressKit(objectURL);
             }
             catch(err){
-                console.log(err.message)
+                console.log("ERROR : getPressKit()\n", err.message)
             }
         }
-        
-
-        
 
         getPressKit();
     }, [])
@@ -41,7 +34,7 @@ const PressKit = () => {
         e.preventDefault();
         const formData = new FormData(e.target);
         
-        await axios.post("/pressKit", formData, {
+        await axiosPrivate.post("/pressKit", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
                 "Authorization": `Bearer ${auth.accessToken}`
@@ -56,6 +49,7 @@ const PressKit = () => {
             document.getElementById('pressKitForm').reset();
         }).catch((err) => {
             console.log(err);
+            navigate('/login', {state: {from: location}, replace: true});
         })
     }
 

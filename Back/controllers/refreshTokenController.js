@@ -8,17 +8,23 @@ require('dotenv').config( {
 });
 
 const handleRefreshToken = async (req,res) => {
+    console.log("REFRESH REQUEST")
     const cookies = req.cookies;
     //? is the optional chaining operator, check if the "jwt" is null and avoid to return an error
     if(!cookies?.jwt) {
+        console.log("No cookie found")
         return res.sendStatus(401);
     }
     console.log(cookies.jwt);
     const refreshToken = cookies.jwt;
 
     const foundUser = await User.findOne({ refreshToken }).exec();
-    if(!foundUser) return res.sendStatus(403); //Forbidden
-    
+    if(!foundUser) {
+        console.log("No user found")
+        return res.sendStatus(403); //Forbidden
+    }
+    console.log("User found :", foundUser);
+
     //evaluate jwt
     jwt.verify(
         refreshToken,
