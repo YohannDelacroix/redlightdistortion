@@ -1,9 +1,13 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useReducer } from "react";
 import axios from "../../api/axios";
 import AuthContext from "../../Context/AuthProvider";
 import useAuth from "../../Hooks/useAuth";
 import { useNavigate, useLocation } from "react-router-dom";
 import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
+import DeleteConfirmation from './DeleteConfirmation/DeleteConfirmation';
+import {DEL_ACTION} from './DeleteConfirmation/deleteActions';
+import { deleteConfirmationReducer } from './DeleteConfirmation/deleteReducer';
+
 
 export default function Tour(){
 
@@ -16,6 +20,13 @@ export default function Tour(){
     const axiosPrivate = useAxiosPrivate();
     const navigate = useNavigate();
     const location = useLocation();
+
+    const [del, dispatchDel] = useReducer(deleteConfirmationReducer, {
+        deleteAuthorization: false,
+        deleteConfirmation: false,
+        name: undefined,
+        id: undefined
+    });
 
     //Get the datas from the server
     useEffect( () => {
@@ -42,22 +53,37 @@ export default function Tour(){
 
     //When the admin press the button Delete, a tour date is removed from the calendar
     const handleDeleteTourDate = (tourDate) => async (e) => {
-        console.log("tourdate", tourDate)
-        console.log("AccesssToken", auth.accessToken);
-
-        await axiosPrivate({
-            url: '/tour',
-            method: 'delete',
-            data: {id: tourDate._id}
-        }).then(() => {
-            setUpdate(update+1);
-        }).catch((err)=> {
-            console.error(err);
-            navigate('/login', {state: {from: location}, replace: true});
-        })
+        console.log("Delete tourdate", tourDate)
+        dispatchDel({type: DEL_ACTION.CONFIRMATION, payload: true});
+        dispatchDel({type: DEL_ACTION.SET_ID, payload: tourDate._id});
+        dispatchDel({type: DEL_ACTION.SET_NAME, payload: tourDate.place_name});
     }
 
-    
+    const deleteTourDate = async (id) => {
+        if(del.deleteAuthorization){
+            await axiosPrivate({
+                url: '/tour',
+                method: 'delete',
+                data: {id: id}
+            }).then(() => {
+                setUpdate(update+1);
+            }).catch((err)=> {
+                console.error(err);
+                navigate('/login', {state: {from: location}, replace: true});
+            })
+        }
+        
+        dispatchDel({type: DEL_ACTION.AUTHORIZATION, payload: false});
+        dispatchDel({type: DEL_ACTION.SET_ID, payload: undefined});
+        dispatchDel({type: DEL_ACTION.SET_NAME, payload: undefined});
+    }
+
+    useEffect( () => {
+        if(del.deleteAuthorization){
+            deleteTourDate(del.id);
+        }
+    }, [del.deleteAuthorization])
+
 
     //Convert a Month numeric value to a format value like "NOV" , "DEC" , etc
     function convertMonthNtoS(monthNumeric){
@@ -237,7 +263,6 @@ export default function Tour(){
             document.getElementById('unfilledCountry').classList.add("failed-hidden")
         }
 
-
         let separateDate = splitDate(e.target['date'].value)
 
         //Check if the date is not already used, to prevent key bugs and because it's impossible to play at two places the same day
@@ -293,6 +318,9 @@ export default function Tour(){
                             {`Problem fetching datas - ${errorTour}`}
                         </div>)
                     }
+
+                    {del.deleteConfirmation && 
+                                <DeleteConfirmation dispatchDel={dispatchDel} delName={del.name}/>}
 
                     <div>
                     {

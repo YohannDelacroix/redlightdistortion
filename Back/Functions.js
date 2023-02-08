@@ -101,29 +101,37 @@ function convertMonthStoN(monthString){
         case 'DEC':
             return "12";
         default:
-            console.log("convertMonthStoN parameter is not a month")
+            console.log(`convertMonthStoN parameter is not a month: ${monthString}`)
     }
 }
 
 
 //Compare two dates, date1>date2 return 1 // date1==date2 return 0 // date1<date2 return -1
 function compareTourDates(date1format, date2format){
+    console.log("Comparing tour dates....");
+    
+    
+
     //Copy the values into new tables
-    let date1 = {...date1format}
-    let date2 = {...date2format}
+    let date1 = {}
+    let date2 = {}
+
+    console.log("D1 : ", date1);
+    console.log("D2 : ", date2);
 
 
     //Set the month to numeric value
-    date1.month = convertMonthStoN(date1.month)
-    date2.month = convertMonthStoN(date2.month)
+    console.log("CHECK", date1format, date2format);
+    date1.month = convertMonthStoN(date1format.month)
+    date2.month = convertMonthStoN(date2format.month)
 
     //Set all the fields to numeric value
-    date1.day = Number(date1.day)
-    date1.month = Number(date1.month)
-    date1.year = Number(date1.year)
-    date2.day = Number(date2.day)
-    date2.month = Number(date2.month)
-    date2.year = Number(date2.year)
+    date1.day = Number(date1format.day)
+    date1.month = Number(date1format.month)
+    date1.year = Number(date1format.year)
+    date2.day = Number(date2format.day)
+    date2.month = Number(date2format.month)
+    date2.year = Number(date2format.year)
 
 
     if(date1.year > date2.year){
