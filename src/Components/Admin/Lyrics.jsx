@@ -32,24 +32,24 @@ const Lyrics = () => {
     const navigate = useNavigate();
     const location = useLocation();
     
+    //Get list of lyrics from the server
+    const getLyrics = async () => {
+        try{ 
+            const response = await axios.get('/lyrics')
+            setLyrics(response.data)
+            setError(null)
+        } 
+        catch(err){
+            setError(err.message)
+            setLyrics(null)
+        }
+        finally{
+            setLoading(false)
+        }
+     }
+
     //Load the lyrics from a JSON file
     useEffect( () => {
-        //Get list of lyrics from the server
-        const getLyrics = async () => {
-          try{ 
-              const response = await axios.get('/lyrics')
-              setLyrics(response.data)
-              setError(null)
-          } 
-          catch(err){
-              setError(err.message)
-              setLyrics(null)
-          }
-          finally{
-              setLoading(false)
-          }
-       }
-  
       getLyrics();
     },[])
 
@@ -162,10 +162,11 @@ const Lyrics = () => {
                             lyrics[i].title = newSong.title;
                             lyrics[i].description = newSong.description;
                             lyrics[i].lyrics_en = newSong.lyrics_en;
-                            console.log("TEST\n", lyrics)
+                            //console.log("TEST\n", lyrics)
                         }
                     }
 
+                    getLyrics();
                     setUpdateSong(emptySong)
                     setModeUpdate(false)
                 }

@@ -19,6 +19,7 @@ import Admin from './Components/Admin/Admin';
 import Login from './Components/Admin/Login';
 import RequireAuth from './Components/Admin/RequireAuth';
 import { AuthProvider } from './Context/AuthProvider';
+import PersistLogin from './Components/Admin/PersistLogin';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -41,10 +42,12 @@ root.render(
         <Route path="About" element={<About />} />
         <Route path="Universe" element={<Universe />} />
         <Route path="*" element={<Inexistant />} />
-        <Route element={<RequireAuth />}>
-          <Route path="Admin" element={<Admin />} />
+        <Route element={<PersistLogin />}>
+          <Route element={<RequireAuth />}>
+            <Route path="Admin" element={<Admin />} />
+          </Route>
         </Route>
-        
+
         <Route path="Login" element={<Login />} />
     </Routes>
     </AuthProvider>

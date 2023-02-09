@@ -9,6 +9,8 @@ import axios from "axios";
 import PressKit from "./PressKit";
 import AuthContext, { AuthProvider } from '../../Context/AuthProvider';
 import useAuth from "../../Hooks/useAuth";
+import useLogout from "../../Hooks/useLogout";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Admin(){
@@ -20,6 +22,8 @@ export default function Admin(){
 
     const { setAuth } = useAuth();
     const [display, setDisplay] = useState(DISPLAY_NONE);
+    const logout = useLogout();
+    const navigate = useNavigate();
 
 
     //Apply a class on the button selected
@@ -63,12 +67,8 @@ export default function Admin(){
     }
 
     const handleLogOut = async () => {
-        await axios.get('http://localhost:5050/logout').then((response)=>{
-            console.log("Logged out", response)
-            setAuth({});
-        }).catch((err) => {
-            console.log(err);
-        })
+        await logout();
+        navigate('/home');
     }
 
 
