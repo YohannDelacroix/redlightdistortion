@@ -5,10 +5,17 @@
 * Browsers: last 4 version
 */
 
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .home{
   display: block;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(0,0,0)),to(rgb(128,0,0)));
   background-image: -o-linear-gradient(bottom, rgb(0,0,0),rgb(128,0,0));
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(0,0,0)),to(rgb(128,0,0)));
   background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
   width: 100%;
   color:white;

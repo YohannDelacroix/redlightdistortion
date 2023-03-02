@@ -1,7 +1,16 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .admin-container{
     display: block;
     position: relative;
     padding: 130px 10px 15px 10px;
+    background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(0,0,0)),to(rgb(128,0,0)));
+    background-image: -o-linear-gradient(bottom, rgb(0,0,0),rgb(128,0,0));
     background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
     z-index:1;
     min-height:100vh;
@@ -10,39 +19,72 @@
 
 
 .admin-subscriber{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
     padding: 5px;
 }
 
 .admin-subscriber-elem{
-    flex: 1 1 0;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 0px;
+            flex: 1 1 0;
     margin: 0 5px;
 }
 
 .admin-block-button{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 
 .admin-tour{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
     margin-bottom: 10px;
 }
 
 .admin-tour-element{
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    -ms-flex-preferred-size: 0;
+        flex-basis: 0;
     margin: 0 5px;
 }
 
@@ -51,16 +93,32 @@
 
 /* CSS For the tour form */
 .admin-form-tour{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .admin-form-tour-field{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-bottom: 5px;
     width: 50%;
 }
@@ -82,10 +140,19 @@
 
 /* CSS for the news form */
 .admin-form-news-field{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-bottom: 5px;
     width: 100%;
 }
@@ -127,32 +194,43 @@
 /* ------------    LYRICS PART    -----------------*/
 .admin-lyrics-songs{
     margin-bottom: 20px;
+    display: -ms-grid;
     display: grid;
     grid-gap: 5px;
 }
 
 .admin-lyrics-songitem{
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 3fr 5px 1fr 5px 1fr;
     grid-template-columns: 3fr 1fr 1fr;
     grid-gap: 5px;
     
 }
 
 .admin-lyrics-add-button{
-    grid-column-start: 3;
+    -ms-grid-column: 3;
+        grid-column-start: 3;
 }
 
 .admin-lyrics-additem{
     margin-top: 10px;
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 3fr 5px 1fr 5px 1fr;
     grid-template-columns: 3fr 1fr 1fr;
     grid-gap: 5px;
 }
 
 
 .admin-editlyricsform{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;   
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;   
 }
 
 .admin-editlyricsform label{
@@ -169,10 +247,18 @@
 
 .admin-menu-choices{
     list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     padding: 0;
     margin: 0;
 }
@@ -202,11 +288,14 @@
 
 
 .admin-login{
+    display: -ms-grid;
     display: grid;
     margin: auto;
     padding: 10px;
     place-items: center;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     gap: 10px;
     width: 300px;
     border: solid thick white;
@@ -217,22 +306,38 @@
 }
 
 .admin-presskit-form{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 
 
 .admin-delete-confirmation{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     position: fixed;
     top:50%;
     left:50%;
     z-index:1000;
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
     background-color: black;
     padding: 10px;
     border: solid white;

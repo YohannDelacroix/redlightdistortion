@@ -5,6 +5,13 @@
 * Browsers: last 4 version
 */
 
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /*.footer{
   display: flex;
   position: relative;
@@ -29,9 +36,9 @@
   width: 100%;
   max-width: 100%;
   padding: 5px 10px;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#000), to(#0008)),
-                    url("../../Assets/concrete-wall.jpg");
   background-image: -o-linear-gradient(bottom, #000, #0008),
+                    url("../../Assets/concrete-wall.jpg");
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#000), to(#0008)),
                     url("../../Assets/concrete-wall.jpg");
   background-image: linear-gradient(to top, #000, #0008),
                     url("../../Assets/concrete-wall.jpg");
@@ -42,8 +49,13 @@
 }
 
 .footer-social{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   position: absolute;
   top:50%;
   right:2%;

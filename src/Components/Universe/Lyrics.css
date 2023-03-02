@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .lyrics-container{
     padding: 20px 0;
 }
@@ -25,6 +32,8 @@
 
 .universe-song{
     overflow: hidden;
+    -webkit-transition: max-height 3000ms, min-height 3000ms;
+    -o-transition: max-height 3000ms, min-height 3000ms;
     transition: max-height 3000ms, min-height 3000ms;
 }
 
@@ -43,7 +52,9 @@
     font-size: 20px;
     bottom: 50%;
     left: 10%;
-    transform: translate(0%,50%);
+    -webkit-transform: translate(0%,50%);
+        -ms-transform: translate(0%,50%);
+            transform: translate(0%,50%);
     max-width: 75%;
     white-space: nowrap;
     overflow: hidden;
@@ -87,7 +98,9 @@
     position: absolute;
     bottom:50%;
     right: 10%;
-    transform: translate(0%,50%);
+    -webkit-transform: translate(0%,50%);
+        -ms-transform: translate(0%,50%);
+            transform: translate(0%,50%);
 }
 
 
@@ -95,46 +108,92 @@
 
 @media only screen and (min-width: 870px){
     .lyrics-container{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-transition: -webkit-box-pack 1s;
+        transition: -webkit-box-pack 1s;
+        -o-transition: justify-content 1s;
         transition: justify-content 1s;
+        transition: justify-content 1s, -webkit-box-pack 1s, -ms-flex-pack 1s;
     }
 
     .universe-songs-list{
-        order: 1;
-        flex-grow: 0.2;
+        -webkit-box-ordinal-group: 2;
+            -ms-flex-order: 1;
+                order: 1;
+        -webkit-box-flex: 0.2;
+            -ms-flex-positive: 0.2;
+                flex-grow: 0.2;
     }
 
     .universe-song{
-        order: 2;
-        flex: 0;
+        -webkit-box-ordinal-group: 3;
+            -ms-flex-order: 2;
+                order: 2;
+        -webkit-box-flex: 0;
+            -ms-flex: 0;
+                flex: 0;
     }
 
     .us-newitem{
-        flex: 0.0001;
-        animation: flexGrow 500ms ease forwards;
+        -webkit-box-flex: 0.0001;
+            -ms-flex: 0.0001;
+                flex: 0.0001;
+        -webkit-animation: flexGrow 500ms ease forwards;
+                animation: flexGrow 500ms ease forwards;
     }
 
     .us-deleteitem{
-        flex: 1;
-        animation: flexShrink 500ms ease forwards;
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+        -webkit-animation: flexShrink 500ms ease forwards;
+                animation: flexShrink 500ms ease forwards;
+    }
+
+    @-webkit-keyframes flexGrow{
+        to{
+            -webkit-box-flex: 1;
+                    flex: 1;
+        }
     }
 
     @keyframes flexGrow{
         to{
-            flex: 1;
+            -webkit-box-flex: 1;
+                -ms-flex: 1;
+                    flex: 1;
+        }
+    }
+
+    @-webkit-keyframes flexShrink{
+        to{
+            -webkit-box-flex: 0.01;
+                    flex: 0.01;
+            -webkit-box-flex: 0.0001;
+                    flex: 0.0001;
         }
     }
 
     @keyframes flexShrink{
         to{
-            flex: 0.01;
-            flex: 0.0001;
+            -webkit-box-flex: 0.01;
+                -ms-flex: 0.01;
+                    flex: 0.01;
+            -webkit-box-flex: 0.0001;
+                -ms-flex: 0.0001;
+                    flex: 0.0001;
         }
     }
 
     .universe-song-button-close{
         opacity: 1;
+        -webkit-transition: opacity 250ms;
+        -o-transition: opacity 250ms;
         transition: opacity 250ms;
     }
 
