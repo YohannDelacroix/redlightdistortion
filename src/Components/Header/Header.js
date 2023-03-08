@@ -7,6 +7,7 @@ import CrossIcon from "../../Assets/cross_icon.png";
 
 const Header = () => {
 
+  //
   const headerStyleDefault = {
     buttonActive: false,
     buttonImg: MenuIcon,
@@ -29,11 +30,11 @@ const Header = () => {
   //Header button in responsive design
   const handleButtonHeader = () => {
 
-    if(headerStyle.buttonActive === false){
-      setHeaderStyle(headerStyleMobile);
+    if(headerStyle.buttonActive){
+      setHeaderStyle(headerStyleDefault);
     }
     else{
-      setHeaderStyle(headerStyleDefault);
+      setHeaderStyle(headerStyleMobile);
     }
   };
 

@@ -3,6 +3,8 @@ const fs = require('fs');
 
 
 const schedule = require('node-schedule')
+
+
 //Clean past tour dates every day at midnight 
 const job = schedule.scheduleJob('0 0 * * *', function(){
   console.log("schedule work")
