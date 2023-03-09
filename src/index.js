@@ -16,10 +16,12 @@ import NewsContent from './Components/News/NewsContent/NewsContent';
 import Inexistant from './Components/Inexistant/Inexistant';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import Admin from './Components/Admin/Admin';
-import Login from './Components/Admin/Login';
+import Login from './Components/Admin/Login/Login';
 import RequireAuth from './Components/Admin/RequireAuth';
 import { AuthProvider } from './Context/AuthProvider';
 import PersistLogin from './Components/Admin/PersistLogin';
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -27,6 +29,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <ScrollToTop>
+    <Header />
     <AuthProvider>
     <Routes>
         <Route path="/" element={<Home />} />
@@ -51,6 +54,7 @@ root.render(
         <Route path="Login" element={<Login />} />
     </Routes>
     </AuthProvider>
+    <Footer />
     </ScrollToTop>
     </BrowserRouter>
   </React.StrictMode>

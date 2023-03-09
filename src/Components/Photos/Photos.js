@@ -9,7 +9,6 @@ function Photos(){
   
 
   return (<div className="container">
-    <Header />
     <div className="photo-container">
       <TitleComponent titleContent="Photos" />
       <div className="photo-galery">
@@ -26,7 +25,6 @@ function Photos(){
       </div>
 
     </div>
-    <Footer />
   </div>)
 }
 

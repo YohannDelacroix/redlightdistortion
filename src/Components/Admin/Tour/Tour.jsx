@@ -1,12 +1,12 @@
 import { useEffect, useState, useReducer } from "react";
-import axios from "../../api/axios";
-import AuthContext from "../../Context/AuthProvider";
-import useAuth from "../../Hooks/useAuth";
+import axios from "../../../api/axios";
+import AuthContext from "../../../Context/AuthProvider";
+import useAuth from "../../../Hooks/useAuth";
 import { useNavigate, useLocation } from "react-router-dom";
-import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
-import DeleteConfirmation from './DeleteConfirmation/DeleteConfirmation';
-import {DEL_ACTION} from './DeleteConfirmation/deleteActions';
-import { deleteConfirmationReducer } from './DeleteConfirmation/deleteReducer';
+import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
+import DeleteConfirmation from '../DeleteConfirmation/DeleteConfirmation';
+import {DEL_ACTION} from '../DeleteConfirmation/deleteActions';
+import { deleteConfirmationReducer } from '../DeleteConfirmation/deleteReducer';
 
 
 export default function Tour(){

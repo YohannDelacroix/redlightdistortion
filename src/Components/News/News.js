@@ -9,7 +9,6 @@ import {Link, Outlet} from "react-router-dom";
 function News(){
 
   return (<div className="container">
-    <Header />
     <div className="news-container">
       <Outlet />
       <div className="news-bottom">
@@ -26,7 +25,6 @@ function News(){
       </div>
 
     </div>
-    <Footer />
   </div>)
 }
 

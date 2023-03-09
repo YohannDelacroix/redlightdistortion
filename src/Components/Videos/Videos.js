@@ -6,7 +6,6 @@ import TitleComponent from "../TitleComponent/TitleComponent.js";
 
 function Videos(){
   return (<div className="container">
-    <Header />
     <div  className="videos-container">
       <TitleComponent titleContent="Our Music" />
       <div className="videos-list">
@@ -45,7 +44,6 @@ function Videos(){
                   allowfullscreen />
       </div>
     </div>
-    <Footer />
   </div>)
 }
 

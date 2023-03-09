@@ -104,7 +104,7 @@ function Home(){
   }, [results])
 
   return(<div className="home">
-  <Header />
+
 
 
   <div className="home-top">
@@ -230,9 +230,6 @@ function Home(){
     </div>
 
   </div>     
-
-
-  <Footer />
   </div>);
 }
 

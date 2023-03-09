@@ -2,11 +2,11 @@ import "./Admin.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { useState, useContext } from "react";
-import Tour from './Tour'
-import Lyrics from "./Lyrics";
+import Tour from './Tour/Tour'
+import Lyrics from "./Lyrics/Lyrics";
 import TitleComponent from '../TitleComponent/TitleComponent'
 import axios from "axios";
-import PressKit from "./PressKit";
+import PressKit from "./PressKit/PressKit";
 import AuthContext, { AuthProvider } from '../../Context/AuthProvider';
 import useAuth from "../../Hooks/useAuth";
 import useLogout from "../../Hooks/useLogout";
@@ -73,8 +73,6 @@ export default function Admin(){
 
 
     return (<div>
-        <Header />
-        
         <div className="admin-container">
 
         <div className="admin-logout">
@@ -133,6 +131,5 @@ export default function Admin(){
         
             
         </div> 
-        <Footer />
     </div>);
 }

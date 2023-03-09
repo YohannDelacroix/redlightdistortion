@@ -8,7 +8,6 @@ import RomanPic from "../../Assets/roman_seul_face.jpg";
 
 function About(){
   return (<div className="container">
-    <Header />
     <div className="about-container">
       <TitleComponent titleContent="About" />
       <div className="about-biography">
@@ -42,12 +41,12 @@ function About(){
         <img className="about-img-roman" src={YohannPic} alt="X" />
           
           <h3>X</h3>
-          <h5 className="about-title-left">Yohann Delacroix</h5>
+          <h5 className="about-title-left">Thrash X</h5>
           
           
           <h6>Guitarist, Singer</h6>
           <p>
-          At 17, Yohann was a mere student who spent his time playing guitar.
+          At 17, Thrash X was a mere student who spent his time playing guitar.
           </p>
           <p>
           During a metal show, he is invited to perform a song with the band, he realises that the stage is a place where he loves to be.
@@ -66,7 +65,7 @@ function About(){
         <div className="about-band-biography" >
           <h3>The Red Story</h3>
           <p>
-          At the beginning, Yohann was a guitar teacher and gave guitar lessons to Roman.
+          At the beginning, Thrash X was a guitar teacher and gave guitar lessons to Roman.
           They become friends and decide to create Red Light Distortion.
           The two friends start to search for a drummer and a bassist to fill a Heavy Metal line-up.</p>
           <p>
@@ -85,7 +84,6 @@ function About(){
       </div>
       
     </div>
-    <Footer />
   </div>)
 }
 

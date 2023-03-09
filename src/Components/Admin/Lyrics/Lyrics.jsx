@@ -1,11 +1,11 @@
-import axios from "../../api/axios";
+import axios from "../../../api/axios";
 import React from 'react'
 import {useState, useEffect, useReducer, useContext} from 'react'
-import DeleteConfirmation from './DeleteConfirmation/DeleteConfirmation';
-import {DEL_ACTION} from './DeleteConfirmation/deleteActions';
-import { deleteConfirmationReducer } from './DeleteConfirmation/deleteReducer';
-import useAuth from '../../Hooks/useAuth';
-import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
+import DeleteConfirmation from '../DeleteConfirmation/DeleteConfirmation';
+import {DEL_ACTION} from '../DeleteConfirmation/deleteActions';
+import { deleteConfirmationReducer } from '../DeleteConfirmation/deleteReducer';
+import useAuth from '../../../Hooks/useAuth';
+import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
 import { useNavigate, useLocation } from "react-router-dom";
 
 

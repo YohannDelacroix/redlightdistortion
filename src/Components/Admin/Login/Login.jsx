@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import useAuth from '../../Hooks/useAuth';
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-import axios from "../../api/axios";
+import useAuth from '../../../Hooks/useAuth';
+import Header from "../../Header/Header";
+import Footer from "../../Footer/Footer";
+import axios from "../../../api/axios";
 
 const Login = () => {
 
@@ -61,7 +61,7 @@ const Login = () => {
 
   return (
     <div>
-        <Header />
+        
         
         <div className="admin-container">
           <form className="admin-login" onSubmit={handleLogin} data-testid="login-form">
@@ -86,7 +86,7 @@ const Login = () => {
               <button type="submit" data-testid="login-btn">Log in</button>
           </form>
         </div>
-        <Footer />
+        
     </div>
   )
 }

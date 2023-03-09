@@ -1,8 +1,8 @@
-import axios from "../../api/axios";
-import { axiosPrivate } from "../../api/axios";
+import axios from "../../../api/axios";
+import { axiosPrivate } from "../../../api/axios";
 import React, { useEffect, useState, useContext } from 'react'
-import useAxiosPrivate from "../../Hooks/useAxiosPrivate";
-import useAuth from '../../Hooks/useAuth';
+import useAxiosPrivate from "../../../Hooks/useAxiosPrivate";
+import useAuth from '../../../Hooks/useAuth';
 import { useNavigate, useLocation } from "react-router-dom";
 
 const PressKit = () => {

@@ -37,7 +37,6 @@ function Tour(){
   }, []);
 
   return (<div className="container">
-    <Header />
 
     <div className="tour-container">
     <TitleComponent titleContent="Tour Dates" />
@@ -82,7 +81,6 @@ function Tour(){
 
     </div>
 
-    <Footer />
     </div>)
 }
 
