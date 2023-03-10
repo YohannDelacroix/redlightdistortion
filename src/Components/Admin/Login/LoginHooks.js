@@ -27,9 +27,9 @@ export const useLogin = () => {
     }
 
     useEffect( () => {
-        console.log("usr : ", usr);
+        /*console.log("usr : ", usr);
         console.log("pwd : ", pwd);
-        console.log("enable submit :", enableSubmit);
+        console.log("enable submit :", enableSubmit);*/
         setEnableSubmit(usr !== "" && pwd !== "")
     }, [usr, pwd])
 
@@ -79,5 +79,5 @@ export const useLogin = () => {
         }
     }
 
-    return { errMsg, handleLogin, handleChangeUsr, handleChangePwd, enableSubmit};
+    return { errMsg, handleLogin, handleChangeUsr, handleChangePwd, enableSubmit, usr, pwd};
 }
