@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/redlightdistortion/static/css/main.c48c5fc8.css",
-    "main.js": "/redlightdistortion/static/js/main.ac78a745.js",
+    "main.css": "/redlightdistortion/static/css/main.a025cb34.css",
+    "main.js": "/redlightdistortion/static/js/main.fb0d5c0e.js",
     "static/js/787.960a4fc8.chunk.js": "/redlightdistortion/static/js/787.960a4fc8.chunk.js",
     "static/media/concrete-wall.jpg": "/redlightdistortion/static/media/concrete-wall.92635a46bf753c697bd4.jpg",
+    "static/media/DossierREDLIGHTDISTORTION-1.pdf": "/redlightdistortion/static/media/DossierREDLIGHTDISTORTION-1.953e72b2337cfa06f15b.pdf",
     "static/media/RLDLogoFondNoir.png": "/redlightdistortion/static/media/RLDLogoFondNoir.9b1e086d4c1e03654e5c.png",
     "static/media/BadSignal.otf": "/redlightdistortion/static/media/BadSignal.1abae09ea9dffd83254a.otf",
     "static/media/img5.jpg": "/redlightdistortion/static/media/img5.51a3984f20291b72ee7f.jpg",
@@ -39,12 +40,12 @@
     "static/media/roman_seul_face.jpg": "/redlightdistortion/static/media/roman_seul_face.01f62440889b9c1d5646.jpg",
     "static/media/IMG-20220917-WA0016.jpg": "/redlightdistortion/static/media/IMG-20220917-WA0016.60a593d15df2d42be7c3.jpg",
     "index.html": "/redlightdistortion/index.html",
-    "main.c48c5fc8.css.map": "/redlightdistortion/static/css/main.c48c5fc8.css.map",
-    "main.ac78a745.js.map": "/redlightdistortion/static/js/main.ac78a745.js.map",
+    "main.a025cb34.css.map": "/redlightdistortion/static/css/main.a025cb34.css.map",
+    "main.fb0d5c0e.js.map": "/redlightdistortion/static/js/main.fb0d5c0e.js.map",
     "787.960a4fc8.chunk.js.map": "/redlightdistortion/static/js/787.960a4fc8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c48c5fc8.css",
-    "static/js/main.ac78a745.js"
+    "static/css/main.a025cb34.css",
+    "static/js/main.fb0d5c0e.js"
   ]
 }
