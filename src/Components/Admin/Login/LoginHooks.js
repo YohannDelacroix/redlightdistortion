@@ -6,13 +6,12 @@ import axios from "../../../api/axios";
 import { useEffect } from 'react';
 
 export const useLogin = () => {
-    const [usr, setUsr] = useState("");
+    const [usr, setUsr] = useState("admin");
     const [pwd, setPwd] = useState("");
     const [enableSubmit, setEnableSubmit] = useState(false);
 
     const { setAuth } =  useAuth();
     const [errMsg, setErrMsg] = useState('');
-
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -27,9 +26,6 @@ export const useLogin = () => {
     }
 
     useEffect( () => {
-        /*console.log("usr : ", usr);
-        console.log("pwd : ", pwd);
-        console.log("enable submit :", enableSubmit);*/
         setEnableSubmit(usr !== "" && pwd !== "")
     }, [usr, pwd])
 
@@ -75,7 +71,6 @@ export const useLogin = () => {
             else{
                 setErrMsg('Login Failed');
             }
-            
         }
     }
 

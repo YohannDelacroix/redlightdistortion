@@ -36,7 +36,7 @@ function Tour(){
       getTourDates();
   }, []);
 
-  return (<div className="container">
+  return (
 
     <div className="tour-container">
     <TitleComponent titleContent="Tour Dates" />
@@ -81,7 +81,7 @@ function Tour(){
 
     </div>
 
-    </div>)
+    )
 }
 
 export default Tour;

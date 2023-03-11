@@ -16,18 +16,12 @@
   display: block;
   position: relative;
   padding: 130px 5px 15px 5px;
-
   background-image: -o-linear-gradient(bottom, rgb(0,0,0),rgb(128,0,0));
-
   background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(0,0,0)),to(rgb(128,0,0)));
-
   background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
   z-index:1;
   min-height:100%;
-
   clear: both;
-
-
 }
 
 

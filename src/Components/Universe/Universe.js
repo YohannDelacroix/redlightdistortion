@@ -6,7 +6,7 @@ import Lyrics from "./Lyrics.js";
 
 
 function Universe(){
-  return (<div className="container">
+  return (
     <div className="universe-container">
     <TitleComponent titleContent="Universe" />
 
@@ -24,7 +24,7 @@ function Universe(){
     <Lyrics />
     </div>
   </div>
-</div>)
+)
 }
 
 export default Universe;

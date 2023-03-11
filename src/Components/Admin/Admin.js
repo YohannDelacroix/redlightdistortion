@@ -72,7 +72,7 @@ export default function Admin(){
     }
 
 
-    return (<div>
+    return (
         <div className="admin-container">
 
         <div className="admin-logout">
@@ -131,5 +131,5 @@ export default function Admin(){
         
             
         </div> 
-    </div>);
+    );
 }

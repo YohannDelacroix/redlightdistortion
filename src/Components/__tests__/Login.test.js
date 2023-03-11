@@ -8,7 +8,7 @@ afterEach(() => {
 })
 
 describe("Login component Tests", () => {
-    it.skip('should render component', () => {
+    it('should render component', () => {
         const { container } = render(<Router><Login /></Router>);
         expect(container).toMatchSnapshot();
     })

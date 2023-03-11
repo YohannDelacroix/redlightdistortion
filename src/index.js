@@ -29,6 +29,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <ScrollToTop>
+    <div className="container">
     <Header />
     <AuthProvider>
     <Routes>
@@ -55,6 +56,7 @@ root.render(
     </Routes>
     </AuthProvider>
     <Footer />
+    </div>
     </ScrollToTop>
     </BrowserRouter>
   </React.StrictMode>

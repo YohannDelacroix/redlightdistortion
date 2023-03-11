@@ -4,12 +4,12 @@ import { MemoryRouter as Router} from 'react-router-dom';
 
 
 describe("useLogin Tests", () => {
-    it("should set initial user to empty string", () => {
+    it("should set initial user to admin string", () => {
         const data = renderHook( () => useLogin(), {
             wrapper: ({children}) => (<Router>{children}</Router>)
         });
         
-        expect(data.result.current.usr).toEqual("");
+        expect(data.result.current.usr).toEqual("admin");
     })
 
     it("should set initial password to empty string", () => {

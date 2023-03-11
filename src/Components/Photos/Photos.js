@@ -8,7 +8,7 @@ function Photos(){
 
   
 
-  return (<div className="container">
+  return (
     <div className="photo-container">
       <TitleComponent titleContent="Photos" />
       <div className="photo-galery">
@@ -25,7 +25,7 @@ function Photos(){
       </div>
 
     </div>
-  </div>)
+  )
 }
 
 export default Photos;

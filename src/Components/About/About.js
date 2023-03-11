@@ -7,7 +7,8 @@ import RomanPic from "../../Assets/roman_seul_face.jpg";
 
 
 function About(){
-  return (<div className="container">
+  return (
+
     <div className="about-container">
       <TitleComponent titleContent="About" />
       <div className="about-biography">
@@ -74,17 +75,17 @@ function About(){
           <p>
           Following this realization came the idea to fill the rythmic section with electronic sounds.
           After several weeks of hard word the new Red Light Electronic Distortion is ready.
-          To Yohann and Roman, this is a success, the sounds fits perfectly together and the energy is strongly waving.
+          To X and Walrus, this is a success, the sounds fits perfectly together and the energy is strongly waving.
           </p>
           <p>
-          Red Light Distortion is ready to put their feets on stage.
+          Red Light Distortion is ready to put their foot on stage.
           The audience is about to discover the new Electronic Heavy Metal.
           </p>
         </div>
       </div>
       
     </div>
-  </div>)
+   )
 }
 
 export default About;

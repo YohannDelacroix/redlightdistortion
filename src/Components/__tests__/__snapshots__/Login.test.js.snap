@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login component Tests should render component 1`] = `
+<div>
+  <div>
+    <div
+      class="admin-container"
+    >
+      <form
+        class="admin-login"
+        data-testid="login-form"
+      >
+        <label
+          for="username"
+        >
+          Username:
+        </label>
+        <input
+          autocomplete="off"
+          data-testid="usr"
+          id="username"
+          name="username"
+          required=""
+          type="text"
+          value="admin"
+        />
+        <label
+          for="pwd"
+        >
+          Password:
+        </label>
+        <input
+          autocomplete="new-password"
+          data-testid="pwd"
+          id="pwd"
+          name="pwd"
+          required=""
+          type="password"
+        />
+        <button
+          data-testid="login-btn"
+          disabled=""
+          type="submit"
+        >
+          Log in
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;

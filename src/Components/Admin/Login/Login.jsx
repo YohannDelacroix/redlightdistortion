@@ -2,7 +2,7 @@ import React from 'react'
 import { useLogin } from "./LoginHooks";
 
 const Login = () => {
-    const { errMsg, handleLogin, handleChangePwd, handleChangeUsr, enableSubmit } = useLogin();
+    const { errMsg, handleLogin, handleChangePwd, handleChangeUsr, enableSubmit, usr } = useLogin();
 
 
     return (
@@ -15,7 +15,7 @@ const Login = () => {
                         name="username" 
                         id="username" 
                         autoComplete="off" 
-                        defaultValue="admin"
+                        defaultValue={usr}
                         data-testid="usr"
                         onChange={handleChangeUsr}
                         required 

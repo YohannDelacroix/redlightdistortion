@@ -14,22 +14,15 @@
 
 .home{
   display: block;
-  background-image: -o-linear-gradient(bottom, rgb(0,0,0),rgb(128,0,0));
-  background-image: -webkit-gradient(linear, left bottom, left top, from(rgb(0,0,0)),to(rgb(128,0,0)));
-  background-image: linear-gradient(to top, rgb(0,0,0),rgb(128,0,0));
+  position: relative;
+  background-image: url("../../Assets/Couverture1.jpg");
+  background-attachment: fixed;
+  background-size: cover;
   width: 100%;
   color:white;
-}
-
-.home-top{
-  
-    background-image: url("../../Assets/Couverture1.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-    width: 100%;
-    padding: 100px 10px 10px;
-    margin: 10px 0px;
-    display: -webkit-box;
+  min-height: 100%;
+  padding: 100px 10px 10px;
+  display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
@@ -39,9 +32,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    
 }
-
 
 
 .home-home-newsletterform{
