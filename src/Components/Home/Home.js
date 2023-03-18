@@ -115,9 +115,8 @@ function Home(){
             <iframe className="iframe-video" 
             src="https://www.youtube.com/embed/p0Y52_ej810"
             title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen />
+            frameBorder="0"
+            allowFullScreen />
           </div>
         </div>
 
@@ -202,7 +201,7 @@ function Home(){
           <div className="news-list"> 
           {
             newsTable.slice(0,4).map((news, index) => (
-              <Link to={`/News/${news.id}`}><NewsComponent key={`${news.title}-${index}`} newsContent={news} /></Link>
+              <Link key={`${news.title}-${index}`} to={`/News/${news.id}`}><NewsComponent newsContent={news} /></Link>
 
             ))
           }
@@ -219,7 +218,7 @@ function Home(){
 
                 <div className="photo-galery-img-container" key={image}>
                 <a href={image}><img src={image} alt="X or walrus" className="photo-galery-img" /></a>
-              </div>
+                </div>
 
               ))
             }

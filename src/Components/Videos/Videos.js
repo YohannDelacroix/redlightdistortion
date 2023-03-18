@@ -13,23 +13,20 @@ function Videos(){
                   className="video-frame"
                   src="https://www.youtube.com/embed/p0Y52_ej810"
                   title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen />
+                  frameBorder="0"
+                  allowFullScreen />
           <iframe 
                   className="video-frame"
                   src="https://www.youtube.com/embed/1dG4USdI4gk"
                   title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen />
+                  frameBorder="0"
+                  allowFullScreen />
           <iframe 
                   className="video-frame"
                   src="https://www.youtube.com/embed/gTMZEDhnLUI"
                   title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen />
+                  frameBorder="0"
+                  allowFullScreen />
 
 
       </div>
@@ -39,9 +36,8 @@ function Videos(){
                   className="video-frame"
                   src="https://www.youtube.com/embed/HZIAnUmYJEs"
                   title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen />
+                  frameBorder="0"
+                  allowFullScreen />
       </div>
     </div>
   )

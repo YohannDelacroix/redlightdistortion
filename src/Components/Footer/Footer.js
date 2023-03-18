@@ -9,6 +9,7 @@ function Footer(){
     const [pressKit, setPressKit] = useState(null);
 
     useEffect( () => {
+      console.log("GetPressKit");
         const getPressKit = async () => {
           try{
               let pdfFile = await axios.get("/pressKit", {responseType: 'blob'});
