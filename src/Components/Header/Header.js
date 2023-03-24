@@ -79,12 +79,12 @@ const Header = () => {
       </nav>
 
       <nav className={headerStyle.navMobile}>
-        <Link className="link-header" to="/Tour">Tour</Link>
-        <Link className="link-header" to="/News">News</Link>
-        <Link className="link-header" to="/Photos">Photos</Link>
-        <Link className="link-header" to="/Videos">Videos</Link>
-        <Link className="link-header" to="/Universe">Universe</Link>
-        <Link className="link-header" to="/About">About</Link>
+        <Link className="link-header" onClick={handleButtonHeader} to="/Tour">Tour</Link>
+        <Link className="link-header" onClick={handleButtonHeader} to="/News">News</Link>
+        <Link className="link-header" onClick={handleButtonHeader} to="/Photos">Photos</Link>
+        <Link className="link-header" onClick={handleButtonHeader} to="/Videos">Videos</Link>
+        <Link className="link-header" onClick={handleButtonHeader} to="/Universe">Universe</Link>
+        <Link className="link-header" onClick={handleButtonHeader} to="/About">About</Link>
       </nav>
     </div>
 

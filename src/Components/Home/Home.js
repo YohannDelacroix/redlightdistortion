@@ -116,7 +116,9 @@ function Home(){
             src="https://www.youtube.com/embed/p0Y52_ej810"
             title="YouTube video player"
             frameBorder="0"
-            allowFullScreen />
+            allowFullScreen 
+            origin="http://localhost:3000"
+            />
           </div>
         </div>
 
