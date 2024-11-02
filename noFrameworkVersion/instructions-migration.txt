@@ -1,0 +1,9 @@
+1. Replace tout les Link par a
+2. Replace tout les className par class
+
+
+
+Note de fin : 
+    28/10 - Problématique dans le Header.js avec la variable d'état de classe qui doit changer selon les clics, voir comment accéder à la variable depuis le HTML sans react ...
+
+    30/10 - Voir comment servir les pages internet depuis le Back end, tester ensuite le fonctionnement du Header

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>title</title>
+        <link rel="stylesheet" href="styles/Header.css">
+        <script src="scripts/Header.js" type="module">
+          import {onLoadHeader, handleButtonHeader, getHeaderStyle} from "./scripts/Header.js";
+          window.onLoadHeader = onLoadHeader;
+          window.handleButtonHeader = handleButtonHeader;
+          window.getHeaderStyle = getHeaderStyle;
+        </script>
+    </head>
+    <body onLoad="onLoadHeader()">
+        <!-- HEADER -->
+        <header class={getHeaderStyle().headerClass}>
+          <div class="header-nav">
+      
+              <nav class="header-left">
+                <ul class="ul-header">
+                  <li><a class="link-header" href="/Tour">Tour</a></li>
+                  <li><a class="link-header" href="/News">News</a></li>
+                  <li><a class="link-header" href="/Photos">Photos</a></li>
+                </ul>
+              </nav>
+      
+      
+            <!-- Chemin du logo à completer -->
+            <div class="header-logo">
+              <a class="header-link-image" href="/Home">
+                  <img class="header-logo-image" src="Assets/RLDLogoFondNoir.png" alt="Logo-RedLightdistortion" />
+              </a>
+            </div>
+      
+            <div class="header-mobile-nav">
+              <button class="header-button" onClick={handleButtonHeader}><img class="header-img-button" src={getHeaderStyle().buttonImg} alt="nav" /></button>
+            </div>
+      
+            <nav class="header-right">
+            <ul class="ul-header">
+              <li><a class="link-header" href="/Videos">Videos</a></li>
+              <li><a class="link-header" href="/Universe">Universe</a></li>
+              <li><a class="link-header" href="/About">About</a></li>
+            </ul>
+            </nav>
+      
+            <nav class={getHeaderStyle().navMobile}>
+              <a href="Tour.html" class="link-header" onClick={handleButtonHeader}>Tour</a>
+              <a href="News.html" class="link-header" onClick={handleButtonHeader}>News</a>
+              <a href="Photos.html" class="link-header" onClick={handleButtonHeader}>Photos</a>
+              <a href="Videos.html" class="link-header" onClick={handleButtonHeader}>Videos</a>
+              <a href="Universe.html" class="link-header" onClick={handleButtonHeader}>Universe</a>
+              <a href="About.html" class="link-header" onClick={handleButtonHeader}>About</a>
+            </nav>
+          </div>
+        </header>
+
+
+        <!-- HOME -->
+        <div class="home">
+            <div class="home-home-video">
+              <div class="container-video">
+                <iframe class="iframe-video" 
+                src="https://www.youtube.com/embed/p0Y52_ej810"
+                title="YouTube video player"
+                frameBorder="0"
+                allowFullScreen 
+                origin="http://localhost:3000"
+                />
+              </div>
+            </div>
+    
+            <!--    OLD REACT VERSION
+            <div class="home-home-newsletterform">
+              <div class="home-home-newsletterform-button">
+    
+              {
+                /*  CODE for Newsletter inside our database
+                  <button class="home-home-buttonnewsletter"
+                      type="button"
+                      onClick={handleButtonNewsletter}>Subscribe to Newsletter</button>
+                */
+              }
+              
+              <a href="https://963724d5.sibforms.com/serve/MUIEADLr_bPctO-7ORVs2xAOHSPATdp2V2Re_iA9XmPyF9fiQ3_bKRTcF7S-NQMzwTC-OeeqVuwMKVTKyhv-SJ2gHLIIDeEkKa3n47rm98XeoGCYOH6Ng7v_ILjpetiUeIQv_e8PNPdnL404KW8lcRWG0am95VHRBCeY-p7jy8zbEdm56uV9OMILa9GJhi894UBBMgC6QLubHPbV" target="__blank"><button class="home-home-buttonnewsletter"
+                      type="button">Subscribe to Newsletter</button></a>
+    
+              
+    
+              </div>
+              {
+                displayForm &&
+                <form class="home-home-newsletterform-form">
+                  <div class="home-home-newsletterform-form-element">
+                    <label>Name :</label>
+                    <input type="text" id="name" name="name"
+                            onChange={handleNameChanged}/>
+                  </div>
+                  <div class="home-home-newsletterform-form-element">
+                    <label>City :</label>
+                    <input type="text" id="city" name="city"
+                            onChange={handleCityChanged}/>
+                  </div>
+                  <div class="home-home-newsletterform-form-element">
+                    <label>E-mail :</label>
+                    <input type="text" id="email" name="email"
+                            onChange={handleEmailChanged}/>
+                  </div>
+                  <div class="home-home-newsletterform-form-element">
+                    <button type="button"
+                            onClick={handleButtonSubscribe}>Subscribe</button>
+                  </div>
+                </form>
+              }
+            </div>
+    
+    
+          
+    
+            {dataDate.length !== 0 && <div class="home-tour">
+              <TitleComponent titleContent="Tour Dates" />
+    
+              <ul class="tour-list">
+                            {
+                                loadingTour && <Loading />
+                            }
+    
+                            {
+                                errorTour && (<ServerError />)
+                            }
+    
+                            {
+                                dataTour && (
+                                    dataTour.length === 0 ? <div class="tour-nodate">No upcoming tour dates</div> : (
+                                        dataTour.slice(0,5).map((date, index) => (
+                                            <li key={`${date.day}-${date.month}-${date.year}`}><Date date_content={dataTour[index]} /></li>
+                                          ))
+                                        )
+                                )
+                            }
+              </ul>
+    
+              <a class="home-link" href="/Tour"><button class="home-button">More Tour Dates</button></a>
+            </div>}
+            
+            
+    
+    
+            <div class="home-news">
+              <TitleComponent titleContent="News" />
+              <div class="news-list"> 
+              {
+                newsTable.slice(0,4).map((news, index) => (
+                  <a key={`${news.title}-${index}`} href={`/News/${news.id}`}><NewsComponent newsContent={news} /></a>
+    
+                ))
+              }
+    
+              </div>
+              <a class="home-link" href="/News"><button class="home-button">More News</button></a>
+            </div>
+    
+            <div class="home-photos">
+              <TitleComponent titleContent="Photos" />
+              <div class="photo-galery">
+                {
+                  images.slice(0,3).map((image) => (
+    
+                    <div class="photo-galery-img-container" key={image}>
+                    <a href={image}><img src={image} alt="X or walrus" class="photo-galery-img" /></a>
+                    </div>
+    
+                  ))
+                }
+              </div>
+              <a class="home-link" href="/Photos"><button class="home-button">More Photos</button></a>
+            </div>
+    
+            <div class="home-logo">
+              <img src={logoBlanc} class="logo-img" alt="bandlogo" />
+            </div>
+    
+            -->
+        </div> 
+    </body>
+</html>
