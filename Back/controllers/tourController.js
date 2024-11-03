@@ -14,7 +14,7 @@ const getTourDates = async (req,res) => {
     /*let fichier = fs.readFileSync('./models/tourdates.json');
     let tourDates = JSON.parse(fichier);
     res.status(200).json(tourDates);*/
-    const tourDates = await Tour.find();
+    const tourDates = await Tour.find();  //Tour is a mongoose schema 
     if(!tourDates) return res.status(204).json({"message": "No employees found"});
 
     //Sort tour dates
