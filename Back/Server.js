@@ -2,7 +2,7 @@ const http = require('http');
 const { mongoose } = require('mongoose');
 const app = require('./App.js')
 const connectDB = require('./config/dbConn');
-
+//Miss .env file
 connectDB();
 
 const normalizePort = val => {
