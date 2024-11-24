@@ -30,6 +30,7 @@ app.use('/lyrics', require('./routes/api/lyrics'));
 app.use('/pressKit', require('./routes/api/pressKit'));
 app.use('/refresh', require('./routes/api/refresh'));
 app.use('/logout', require('./routes/api/logout'));
+app.use(express.static('public'))
 
 
 module.exports = app;
