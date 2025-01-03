@@ -1,5 +1,5 @@
-import Header from "../Header/Header.js";
-import Footer from "../Footer/Footer.js";
+import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
 import "./About.css";
 import TitleComponent from "../TitleComponent/TitleComponent.js";
 import YohannPic from "../../Assets/yohann_seul.jpg";

@@ -1,23 +1,23 @@
-import Header from "../Header/Header.js";
-import Footer from "../Footer/Footer.js";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 import Loading from "../Loading/Loading"
 import "./Home.css";
 
 
-import TitleComponent from "../TitleComponent/TitleComponent.js";
+import TitleComponent from "../TitleComponent/TitleComponent";
 import {useState, useEffect} from 'react'
 import { Link } from "react-router-dom";
 
-import {newsTable} from "../News/dataNews.js";
-import NewsComponent from "../News/NewsComponent.js";
-import {dataDate} from "../Tour/dataDate.js";
-import Date from "../Tour/Date.js";
-import {images} from "../Photos/dataPhotos.js";
+import {newsTable} from "../News/dataNews";
+import NewsComponent from "../News/NewsComponent";
+import {dataDate} from "../Tour/dataDate";
+import Date from "../Tour/Date";
+import {images} from "../Photos/dataPhotos";
 
 import axios from "axios";
 
 import logoBlanc from "../../Assets/RLDLogoFondNoir.jpg";
-import ServerError from "../Errors/ServerError.js";
+import ServerError from "../Errors/ServerError";
 
 function Home(){
   const [displayForm, setDisplayForm] = useState(false);

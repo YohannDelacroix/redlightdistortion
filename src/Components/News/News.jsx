@@ -1,8 +1,8 @@
-import Header from "../Header/Header.js";
-import Footer from "../Footer/Footer.js";
+import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
 import "./News_mobile.css";
-import TitleComponent from "../TitleComponent/TitleComponent.js";
-import NewsComponent from "./NewsComponent.js";
+import TitleComponent from "../TitleComponent/TitleComponent";
+import NewsComponent from "./NewsComponent";
 import {newsTable} from "./dataNews.js";
 import {Link, Outlet} from "react-router-dom";
 

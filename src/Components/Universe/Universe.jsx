@@ -1,8 +1,8 @@
-import Header from "../Header/Header.js";
-import Footer from "../Footer/Footer.js";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 import "./Universe.css";
-import TitleComponent from "../TitleComponent/TitleComponent.js";
-import Lyrics from "./Lyrics.js";
+import TitleComponent from "../TitleComponent/TitleComponent";
+import Lyrics from "./Lyrics";
 
 
 function Universe(){

@@ -1,12 +1,12 @@
-import Header from "../Header/Header.js";
-import Footer from "../Footer/Footer.js";
-import TitleComponent from "../TitleComponent/TitleComponent.js";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import TitleComponent from "../TitleComponent/TitleComponent";
 import "./Tour.css";
-import Date from "./Date.js";
+import Date from "./Date";
 import {useState, useEffect} from 'react'
 import axios from "../../api/axios";
-import Loading from "../Loading/Loading.jsx";
-import ServerError from "../Errors/ServerError.js";
+import Loading from "../Loading/Loading";
+import ServerError from "../Errors/ServerError";
 
 function Tour(){
   const [dataTour, setDataTour] = useState(null);

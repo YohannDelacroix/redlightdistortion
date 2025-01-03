@@ -1,7 +1,9 @@
 Commit des mises à jour de format d'images : 
 
 Tout le dossier Assets
+Header.js
 
+git commit -m "Optimize image performance by converting PNG files to JPG format"
 
 
 

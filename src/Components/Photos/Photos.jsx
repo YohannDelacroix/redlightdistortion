@@ -1,7 +1,7 @@
-import Header from "../Header/Header.js";
-import Footer from "../Footer/Footer.js";
+import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
 import "./Photos_mobile.css";
-import TitleComponent from "../TitleComponent/TitleComponent.js";
+import TitleComponent from "../TitleComponent/TitleComponent";
 import {images} from "./dataPhotos.js";
 
 function Photos(){
