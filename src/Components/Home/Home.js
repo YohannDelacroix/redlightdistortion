@@ -16,7 +16,7 @@ import {images} from "../Photos/dataPhotos.js";
 
 import axios from "axios";
 
-import logoBlanc from "../../Assets/RLDLogoFondNoir.png";
+import logoBlanc from "../../Assets/RLDLogoFondNoir.jpg";
 import ServerError from "../Errors/ServerError.js";
 
 function Home(){

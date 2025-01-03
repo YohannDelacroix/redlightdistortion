@@ -1,0 +1,29 @@
+Commit des mises à jour de format d'images : 
+
+Tout le dossier Assets
+
+
+
+
+
+RESTE A FAIRE : 
+(****) - L'ajout de News n'est pas encore possible sur la plateforme ADMIN
+
+
+
+
+AMELIORATIONS POSSIBLES : 
+(**) - Lors d'un ajout de date de tournée, il est obligatoire de renseigner la région, ce qui est un peu pénible
+
+
+
+
+Useful UNIX commands : 
+
+Copier des fichiers du dossier Assets vers windows dans le repertoire exchanging_files_wsl
+    cp src/Assets/*.png ~/../mnt/c/Documents\ and\ Settings/ytdelacroix/Documents/RLD/redlightdistortion-main/exchang
+    ing_files_wsl/
+
+Copier des fichiers dans l'autre sens win -> wsl
+    cp ~/../mnt/c/'Documents\ and\ Settings'/ytdelacroix/Documents/RLD/redlightdistortion-main/exchang
+    ing_files_wsl/jpg/* src/Assets/

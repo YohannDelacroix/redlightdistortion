@@ -1,9 +1,9 @@
-import Logo from "../../Assets/RLDLogoFondNoir.png";
+import Logo from "../../Assets/RLDLogoFondNoir.jpg";
 import {Link} from 'react-router-dom';
 import "./Header.css"
 import {useState, useEffect} from 'react';
-import MenuIcon from "../../Assets/menu_icon.png";
-import CrossIcon from "../../Assets/cross_icon.png";
+import MenuIcon from "../../Assets/menu_icon.jpg";
+import CrossIcon from "../../Assets/cross_icon.jpg";
 
 const Header = () => {
 
